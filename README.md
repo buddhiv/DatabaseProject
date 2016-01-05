@@ -16,5 +16,5 @@ git push origin master
 Views
 =====
 Buddhi - Public views
-Aruna - ministry views
+Supun - ministry views
 Saranga and Sugeesh - school views
