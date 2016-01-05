@@ -12,3 +12,9 @@ git add *
 git commit -m "Message"
 git pull
 git push origin master
+
+Views
+=====
+Buddhi - Public views
+Aruna - ministry views
+Saranga and Sugeesh - school views
