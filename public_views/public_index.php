@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>Registrar | Home</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -257,7 +257,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-<!--                <li class="active">Dashboard</li>-->
+                <!--                <li class="active">Dashboard</li>-->
             </ol>
         </section>
 
@@ -337,7 +337,7 @@
 
                 <!--                Right col-->
                 <section>
-                    Vikasitha
+                    Vikasitha Vithanage
                 </section>
                 <!--                Right col-->
             </div>

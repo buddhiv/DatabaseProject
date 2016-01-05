@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f48931c-aa6b-49f1-9fb3-466a4f0e09c0" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/mysql_connector.php" afterPath="$PROJECT_DIR$/php/mysql_connector.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_views/public_index.php" afterPath="$PROJECT_DIR$/public_views/public_index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DatabaseProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,11 +55,21 @@
       <file leaf-file-name="public_index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public_views/public_index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.51699466">
-              <caret line="260" column="17" selection-start-line="260" selection-start-column="17" selection-end-line="260" selection-end-column="17" />
+            <state vertical-scroll-proportion="-3.2844365">
+              <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mysql_connector.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/mysql_connector.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.576923">
+              <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -127,6 +139,7 @@
         <option value="$PROJECT_DIR$/AdminLTE-2.3.0/dist/css/AdminLTE.css" />
         <option value="$PROJECT_DIR$/public_views/public_index.html" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/php/mysql_connector.php" />
         <option value="$PROJECT_DIR$/public_views/public_index.php" />
       </list>
     </option>
@@ -528,10 +541,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/php/mysql_connector.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.576923">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public_views/public_index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51699466">
-          <caret line="260" column="17" selection-start-line="260" selection-start-column="17" selection-end-line="260" selection-end-column="17" />
+        <state vertical-scroll-proportion="-3.2844365">
+          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
