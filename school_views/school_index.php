@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="../plugins/iCheck/flat/blue.css">
-    <!-- Morris chart -->
+    <!-- Morris chart -->C:\wamp\bin\php\php5.3.4
     <link rel="stylesheet" href="../plugins/morris/morris.css">
     <!-- jvectormap -->
     <link rel="stylesheet" href="../plugins/jvectormap/jquery-jvectormap-1.2.2.css">
