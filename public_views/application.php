@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+
+    <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker-bs3.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../dist/css/skins/skin-blue-light.css">
@@ -61,7 +63,7 @@
         <section class="content-header">
             <h1>
                 APPLICATION
-                <small>for Grade 1 Student Registration</small>
+                <small></small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
@@ -71,83 +73,257 @@
 
         <!-- Main content -->
         <section class="content">
-            <!-- Small boxes (Stat box) -->
-            <div class="row">
-                <div class="col-lg-3 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-aqua">
-                        <div class="inner">
-                            <h3>150</h3>
 
-                            <p>New Orders</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-bag"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-green">
-                        <div class="inner">
-                            <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                            <p>Bounce Rate</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-yellow">
-                        <div class="inner">
-                            <h3>44</h3>
-
-                            <p>User Registrations</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-person-add"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-red">
-                        <div class="inner">
-                            <h3>65</h3>
-
-                            <p>Unique Visitors</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-pie-graph"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-            </div>
-            <!-- /.row -->
             <!-- Main row -->
             <div class="row">
                 <!-- Left col -->
-                <section class="col-lg-6 connectedSortable">
-                    Buddhi
+                <section class="col-lg-12">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Application for admission to Grade One in
+                                year <?php echo(date("Y") + 1);; ?></h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <form class="form-horizontal">
+                            <div class="box-body">
+                                <h5>Details of the child:</h5>
+
+                                <div class="form-group">
+                                    <label for="nameinfull" class="col-sm-3 control-label">Name in full</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="nameinfull" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="namewithinitials" class="col-sm-3 control-label">Name with
+                                        initials</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="namewithinitials"
+                                               placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="sex" class="col-sm-3 control-label">Sex</label>
+
+                                    <div class="col-sm-9">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="female" id="female"
+                                                       value="option1" checked/>
+                                                Male
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="female" id="female"
+                                                       value="female"/>
+                                                Female
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="religion" class="col-sm-3 control-label">Religion</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="religion"
+                                               placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dateofbirth" class="col-sm-3 control-label">Date of birth</label>
+
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            <input type="text" class="form-control" id="dateofbirth"
+                                                   data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dateofbirth" class="col-sm-3 control-label">Age on 31st
+                                        Jan <?php echo date("Y"); ?></label>
+
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            <input type="text" class="form-control" id="dateofbirth"
+                                                   data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                <h5>Details of the Applicant:</h5>
+
+                                <div class="form-group">
+                                    <label for="applicantnameinfull" class="col-sm-3 control-label">Name in full</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="applicantnameinfull" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="applicantnamewithinitials" class="col-sm-3 control-label">Name with
+                                        initials</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="applicantnamewithinitials"
+                                               placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="applicantnic" class="col-sm-3 control-label">NIC number</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="applicantnic"
+                                               placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="issrilankan" class="col-sm-3 control-label">Applicant is Sri
+                                        Lankan</label>
+
+                                    <div class="col-sm-9 checkbox">
+                                        <label>
+                                            <input type="checkbox" id="issrilankan"> Yes
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="applicantreligion" class="col-sm-3 control-label">Religion</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="applicantreligion"
+                                               placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="permanentaddress" class="col-sm-3 control-label">Permanent
+                                        Address</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="permanentaddress"
+                                               placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="telephone" class="col-sm-3 control-label">Telephone number</label>
+
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-phone"></i>
+                                            </div>
+                                            <input type="text" class="form-control" id="telephone"
+                                                   data-inputmask='"mask": "(999) 999-9999"' data-mask>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="residentialdistrict" class="col-sm-3 control-label">Resident
+                                        District</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="residentialdistrict"
+                                               placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dsarea" class="col-sm-3 control-label">Divisional secretariat
+                                        area</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="dsarea"
+                                               placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gndivision" class="col-sm-3 control-label">Grama Niladhari
+                                        division</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="gndivision"
+                                               placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                <h5>Schools applying for:</h5>
+
+                                <div class="col-xs-12">
+
+                                    <div class="box">
+                                        <div class="box-body table-responsive no-padding">
+                                            <table class="table table-hover">
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>User</th>
+                                                    <th>Date</th>
+                                                    <th>Status</th>
+                                                    <th>Reason</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>183</td>
+                                                    <td>John Doe</td>
+                                                    <td>11-7-2014</td>
+                                                    <td><span class="label label-success">Approved</span></td>
+                                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback
+                                                        doner.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>219</td>
+                                                    <td>Alexander Pierce</td>
+                                                    <td>11-7-2014</td>
+                                                    <td><span class="label label-warning">Pending</span></td>
+                                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback
+                                                        doner.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>657</td>
+                                                    <td>Bob Doe</td>
+                                                    <td>11-7-2014</td>
+                                                    <td><span class="label label-primary">Approved</span></td>
+                                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback
+                                                        doner.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>175</td>
+                                                    <td>Mike Doe</td>
+                                                    <td>11-7-2014</td>
+                                                    <td><span class="label label-danger">Denied</span></td>
+                                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback
+                                                        doner.
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->
+                                </div>
+                            </div>
+                            <!-- /.box-body -->
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                            <!-- /.box-footer -->
+                        </form>
+                    </div>
                 </section>
                 <!-- /.Left col -->
 
-                <!--                Right col-->
-                <section>
-                    Vikasitha Vithanage
-                </section>
-                <!--                Right col-->
             </div>
             <!-- /.row (main row) -->
 
@@ -159,6 +335,13 @@
 
 </div>
 <!-- ./wrapper -->
+
+<script>
+    $(function () {
+        $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+        $("[data-mask]").inputmask();
+    });
+</script>
 
 <!-- jQuery 2.1.4 -->
 <script src="../plugins/jQuery/jQuery-2.1.4.min.js"></script>
