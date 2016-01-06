@@ -5,7 +5,7 @@ function getConnection()
     $db_host = "localhost";
     $db_username = "root";
     $db_password = "";
-    $db_name = "pharmacydb";
+    $db_name = "grade_one";
 
     $connection = mysqli_connect("$db_host", "$db_username", "$db_password", "$db_name");
 
