@@ -1,9 +1,18 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Buddhi
+ * Date: 1/6/2016
+ * Time: 10:13 AM
+ */
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Registrar | Home</title>
+    <title>Registrar | Application</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -51,12 +60,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                WELCOME
-                <small>to Ministry of Education</small>
+                APPLICATION
+                <small>for Grade 1 Student Registration</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                <!--                <li class="active">Dashboard</li>-->
+                <li class="active">Application</li>
             </ol>
         </section>
 
@@ -190,3 +199,4 @@
 <script src="../dist/js/demo.js"></script>
 </body>
 </html>
+
