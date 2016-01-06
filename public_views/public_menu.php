@@ -9,7 +9,7 @@
 
 <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="public_index.php" class="logo">
         <!-- logo for regular state and mobile devices -->
         <span class="logo-lg"><b>Registrar</b></span>
     </a>
@@ -34,7 +34,7 @@
                 </li>
                 <!-- Application: style can be found in dropdown.less -->
                 <li class="">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <a href="application.php" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-book">&nbsp;</i>
                         <span class="hidden-xs">Application</span>
                     </a>
