@@ -40,14 +40,19 @@ class Resident
     }
 
     public function getMarksFromOwner(){//Calcualte marks from owner descriptions
-        if(strcmp($this->ownership,"MOTHER")==0 ||strcmp($this->ownership,"FATHER")==0){
+        if(strcmp($this->ownership,"MOTHER")==0 ||strcmp($this->ownership,"FATHER")==0){//this father mother refer to grand mother and father of child
             $this->marks=10;
-        }elseif(strcmp($this->ownership,"CHILD")==0){
+        }elseif(strcmp($this->ownership,"APPLICANT")==0){
             $this->marks=15;
         }elseif(strcmp($this->ownership,"REGIDTERED_LEASE_BOND")==0){
             $this->marks=5;
         }elseif(strcmp($this->ownership,"UNREGISTERED_LEASE_BOND")==0){
             $this->marks=3;
+        }
+        if($this->spent_years<5 && $this->spent_years>=3){//regulation in document
+            $this->marks*=0.75;
+        }elseif($this->spent_years<3){
+            $this->marks*=0.5;
         }
         return $this->marks;
     }

@@ -57,7 +57,11 @@ class PastPupil{
         return $this->marks;
     }
     public function getMarksFromCoActivitiesAfterSchool(){
-        
+
+    }
+    public function getFullMarks(){
+        $newmarks=$this->getMarksFromAcadamicAchievement()+$this->getMarksFromCoActivitiesAfterSchool()+$this->getMarksFromExtraActivitiesSchool()+$this->getMarksFromNumberOfYears();
+    return $newmarks;
     }
 
     /**
