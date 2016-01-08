@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Administrator | Home</title>
+    <title>Registrar | Application</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -14,6 +15,8 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+
+    <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker-bs3.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../dist/css/skins/skin-blue-light.css">
@@ -51,12 +54,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                WELCOME
-                <small>to Ministry of Education</small>
+                Application Progress
+                <small></small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                <!--                <li class="active">Dashboard</li>-->
+                <li class="active">Application Progress</li>
             </ol>
         </section>
 
@@ -66,16 +69,74 @@
             <!-- Main row -->
             <div class="row">
                 <!-- Left col -->
-                <section class="col-lg-6 connectedSortable">
-                    Supun
+                <section class="col-lg-12">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+
+                            <div class="box-body">
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Appication ID</th>
+                                        <th>Child Name</th>
+                                        <th>Category</th>
+                                        <th>Marks</th>
+                                        <th>Is Select</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>E.M.S Lakmal</td>
+                                        <td>Resident</td>
+                                        <td>45</td>
+                                        <td>NO</td>
+                                        <td><button onclick="location.href='ministry_child_resident.php'" class="btn btn-block btn-primary btn-sm">view child</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>B.V. Vidanage</td>
+                                        <td>Present Pupil</td>
+                                        <td>94</td>
+                                        <td>YES</td>
+                                        <td><button class="btn btn-block btn-primary btn-sm">view child</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>L.P.D.S Chandraweera</td>
+                                        <td>Past Pupil</td>
+                                        <td>84</td>
+                                        <td>YES</td>
+                                        <td><button class="btn btn-block btn-primary btn-sm">view child</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>K.M.S.A Munasinghe</td>
+                                        <td>Staff</td>
+                                        <td>65</td>
+                                        <td>NO</td>
+                                        <td><button class="btn btn-block btn-primary btn-sm">view child</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>K.A.B.Chathuranga</td>
+                                        <td>Present Pupil</td>
+                                        <td>85</td>
+                                        <td>YES</td>
+                                        <td><button class="btn btn-block btn-primary btn-sm">view child</button></td>
+                                    </tr>
+                                </table>
+                            </div><!-- /.box-body -->
+                        </div><!-- /.box -->
+                    </div><!-- /.col -->
+            </div><!-- /.row -->
+        </section><!-- /.content -->
+    </div><!-- /.content-wrapper -->
+                            </form>
+                        </div>
                 </section>
                 <!-- /.Left col -->
 
-                <!--                Right col-->
-                <section>
-                    Arunoda Munasinghe
-                </section>
-                <!--                Right col-->
             </div>
             <!-- /.row (main row) -->
 
@@ -87,6 +148,13 @@
 
 </div>
 <!-- ./wrapper -->
+
+<script>
+    $(function () {
+        $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+        $("[data-mask]").inputmask();
+    });
+</script>
 
 <!-- jQuery 2.1.4 -->
 <script src="../plugins/jQuery/jQuery-2.1.4.min.js"></script>
@@ -127,3 +195,4 @@
 <script src="../dist/js/demo.js"></script>
 </body>
 </html>
+

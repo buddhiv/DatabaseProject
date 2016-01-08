@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Administrator | Home</title>
+    <title>Registrar | Application</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -14,6 +15,8 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+
+    <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker-bs3.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../dist/css/skins/skin-blue-light.css">
@@ -51,12 +54,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                WELCOME
-                <small>to Ministry of Education</small>
+                Application Progress
+                <small></small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                <!--                <li class="active">Dashboard</li>-->
+                <li class="active">Application Progress</li>
             </ol>
         </section>
 
@@ -66,16 +69,64 @@
             <!-- Main row -->
             <div class="row">
                 <!-- Left col -->
-                <section class="col-lg-6 connectedSortable">
-                    Supun
+                <section class="col-lg-12">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+
+                            <div class="box-body">
+
+
+                                <div class="col-xs-12">
+
+                                    <div class="box">
+                                        <div class="box-body table-responsive no-padding">
+                                            <table class="table table-hover">
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>School Name</th>
+                                                    <th>District</th>
+                                                    <th>Applications Count</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Amarasuriya College</td>
+                                                    <td>Galle</td>
+                                                    <td>12</td>
+                                                    <td><button onclick="location.href='ministry_school_view.php'" class="btn btn-block btn-primary btn-sm">View</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Mahinda College</td>
+                                                    <td>Galle</td>
+                                                    <td>24</td>
+                                                    <td><button class="btn btn-block btn-primary btn-sm">View</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>Aloysius College</td>
+                                                    <td>Galle</td>
+                                                    <td>64</td>
+                                                    <td><button class="btn btn-block btn-primary btn-sm">View</button></td>
+                                                </tr>
+                                                <tr>
+                                                    < <td>4</td>
+                                                    <td>Royal College</td>
+                                                    <td>Colombo</td>
+                                                    <td>76</td>
+                                                    <td><button class="btn btn-block btn-primary btn-sm">View</button></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </section>
                 <!-- /.Left col -->
 
-                <!--                Right col-->
-                <section>
-                    Arunoda Munasinghe
-                </section>
-                <!--                Right col-->
             </div>
             <!-- /.row (main row) -->
 
@@ -87,6 +138,13 @@
 
 </div>
 <!-- ./wrapper -->
+
+<script>
+    $(function () {
+        $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+        $("[data-mask]").inputmask();
+    });
+</script>
 
 <!-- jQuery 2.1.4 -->
 <script src="../plugins/jQuery/jQuery-2.1.4.min.js"></script>
@@ -127,3 +185,4 @@
 <script src="../dist/js/demo.js"></script>
 </body>
 </html>
+

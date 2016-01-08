@@ -1,6 +1,9 @@
 Database Project
 ================
 
+@All 
+Please refer the Grade_One.pdf and Entity Relationship Diagram.jpg for more informations
+
 Please rename the .html files to .php files as you work. One by one.  
 @Sugeesh - not all at once  
 

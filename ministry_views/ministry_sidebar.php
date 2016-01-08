@@ -14,7 +14,7 @@
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
             <li>
-                <a href="progress.php"><i class="fa fa-book"></i> <span>Application Progress</span></a>
+                <a href="ministry_progress.php"><i class="fa fa-book"></i> <span>Application Progress</span></a>
             </li>
             <li>
                 <a href="documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a>

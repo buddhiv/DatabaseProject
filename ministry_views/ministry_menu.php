@@ -11,7 +11,7 @@
     <!-- Logo -->
     <a href="ministry_index.php" class="logo">
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Registrar</b></span>
+        <span class="logo-lg"><b>Administrator</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
