@@ -51,6 +51,10 @@ body {
     background: url('../img/boxed-bg.jpg') repeat fixed
 }
 
+.layout-boxed2 {
+    background: url('../img/boxed-school.jpg') repeat fixed
+}
+
 .content-wrapper, .right-side, .main-footer {
     -webkit-transition: -webkit-transform .3s ease-in-out, margin .3s ease-in-out;
     -moz-transition: -moz-transform .3s ease-in-out, margin .3s ease-in-out;
