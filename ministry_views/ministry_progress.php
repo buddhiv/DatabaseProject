@@ -87,34 +87,23 @@
                                                     <th>District</th>
                                                     <th>Applications Count</th>
                                                 </tr>
+
+                                                <?php
+                                                include '../php/mysql_connector.php';
+                                                include '../php/controller/SchoolController.php';
+                                                $schools = getAllSchools();
+                                                foreach ($schools as $result) {
+                                                ?>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>Amarasuriya College</td>
-                                                    <td>Galle</td>
+                                                    <td><?php echo $result['school_id'] ?></td>
+                                                    <td><?php echo $result['name'] ?></td>
+                                                    <td><?php echo $result['district'] ?></td>
                                                     <td>12</td>
                                                     <td><button onclick="location.href='ministry_school_view.php'" class="btn btn-block btn-primary btn-sm">View</button></td>
                                                 </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>Mahinda College</td>
-                                                    <td>Galle</td>
-                                                    <td>24</td>
-                                                    <td><button class="btn btn-block btn-primary btn-sm">View</button></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>Aloysius College</td>
-                                                    <td>Galle</td>
-                                                    <td>64</td>
-                                                    <td><button class="btn btn-block btn-primary btn-sm">View</button></td>
-                                                </tr>
-                                                <tr>
-                                                    < <td>4</td>
-                                                    <td>Royal College</td>
-                                                    <td>Colombo</td>
-                                                    <td>76</td>
-                                                    <td><button class="btn btn-block btn-primary btn-sm">View</button></td>
-                                                </tr>
+                                                <?php
+                                                }
+                                                    ?>
                                             </table>
                                         </div>
                                         <!-- /.box-body -->
