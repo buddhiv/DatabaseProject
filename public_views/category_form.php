@@ -1,3 +1,11 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Buddhi
+ * Date: 1/6/2016
+ * Time: 10:13 AM
+ */
+?>
 
 <!DOCTYPE html>
 <html>
@@ -15,6 +23,7 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="../plugins/select2/select2.min.css">
 
     <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker-bs3.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -22,6 +31,7 @@
     <link rel="stylesheet" href="../dist/css/skins/skin-blue-light.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="../plugins/iCheck/flat/blue.css">
+    <link rel="stylesheet" href="../plugins/iCheck/all.css">
     <!-- Morris chart -->
     <link rel="stylesheet" href="../plugins/morris/morris.css">
     <!-- jvectormap -->
@@ -79,7 +89,45 @@
                         <!-- form start -->
                         <form class="form-horizontal">
                             <div class="box-body">
-                                <h5>Details of the child:</h5>
+                                <h5>01. Category applied for</h5>
+
+                                <div class="form-group">
+                                    <label for="category" class="col-sm-3 control-label">Select category</label>
+
+                                    <div class="col-sm-9">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="female" id="female"
+                                                       value="option1" checked/>
+                                                Resident Category
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="female" id="female"
+                                                       value="female"/>
+                                                Staff Category
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="female" id="female"
+                                                       value="female"/>
+                                                Past Pupil Category
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="female" id="female"
+                                                       value="female"/>
+                                                Present Pupil Category
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                <h5>02. Details of the child:</h5>
 
                                 <div class="form-group">
                                     <label for="nameinfull" class="col-sm-3 control-label">Name in full</label>
@@ -154,7 +202,7 @@
                                 </div>
                             </div>
                             <div class="box-body">
-                                <h5>Details of the Applicant:</h5>
+                                <h5>03. Details of the Applicant:</h5>
 
                                 <div class="form-group">
                                     <label for="applicantnameinfull" class="col-sm-3 control-label">Name in full</label>
@@ -221,7 +269,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="residentialdistrict" class="col-sm-3 control-label">Resident
+                                    <label for="residentialdistrict" class="col-sm-3 control-label">Residential
                                         District</label>
 
                                     <div class="col-sm-9">
@@ -249,55 +297,142 @@
                                 </div>
                             </div>
                             <div class="box-body">
-                                <h5>Schools applying for:</h5>
+                                <h5>04. Schools applying for:</h5>
+
+                                <div class="form-group select2">
+                                    <label class="col-sm-3 control-label" for="schools">Select school</label>
+
+                                    <div class="col-sm-9">
+                                        <select class="form-control select2" id="schools" style="width: 100%;">
+                                            <option selected="selected">Alabama</option>
+                                            <option>Alaska</option>
+                                            <option>California</option>
+                                            <option>Delaware</option>
+                                            <option>Tennessee</option>
+                                            <option>Texas</option>
+                                            <option>Washington</option>
+                                        </select>
+                                    </div>
+                                </div>
+
 
                                 <div class="col-xs-12">
-
                                     <div class="box">
                                         <div class="box-body table-responsive no-padding">
                                             <table class="table table-hover">
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>User</th>
-                                                    <th>Date</th>
-                                                    <th>Status</th>
-                                                    <th>Reason</th>
+                                                    <th>School number</th>
+                                                    <th>Name of school</th>
+                                                    <th>Category of school</th>
+                                                    <th>Distance from the residence</th>
                                                 </tr>
                                                 <tr>
-                                                    <td>183</td>
-                                                    <td>John Doe</td>
-                                                    <td>11-7-2014</td>
-                                                    <td><span class="label label-success">Approved</span></td>
-                                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback
-                                                        doner.
-                                                    </td>
+                                                    <td>1</td>
+                                                    <td>Mahinda College</td>
+                                                    <td>National School</td>
+                                                    <td>10km</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>219</td>
-                                                    <td>Alexander Pierce</td>
-                                                    <td>11-7-2014</td>
-                                                    <td><span class="label label-warning">Pending</span></td>
-                                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback
-                                                        doner.
-                                                    </td>
+                                                    <td>2</td>
+                                                    <td>Richmond College</td>
+                                                    <td>National School</td>
+                                                    <td>7km</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>657</td>
-                                                    <td>Bob Doe</td>
-                                                    <td>11-7-2014</td>
-                                                    <td><span class="label label-primary">Approved</span></td>
-                                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback
-                                                        doner.
-                                                    </td>
+                                                    <td>3</td>
+                                                    <td>Royal College</td>
+                                                    <td>National School</td>
+                                                    <td>14.5km</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>175</td>
-                                                    <td>Mike Doe</td>
-                                                    <td>11-7-2014</td>
-                                                    <td><span class="label label-danger">Denied</span></td>
-                                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback
-                                                        doner.
-                                                    </td>
+                                                    <td>4</td>
+                                                    <td>Benedict College</td>
+                                                    <td>National School</td>
+                                                    <td>45km</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5</td>
+                                                    <td>Aloysius College</td>
+                                                    <td>National School</td>
+                                                    <td>5km</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->
+                                </div>
+                            </div>
+
+                            <div class="box-body">
+                                <h5>05. Electoral list registration:</h5>
+
+                                <div class="col-xs-12">
+                                    <div class="box">
+                                        <div class="box-body table-responsive no-padding">
+                                            <table class="table table-hover">
+                                                <?php
+                                                $year = date("Y");
+                                                ?>
+                                                <tr>
+                                                    <th>Year</th>
+                                                    <th>Polling division</th>
+                                                    <th>GN division & no.</th>
+                                                    <th>Polling district</th>
+                                                    <th>Street/Village</th>
+                                                    <th>Household no.</th>
+                                                    <th>Serial no.</th>
+                                                    <th>Name of electors</th>
+                                                </tr>
+                                                <tr>
+                                                    <td><?php echo $year; ?></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><?php echo $year - 1; ?></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><?php echo $year - 2; ?></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><?php echo $year - 3; ?></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><?php echo $year - 4; ?></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -308,7 +443,7 @@
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                                <button type="submit" class="btn btn-primary pull-right">Next</button>
                             </div>
                             <!-- /.box-footer -->
                         </form>
@@ -328,13 +463,6 @@
 </div>
 <!-- ./wrapper -->
 
-<script>
-    $(function () {
-        $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
-        $("[data-mask]").inputmask();
-    });
-</script>
-
 <!-- jQuery 2.1.4 -->
 <script src="../plugins/jQuery/jQuery-2.1.4.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -353,6 +481,10 @@
 <!-- jvectormap -->
 <script src="../plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
 <script src="../plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!--inputmasks-->
+<script src="../plugins/input-mask/jquery.inputmask.js"></script>
+<script src="../plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="../plugins/input-mask/jquery.inputmask.extensions.js"></script>
 <!-- jQuery Knob Chart -->
 <script src="../plugins/knob/jquery.knob.js"></script>
 <!-- daterangepicker -->
@@ -366,12 +498,77 @@
 <script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="../plugins/fastclick/fastclick.min.js"></script>
+
+<script src="../plugins/iCheck/icheck.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../dist/js/app.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
+<script src="../plugins/select2/select2.full.min.js"></script>
+<script>
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Datemask dd/mm/yyyy
+        $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+        //Datemask2 mm/dd/yyyy
+        $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
+        //Money Euro
+        $("[data-mask]").inputmask();
+
+        //Date range picker
+        $('#reservation').daterangepicker();
+        //Date range picker with time picker
+        $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+        //Date range as a button
+        $('#daterange-btn').daterangepicker(
+            {
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                startDate: moment().subtract(29, 'days'),
+                endDate: moment()
+            },
+            function (start, end) {
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            }
+        );
+
+        //iCheck for checkbox and radio inputs
+        $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+            checkboxClass: 'icheckbox_minimal-blue',
+            radioClass: 'iradio_minimal-blue'
+        });
+        //Red color scheme for iCheck
+        $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+            checkboxClass: 'icheckbox_minimal-red',
+            radioClass: 'iradio_minimal-red'
+        });
+        //Flat red color scheme for iCheck
+        $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+            checkboxClass: 'icheckbox_flat-green',
+            radioClass: 'iradio_flat-green'
+        });
+
+        //Colorpicker
+        $(".my-colorpicker1").colorpicker();
+        //color picker with addon
+        $(".my-colorpicker2").colorpicker();
+
+        //Timepicker
+        $(".timepicker").timepicker({
+            showInputs: false
+        });
+    });
+</script>
 </body>
 </html>
 
