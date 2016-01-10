@@ -91,15 +91,27 @@
                                                 <?php
                                                 include '../php/mysql_connector.php';
                                                 include '../php/controller/SchoolController.php';
+                                                include '../php/controller/ChildController.php';
                                                 $schools = getAllSchools();
+
                                                 foreach ($schools as $result) {
                                                 ?>
                                                 <tr>
                                                     <td><?php echo $result['school_id'] ?></td>
                                                     <td><?php echo $result['name'] ?></td>
                                                     <td><?php echo $result['district'] ?></td>
-                                                    <td>12</td>
-                                                    <td><button onclick="location.href='ministry_school_view.php'" class="btn btn-block btn-primary btn-sm">View</button></td>
+                                                    <?php
+                                                    $child_count=getChildrenCount($result['school_id']);
+                                                    foreach($child_count as $row) {
+                                                        ?>
+                                                        <td><?php echo $row['count_child'] ?></td>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                     <form method="POST" action="ministry_school_view.php">
+                                                    <td><button value="School"  class="btn btn-block btn-primary btn-sm" name="view_school">View</button></td>
+                                                         <input name="school_id" type="hidden" value="<?php echo $result['school_id']; ?>" />
+                                                         </form>
                                                 </tr>
                                                 <?php
                                                 }
