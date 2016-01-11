@@ -39,14 +39,76 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini layout-boxed layout-boxed2" style="margin: 0 50px;">
 <div class="wrapper">
-<?php include "school_menu.php"?>
+    <?php include "school_menu.php" ?>
     <!-- Left side column. contains the logo and sidebar -->
-    <?php include 'school_sidebar.php'?>
+    <?php include 'school_sidebar.php' ?>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper" >
+    <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        
+        <section class="content-header callout callout-info">
+            <h1>
+                New Student
+                <small><b>Registration</b></small>
+            </h1>
+        </section>
+
+
+        <section class="content">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="number" class="col-sm-2 control-label">Number</label>
+
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="number" placeholder="Student Number">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">Name in Full</label>
+
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="name" placeholder="Student Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address" class="col-sm-2 control-label">Address</label>
+
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="address" placeholder="Student Address">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registered_date" class="col-sm-2 control-label">Registered Date</label>
+
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="registered_date" placeholder="Registered Date">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registered_grade" class="col-sm-2 control-label">Registered Grade</label>
+
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="registered_grade"
+                                   placeholder="Registered Grade">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success">Add Student</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </section>
 
         <!-- /.content -->
     </div>

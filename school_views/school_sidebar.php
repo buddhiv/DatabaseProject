@@ -34,26 +34,25 @@
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
             <li class="active treeview">
-                <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>Home Page</span> <i
-                        class="fa fa-angle-left pull-right"></i>
+                <a href="school_index.php">
+                    <i class="fa fa-home"></i> <span>Home Page</span>
                 </a>
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-files-o"></i>
+                    <i class="fa fa-user-plus"></i>
                     <span>Add Students/ Teachers</span>
-                    <span class="label label-primary pull-right">4</span>
+                    <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="../pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>Add new Student</a></li>
+                    <li><a href="add_student.php"><i class="fa fa-circle-o"></i>Add new Student</a></li>
                     <li><a href="../pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>Add Teacher</a></li>
                 </ul>
             </li>
 
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-pie-chart"></i>
+                    <i class="fa fa-pencil-square-o"></i>
                     <span>Add Records</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
@@ -68,7 +67,7 @@
 
             <li>
                 <a href="../pages/widgets.html">
-                    <i class="fa fa-th"></i> <span>View Applications</span>
+                    <i class="fa fa-folder"></i> <span>View Applications</span>
                     <small class="label pull-right bg-green">new</small>
                 </a>
             </li>
