@@ -201,5 +201,5 @@ class Staff{
     {
         $this->marks = $marks;
     }
-    
+
 }

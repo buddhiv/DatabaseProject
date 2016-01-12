@@ -85,46 +85,33 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>E.M.S Lakmal</td>
-                                        <td>Resident</td>
-                                        <td>45</td>
-                                        <td>NO</td>
-                                        <td><button onclick="location.href='ministry_child_resident.php'" class="btn btn-block btn-primary btn-sm">view child</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>B.V. Vidanage</td>
-                                        <td>Present Pupil</td>
-                                        <td>94</td>
-                                        <td>YES</td>
-                                        <td><button class="btn btn-block btn-primary btn-sm">view child</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>L.P.D.S Chandraweera</td>
-                                        <td>Past Pupil</td>
-                                        <td>84</td>
-                                        <td>YES</td>
-                                        <td><button class="btn btn-block btn-primary btn-sm">view child</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>K.M.S.A Munasinghe</td>
-                                        <td>Staff</td>
-                                        <td>65</td>
-                                        <td>NO</td>
-                                        <td><button class="btn btn-block btn-primary btn-sm">view child</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>K.A.B.Chathuranga</td>
-                                        <td>Present Pupil</td>
-                                        <td>85</td>
-                                        <td>YES</td>
-                                        <td><button class="btn btn-block btn-primary btn-sm">view child</button></td>
-                                    </tr>
+                                    <?php
+                                    include '../php/mysql_connector.php';
+                                    include '../php/controller/ChildController.php';
+                                    $id=$_POST["school_id"];
+                                    $schools = getChildApplication($id);
+                                    foreach ($schools as $result) {
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $result['applicant_id'] ?></td>
+                                            <td><?php echo $result['name_with_initials'] ?></td>
+                                            <td><?php if($result['method_id']==1){
+                                                    echo "Resident";
+                                                }elseif($result['method_id']==2){
+                                                    echo "Staff";
+                                                }elseif($result['method_id']==3){
+                                                    echo "Past Pupil";
+                                                }elseif($result['method_id']=4){
+                                                    echo "Present Pupil";
+                                                } ?></td>
+                                            <td><?php echo 12 ?></td>
+                                            <td>YES</td>
+                                            <td><button class="btn btn-block btn-primary btn-sm">view child</button></td>
+
+                                        </tr>
+                                        <?php
+                                    }
+                                    ?>
                                 </table>
                             </div><!-- /.box-body -->
                         </div><!-- /.box -->

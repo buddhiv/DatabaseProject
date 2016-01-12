@@ -5,3 +5,16 @@
  * Date: 1/7/2016
  * Time: 11:31 AM
  */
+if (file_exists('../mysql_connector.php')) {
+    include '../mysql_connector.php';
+}
+function getAllSchools()
+{
+    $link = getConnection();
+    $sql = "SELECT school_id,name,district FROM school";
+
+    $resultset = mysqli_query($link, $sql);
+    mysqli_close($link);
+
+    return $resultset;
+}
