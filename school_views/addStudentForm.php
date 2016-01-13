@@ -30,6 +30,8 @@
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
+
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -44,9 +46,101 @@
     <?php include 'school_sidebar.php'?>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper" >
+    <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        
+        <section class="content-header">
+            <h1>
+                ADD STUDENT
+                <small>form</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Student details</li>
+            </ol>
+        </section>
+
+        <section class="content">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="inputID" class="col-sm-2 control-label">Student ID</label>
+                    <div class="col-sm-7">
+                        <input type="number" class="form-control" id="inputID" placeholder="Student Registration Number">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputName" class="col-sm-2 control-label">Name in Full</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" id="inputName" placeholder="Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputBirth" class="col-sm-2 control-label">Date of Birth</label>
+                    <div class="col-sm-7">
+                        <input type="date" class="form-control" id="inputBirth" >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputSex" class="col-sm-2 control-label">Sex</label>
+                    <div class="col-sm-7">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="sex" id="radioMale" value="Male">
+                                Male
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="sex" id="radioFemale" value="Female">
+                                Female
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputAddress" class="col-sm-2 control-label">Address</label>
+                    <div class="col-sm-7">
+                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputPhoneNumber" class="col-sm-2 control-label">Contact Number</label>
+                    <div class="col-sm-7">
+                            <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputLeavingDate" class="col-sm-2 control-label">Leaved Date</label>
+                    <div class="col-sm-7">
+                        <input type="date" class="form-control" id="inputLeavingDate" >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputRegisteredDate" class="col-sm-2 control-label">Registered Date</label>
+                    <div class="col-sm-7">
+                        <input type="date" class="form-control" id="inputRegisteredDate" >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputRegisteredGrade" class="col-sm-2 control-label">Registered Grade</label>
+                    <div class="col-sm-7">
+                        <input type="number" class="form-control" id="inputRegisteredGrade" placeholder="grade">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" class="btn btn-danger">Submit</button>
+                    </div>
+                </div>
+
+            </form>
+        </section>
 
         <!-- /.content -->
     </div>
@@ -103,5 +197,6 @@
 <script src="../dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
+
 </body>
 </html>

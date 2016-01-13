@@ -1,11 +1,13 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Supun
  * Date: 1/8/2016
  * Time: 2:45 PM
  */
-class PastPupil{
+class PastPupil
+{
 
     private $num_of_years_studied;
     private $extra_activities_at_school;
@@ -21,7 +23,7 @@ class PastPupil{
      * @param $acadamic_activities
      * @param $co_activities_school_out
      */
-    public function __construct($num_of_years_studied, $extra_activities_at_school, $ordianry_level,$advanced_level, $co_activities_school_out,$marks)
+    public function __construct($num_of_years_studied, $extra_activities_at_school, $ordianry_level, $advanced_level, $co_activities_school_out, $marks)
     {
         $this->num_of_years_studied = $num_of_years_studied;
         $this->extra_activities_at_school = $extra_activities_at_school;
@@ -32,36 +34,44 @@ class PastPupil{
     }
 
 
-    public function getMarksFromNumberOfYears(){//get marks from student spent in school
-        $this->marks=($this->num_of_years_studied*2);
+    public function getMarksFromNumberOfYears()
+    {//get marks from student spent in school
+        $this->marks = ($this->num_of_years_studied * 2);
         return $this->marks;
     }
-    public function getMarksFromExtraActivitiesSchool(){//get marks from extra activities in school
-        if($this->extra_activities_at_school>=10){
-            $this->marks=25;
-        }else{
-            $this->marks=$this->extra_activities_at_school*2;
+
+    public function getMarksFromExtraActivitiesSchool()
+    {//get marks from extra activities in school
+        if ($this->extra_activities_at_school >= 10) {
+            $this->marks = 25;
+        } else {
+            $this->marks = $this->extra_activities_at_school * 2;
         }
         return $this->marks;
     }
 
-    public function getMarksFromAcadamicAchievement(){//get marks from acadamic activities in school
-        $temp_marks=0;
-        if(strcmp($this->ordianry_level,"PASS")==0){
-            $temp_marks+=10;
+    public function getMarksFromAcadamicAchievement()
+    {//get marks from acadamic activities in school
+        $temp_marks = 0;
+        if (strcmp($this->ordianry_level, "PASS") == 0) {
+            $temp_marks += 10;
         }
-        if(strcmp($this->advanced_level,"PASS")==0){
-            $temp_marks+=15;
+        if (strcmp($this->advanced_level, "PASS") == 0) {
+            $temp_marks += 15;
         }
-        $this->marks=$temp_marks;
+        $this->marks = $temp_marks;
         return $this->marks;
     }
-    public function getMarksFromCoActivitiesAfterSchool(){
+
+    public function getMarksFromCoActivitiesAfterSchool()
+    {
 
     }
-    public function getFullMarks(){
-        $newmarks=$this->getMarksFromAcadamicAchievement()+$this->getMarksFromCoActivitiesAfterSchool()+$this->getMarksFromExtraActivitiesSchool()+$this->getMarksFromNumberOfYears();
-    return $newmarks;
+
+    public function getFullMarks()
+    {
+        $newmarks = $this->getMarksFromAcadamicAchievement() + $this->getMarksFromCoActivitiesAfterSchool() + $this->getMarksFromExtraActivitiesSchool() + $this->getMarksFromNumberOfYears();
+        return $newmarks;
     }
 
     /**

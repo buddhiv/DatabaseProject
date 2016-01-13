@@ -1,18 +1,9 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Buddhi
- * Date: 1/6/2016
- * Time: 10:13 AM
- */
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Registrar | Application</title>
+    <title>School View | Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -23,15 +14,11 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="../plugins/select2/select2.min.css">
-
-    <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker-bs3.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../dist/css/skins/skin-blue-light.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="../plugins/iCheck/flat/blue.css">
-    <link rel="stylesheet" href="../plugins/iCheck/all.css">
     <!-- Morris chart -->
     <link rel="stylesheet" href="../plugins/morris/morris.css">
     <!-- jvectormap -->
@@ -45,57 +32,116 @@
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+    <!--[if lt IE 9]> -->
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
+    <script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+
+
+
 </head>
-<body class="hold-transition skin-blue sidebar-mini layout-boxed" style="margin: 0 50px;">
+<body class="hold-transition skin-blue sidebar-mini layout-boxed layout-boxed2" style="margin: 0 50px;">
 <div class="wrapper">
-
-    <!--    Menu-->
-    <?php include 'public_menu.php'; ?>
-
+    <?php include "school_menu.php" ?>
     <!-- Left side column. contains the logo and sidebar -->
-    <?php include 'public_sidebar.php'; ?>
+    <?php include 'school_sidebar.php' ?>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <section class="content-header">
+        <section class="content-header callout callout-info">
             <h1>
-                APPLICATION
-                <small></small>
+                New Student
+                <small><b>Registration</b></small>
             </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                <li class="active">Application</li>
-            </ol>
         </section>
 
-        <!-- Main content -->
+
         <section class="content">
-
-            <!-- Main row -->
+            <!-- Small boxes (Stat box) -->
             <div class="row">
-                <!-- Left col -->
-                <section class="col-lg-12">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="number" class="col-sm-2 control-label">Number</label>
 
-                    <?php
-                    include 'resident_category_form.php';
-                    ?>
-                </section>
-                <!-- /.Left col -->
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="number" placeholder="Student Number">
+                        </div>
+                    </div>
 
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">Name in Full</label>
+
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="name" placeholder="Student Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address" class="col-sm-2 control-label">Address</label>
+
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="address" placeholder="Student Address">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registered_date" class="col-sm-2 control-label">Registered Date</label>
+
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control pull-right" id="reservationtime">
+                            <input type="text" class="form-control" id="registered_date" placeholder="Registered Date">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registered_grade" class="col-sm-2 control-label">Registered Grade</label>
+
+                        <div class="bootstrap-timepicker">
+                            <div class="form-group">
+                                <label>Time picker:</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control timepicker">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </div>
+                                </div><!-- /.input group -->
+                            </div><!-- /.form group -->
+                        </div>
+
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="registered_grade"
+                                   placeholder="Registered Grade">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success">Add Student</button>
+                        </div>
+                    </div>
+
+                </form>
             </div>
-            <!-- /.row (main row) -->
-
         </section>
+
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <?php include '../footer.php'; ?>
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 2.3.0
+        </div>
+        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+        reserved.
+    </footer>
 
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
 
@@ -117,10 +163,6 @@
 <!-- jvectormap -->
 <script src="../plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
 <script src="../plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-<!--inputmasks-->
-<script src="../plugins/input-mask/jquery.inputmask.js"></script>
-<script src="../plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-<script src="../plugins/input-mask/jquery.inputmask.extensions.js"></script>
 <!-- jQuery Knob Chart -->
 <script src="../plugins/knob/jquery.knob.js"></script>
 <!-- daterangepicker -->
@@ -134,15 +176,13 @@
 <script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="../plugins/fastclick/fastclick.min.js"></script>
-
-<script src="../plugins/iCheck/icheck.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../dist/js/app.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
-<script src="../plugins/select2/select2.full.min.js"></script>
+
 <script>
     $(function () {
         //Initialize Select2 Elements
@@ -205,6 +245,13 @@
         });
     });
 </script>
+
+<![endif]-->
+
 </body>
 </html>
+
+
+
+
 
