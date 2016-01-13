@@ -48,8 +48,8 @@
         <!-- Content Header (Page header) -->
         <section class="content-header callout callout-info">
             <h1>
-                New Student
-                <small><b>Registration</b></small>
+                Leaving Record
+
             </h1>
         </section>
 

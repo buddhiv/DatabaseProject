@@ -41,12 +41,24 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-user-plus"></i>
-                    <span>Add Students/ Teachers</span>
+                    <span>Add Student</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="add_student.php"><i class="fa fa-circle-o"></i>Add new Student</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i>Add Teacher</a></li>
+                    <li><a href="add_student.php"><i class="fa fa-circle-o"></i>Add New Student</a></li>
+                    <li><a href="add_transferred_student.php"><i class="fa fa-circle-o"></i>Add Transferred Student</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-user-plus"></i>
+                    <span>Add Teacher</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="./add_teacher.php"><i class="fa fa-circle-o"></i>Add New Teacher</a></li>
+                    <li><a href="add_transferred_teacher.php"><i class="fa fa-circle-o"></i>Add Transferred Teacher</a></li>
                 </ul>
             </li>
 

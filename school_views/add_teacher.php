@@ -6,9 +6,7 @@
     <title>School View | Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Select2 -->
-    <link rel="stylesheet" href="../plugins/select2/select2.min.css">
-
+    <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -38,20 +36,8 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
-    <script src="../plugins/jQuery/jQuery-2.1.4.min.js"></script>
-    <script src="../plugins/select2/select2.full.min.js"></script>
+    <script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
 
-    <script src="../plugins/input-mask/jquery.inputmask.js"></script>
-    <script src="../plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-    <script src="../plugins/input-mask/jquery.inputmask.extensions.js"></script>
-
-    <!-- AdminLTE App -->
-    <script src="../dist/js/app.min.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="../dist/js/pages/dashboard.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="../dist/js/demo.js"></script>
-    <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
 
 
 </head>
@@ -66,7 +52,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header callout callout-info">
             <h1>
-                New Student
+                New Teacher
                 <small><b>Registration</b></small>
             </h1>
         </section>
@@ -78,92 +64,56 @@
                 <form class="form-horizontal">
 
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">District</label>
+                        <label for="name" class="col-sm-3 control-label">Name in Full</label>
 
                         <div class="col-sm-6">
-
-                                    <select class="form-control select2" style="width: 100%;">
-                                        <option selected="selected">Galle</option>
-                                        <option>Colombo</option>
-                                        <option>Mathara</option>
-                                        <option>Hambanthota</option>
-                                        <option>Rathnapura</option>
-                                        <option>Anuradhapura</option>
-                                        <option>Polonnaruwa</option>
-                                        <option>Ampara</option>
-                                    </select>
-
+                            <input type="text" class="form-control" id="name" placeholder="Teacher Name">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">School</label>
-                        <div class="col-sm-6">
-                                    <select class="form-control select2" style="width: 100%;">
-                                        <option selected="selected">Galle</option>
-                                        <option>Colombo</option>
-                                        <option>Mathara</option>
-                                        <option>Hambanthota</option>
-                                        <option>Rathnapura</option>
-                                        <option>Anuradhapura</option>
-                                        <option>Polonnaruwa</option>
-                                        <option>Ampara</option>
-                                    </select>
-                         </div>
-                    </div>
+                        <label for="registered_date" class="col-sm-3 control-label">Registered Date</label>
 
-                    <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">Student Name</label>
                         <div class="col-sm-6">
-                                    <select class="form-control select2" style="width: 100%;">
-                                        <option selected="selected">Galle</option>
-                                        <option>Colombo</option>
-                                        <option>Mathara</option>
-                                        <option>Hambanthota</option>
-                                        <option>Rathnapura</option>
-                                        <option>Anuradhapura</option>
-                                        <option>Polonnaruwa</option>
-                                        <option>Ampara</option>
-                                    </select>
+                            <input type="date" class="form-control pull-right" id="registered_date">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="number" class="col-sm-2 control-label">Registration Number</label>
+                        <label for="subject" class="col-sm-3 control-label">Subject</label>
 
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="number" placeholder="Student Number">
+                            <input type="text" class="form-control" id="subject" placeholder="Main Teaching Subject">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="registered_date" class="col-sm-2 control-label">Registered Date</label>
+                        <label for="address" class="col-sm-3 control-label">Address</label>
 
                         <div class="col-sm-6">
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-calendar"></i>
-                                </div>
-                                <input type="text" class="form-control" id="Date"/>
-                            </div>
-
+                            <textarea style="resize:none;" class="form-control" id="address" placeholder="Teacher Address"></textarea>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="registered_grade" class="col-sm-2 control-label">Registered Grade</label>
-
+                        <label for="distance" class="col-sm-3 control-label">Distance from Residence</label>
 
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="registered_grade"
-                                   placeholder="Registered Grade">
+                            <input type="text" class="form-control" id="distance" placeholder="Distance in km">
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <label for="contact_number" class="col-sm-3 control-label">Contact Number</label>
+
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="subject" placeholder="Contact Number">
+                        </div>
+                    </div>
 
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-success">Add Student</button>
+                        <div class="col-sm-offset-3 col-sm-10">
+                            <button type="submit" class="btn btn-success">Add Teacher</button>
                         </div>
                     </div>
 
@@ -189,46 +139,43 @@
 </div>
 <!-- ./wrapper -->
 
-
+<!-- jQuery 2.1.4 -->
 <script src="../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+    $.widget.bridge('uibutton', $.ui.button);
+</script>
 <!-- Bootstrap 3.3.5 -->
 <script src="../bootstrap/js/bootstrap.min.js"></script>
-
-<!-- Select2 -->
-<script src="../plugins/select2/select2.full.min.js"></script>
-<!-- InputMask -->
-<script src="../plugins/input-mask/jquery.inputmask.js"></script>
-<script src="../plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-<script src="../plugins/input-mask/jquery.inputmask.extensions.js"></script>
-<!-- date-range-picker -->
+<!-- Morris.js charts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="../plugins/morris/morris.min.js"></script>
+<!-- Sparkline -->
+<script src="../plugins/sparkline/jquery.sparkline.min.js"></script>
+<!-- jvectormap -->
+<script src="../plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="../plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="../plugins/knob/jquery.knob.js"></script>
+<!-- daterangepicker -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
 <script src="../plugins/daterangepicker/daterangepicker.js"></script>
-<!-- Date Picker -->
-<link rel="stylesheet" href="../plugins/datepicker/datepicker3.css">
 <!-- datepicker -->
 <script src="../plugins/datepicker/bootstrap-datepicker.js"></script>
-<!-- bootstrap color picker -->
-<script src="../plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
-<!-- bootstrap time picker -->
-<script src="../plugins/timepicker/bootstrap-timepicker.min.js"></script>
-<!-- SlimScroll 1.3.0 -->
+<!-- Bootstrap WYSIHTML5 -->
+<script src="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<!-- Slimscroll -->
 <script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
-<!-- iCheck 1.0.1 -->
-<script src="../plugins/iCheck/icheck.min.js"></script>
 <!-- FastClick -->
 <script src="../plugins/fastclick/fastclick.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../dist/js/app.min.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="../dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
-<!-- Page script -->
-
-<script type="text/javascript">
-    $('#Date').datepicker({
-        autoclose: true,
-        todayHighlight: true
-    });
-</script>
 
 <script>
     $(function () {
@@ -293,6 +240,7 @@
     });
 </script>
 
+<![endif]-->
 
 </body>
 </html>

@@ -66,7 +66,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header callout callout-info">
             <h1>
-                New Student
+                New Teacher
                 <small><b>Registration</b></small>
             </h1>
         </section>
@@ -113,7 +113,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">Student Name</label>
+                        <label for="name" class="col-sm-2 control-label">Teacher Name</label>
                         <div class="col-sm-6">
                                     <select class="form-control select2" style="width: 100%;">
                                         <option selected="selected">Galle</option>
@@ -125,14 +125,6 @@
                                         <option>Polonnaruwa</option>
                                         <option>Ampara</option>
                                     </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="number" class="col-sm-2 control-label">Registration Number</label>
-
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="number" placeholder="Student Number">
                         </div>
                     </div>
 
@@ -163,7 +155,7 @@
 
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-success">Add Student</button>
+                            <button type="submit" class="btn btn-success">Add Teacher</button>
                         </div>
                     </div>
 
