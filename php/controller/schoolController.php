@@ -18,3 +18,13 @@ function getAllSchools()
 
     return $resultset;
 }
+
+function getSchool($school_id){
+    $link = getConnection();
+    $sql = "SELECT name FROM school WHERE school_id='" . $school_id . "'";
+
+    $resultset = mysqli_query($link, $sql);
+    mysqli_close($link);
+
+    return $resultset;
+}

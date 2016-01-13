@@ -54,22 +54,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                <?php
-                $id=$_POST["school_id"];
-                include '../php/mysql_connector.php';
-                include '../php/controller/SchoolController.php';
-                $school_name=getSchool($id);
-                foreach($school_name as $result){
-                    echo $result['name'];
-                }
-
-                ?>
-
+                Application Progress
                 <small></small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                <li class="active"><?php echo $result['name'] ?></li>
+                <li class="active">Application Progress</li>
             </ol>
         </section>
 
@@ -84,49 +74,58 @@
                         <div class="box-header with-border">
 
                             <div class="box-body">
-                                <table id="example1" class="table table-bordered table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th>Appication ID</th>
-                                        <th>Child Name</th>
-                                        <th>Category</th>
-                                        <th>Marks</th>
-                                        <th>Is Select</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php
 
-                                    include '../php/controller/ChildController.php';
-                                    include '../php/controller/ResidentController.php';
-                                    include '../php/controller/MarkController.php';
-                                    $id=$_POST["school_id"];
-                                    $schools = getMarkForStudent($id);
-                                    foreach ($schools as $result) {
-                                        ?>
-                                        <tr>
-                                            <td><?php echo $result['applicant_id'] ?></td>
-                                            <td><?php echo $result['name_with_initials'] ?></td>
 
-                                            <td><?php echo $result['case'] ?></td>
+                                <div class="col-xs-12">
 
-                                                <td><?php echo $result['mark'] ?></td>
+                                    <div class="box">
+                                        <div class="box-body table-responsive no-padding">
+                                            <table class="table table-hover">
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>School Name</th>
+                                                    <th>District</th>
+                                                    <th>Applications Count</th>
+                                                </tr>
 
-                                            <td>YES</td>
-                                            <td><button class="btn btn-block btn-primary btn-sm">view child</button></td>
-                                        </tr>
-                                        <?php
-                                    }
-                                    ?>
-                                </table>
-                            </div><!-- /.box-body -->
-                        </div><!-- /.box -->
-                    </div><!-- /.col -->
-            </div><!-- /.row -->
-        </section><!-- /.content -->
-    </div><!-- /.content-wrapper -->
-                            </form>
-                        </div>
+                                                <?php
+                                                include '../php/mysql_connector.php';
+                                                include '../php/controller/SchoolController.php';
+                                                include '../php/controller/ChildController.php';
+                                                $schools = getAllSchools();
+
+                                                foreach ($schools as $result) {
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo $result['school_id'] ?></td>
+                                                    <td><?php echo $result['name'] ?></td>
+                                                    <td><?php echo $result['district'] ?></td>
+                                                    <?php
+                                                    $child_count=getChildrenCount($result['school_id']);
+                                                    foreach($child_count as $row) {
+                                                        ?>
+                                                        <td><?php echo $row['count_child'] ?></td>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                     <form method="POST" action="ministry_school_view.php">
+                                                    <td><button value="School"  class="btn btn-block btn-primary btn-sm" name="view_school">View</button></td>
+                                                         <input name="school_id" type="hidden" value="<?php echo $result['school_id']; ?>" />
+                                                         </form>
+                                                    <td><button value="Marks"  class="btn btn-block btn-primary btn-sm" name="calculate_marks">Calculate Marks</button></td>
+                                                </tr>
+                                                <?php
+                                                }
+                                                    ?>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </section>
                 <!-- /.Left col -->
 

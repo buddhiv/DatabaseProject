@@ -22,7 +22,7 @@ function getChildrenCount($school_id)
 function getChildApplication($school_id){
     $link = getConnection();
 
-    $sql = "SELECT applicant_id,name_with_initials,method_id FROM child,school_child WHERE school_child.school_id='" . $school_id . "' AND school_child.child_id=child.child_id";
+    $sql = "SELECT child.child_id,applicant_id,name_with_initials,method_id FROM child,school_child WHERE school_child.school_id='" . $school_id . "' AND school_child.child_id=child.child_id";
     $resultset = mysqli_query($link, $sql);
     mysqli_close($link);
     return $resultset;
