@@ -1,11 +1,13 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Supun
  * Date: 1/8/2016
  * Time: 4:59 PM
  */
-class PresentPupil{
+class PresentPupil
+{
 
     private $school_spent_year;
     private $spent_years;
@@ -33,53 +35,60 @@ class PresentPupil{
         $this->num_of_close_school = $num_of_close_school;
     }
 
-    public function getMarksFromPresenting(){
-if($this->school_spent_year>=10){
-    return 30;
-}else{
-    return $this->marks=$this->school_spent_year*3;
-}
+    public function getMarksFromPresenting()
+    {
+        if ($this->school_spent_year >= 10) {
+            return 30;
+        } else {
+            return $this->marks = $this->school_spent_year * 3;
+        }
     }
-    public function getMarksFromResidence(){//Calculate marks from residence
-        $this->marks=$this->spent_years*3;
-        if(($this->marks)<15){
+
+    public function getMarksFromResidence()
+    {//Calculate marks from residence
+        $this->marks = $this->spent_years * 3;
+        if (($this->marks) < 15) {
             return $this->marks;
-        }else{
+        } else {
             return 15;
         }
     }
-    public function getMarksFromOwner(){//Calcualte marks from owner descriptions
-        if(strcmp($this->ownership,"MOTHER")==0 ||strcmp($this->ownership,"FATHER")==0){
-            $this->marks=6;
-        }elseif(strcmp($this->ownership,"APPLICANT")==0){
-            $this->marks=10;
-        }elseif(strcmp($this->ownership,"REGIDTERED_LEASE_BOND")==0){
-            $this->marks=4;
-        }elseif(strcmp($this->ownership,"UNREGISTERED_LEASE_BOND")==0){
-            $this->marks=2;
+
+    public function getMarksFromOwner()
+    {//Calcualte marks from owner descriptions
+        if (strcmp($this->ownership, "MOTHER") == 0 || strcmp($this->ownership, "FATHER") == 0) {
+            $this->marks = 6;
+        } elseif (strcmp($this->ownership, "APPLICANT") == 0) {
+            $this->marks = 10;
+        } elseif (strcmp($this->ownership, "REGIDTERED_LEASE_BOND") == 0) {
+            $this->marks = 4;
+        } elseif (strcmp($this->ownership, "UNREGISTERED_LEASE_BOND") == 0) {
+            $this->marks = 2;
         }
-        if($this->spent_years<5 && $this->spent_years>=3){//regulation in document
-            $this->marks*=0.75;
-        }elseif($this->spent_years<3){
-            $this->marks*=0.5;
+        if ($this->spent_years < 5 && $this->spent_years >= 3) {//regulation in document
+            $this->marks *= 0.75;
+        } elseif ($this->spent_years < 3) {
+            $this->marks *= 0.5;
         }
         return $this->marks;
     }
 
-    public function getMarksFromCloseSchools(){
-        if($this->num_of_close_school==0){
-            $this->marks=35;
-        }else{
-            $this->marks=35-($this->num_of_close_school*5);
+    public function getMarksFromCloseSchools()
+    {
+        if ($this->num_of_close_school == 0) {
+            $this->marks = 35;
+        } else {
+            $this->marks = 35 - ($this->num_of_close_school * 5);
         }
         return $this->marks;
     }
 
-    public function getMarksFromAchievements(){//get marks from achievemnts got by brother or sister in school
-        if($this->achievemnts>=5){
-            $this->marks=10;
-        }else{
-            $this->marks=$this->achievemnts*2;
+    public function getMarksFromAchievements()
+    {//get marks from achievemnts got by brother or sister in school
+        if ($this->achievemnts >= 5) {
+            $this->marks = 10;
+        } else {
+            $this->marks = $this->achievemnts * 2;
         }
     }
 

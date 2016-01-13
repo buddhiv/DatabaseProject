@@ -6,6 +6,6 @@
  * Time: 2:11 PM
  */
 include 'PastPupil.php';
-$check=new PastPupil(5,4,"FAIL","PASS",2,0);
-$marks=$check->getMarksFromAcadamicAchievement();
+$check = new PastPupil(5, 4, "FAIL", "PASS", 2, 0);
+$marks = $check->getMarksFromAcadamicAchievement();
 echo $marks;

@@ -1,12 +1,13 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Supun
  * Date: 1/9/2016
  * Time: 2:12 AM
  */
-
-class Staff{
+class Staff
+{
 
     private $distance_permananent_address;
     private $complete_sevice_years_school_edu;
@@ -17,60 +18,64 @@ class Staff{
     private $child_school;
     private $marks;
 
-    public function getMarksFromServiceYearsSchool(){
-        $this->marks=$this->complete_sevice_years_school_edu*1;
-        if($this->marks>25){
+    public function getMarksFromServiceYearsSchool()
+    {
+        $this->marks = $this->complete_sevice_years_school_edu * 1;
+        if ($this->marks > 25) {
             return 25;
-        }else{
+        } else {
             return $this->marks;
         }
     }
 
-    public function getMarksFromDistance(){
-        if($this->distance_permananent_address>=100){
-            $this->marks=35;
-        }elseif($this->distance_permananent_address>=50 &&$this->distance_permananent_address<100){
-            $this->marks=25;
-        }
-        elseif($this->distance_permananent_address>=25 &&$this->distance_permananent_address<50){
-            $this->marks=15;
-        }
-        elseif($this->distance_permananent_address<25){
-            $this->marks=5;
+    public function getMarksFromDistance()
+    {
+        if ($this->distance_permananent_address >= 100) {
+            $this->marks = 35;
+        } elseif ($this->distance_permananent_address >= 50 && $this->distance_permananent_address < 100) {
+            $this->marks = 25;
+        } elseif ($this->distance_permananent_address >= 25 && $this->distance_permananent_address < 50) {
+            $this->marks = 15;
+        } elseif ($this->distance_permananent_address < 25) {
+            $this->marks = 5;
         }
         return $this->marks;
     }
 
-    public function getMarksFromRuralService(){//getting marks for rural service
-        if(strcmp($this->current_school_stat,"RURAL")==0){//check for current school
-            $this->marks=$this->period_work_rural*6;
-            if($this->marks>30){
+    public function getMarksFromRuralService()
+    {//getting marks for rural service
+        if (strcmp($this->current_school_stat, "RURAL") == 0) {//check for current school
+            $this->marks = $this->period_work_rural * 6;
+            if ($this->marks > 30) {
                 return 30;
-            }else{
+            } else {
                 return $this->marks;
             }
-        }else{//if person has worked earlier
-            $this->marks=$this->period_work_rural*4;
-            if($this->marks>20){
+        } else {//if person has worked earlier
+            $this->marks = $this->period_work_rural * 4;
+            if ($this->marks > 20) {
                 return 20;
-            }else{
+            } else {
                 return $this->marks;
             }
         }
     }
 
-    public function getMarksfromSameSchool(){
-        if(strcmp($this->current_school,$this->child_school)==0){
-        if($this->period_work_child_school>=3){
-      $this->marks=15;
-        }else{
-      $this->marks=10;
-        }
+    public function getMarksfromSameSchool()
+    {
+        if (strcmp($this->current_school, $this->child_school) == 0) {
+            if ($this->period_work_child_school >= 3) {
+                $this->marks = 15;
+            } else {
+                $this->marks = 10;
+            }
         }
         return $this->marks;
     }
-    public function getFullMarks(){
-        $full_marks=$this->getMarksFromDistance()+$this->getMarksFromRuralService()+$this->getMarksfromSameSchool()+$this->getMarksFromServiceYearsSchool();
+
+    public function getFullMarks()
+    {
+        $full_marks = $this->getMarksFromDistance() + $this->getMarksFromRuralService() + $this->getMarksfromSameSchool() + $this->getMarksFromServiceYearsSchool();
         return $full_marks;
     }
 
