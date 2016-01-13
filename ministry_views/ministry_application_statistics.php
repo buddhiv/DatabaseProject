@@ -95,27 +95,27 @@
                                                 $schools = getAllSchools();
 
                                                 foreach ($schools as $result) {
-                                                ?>
-                                                <tr>
-                                                    <td><?php echo $result['school_id'] ?></td>
-                                                    <td><?php echo $result['name'] ?></td>
-                                                    <td><?php echo $result['district'] ?></td>
-                                                    <?php
-                                                    $child_count=getChildrenCount($result['school_id']);
-                                                    foreach($child_count as $row) {
-                                                        ?>
-                                                        <td><?php echo $row['count_child'] ?></td>
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $result['school_id'] ?></td>
+                                                        <td><?php echo $result['name'] ?></td>
+                                                        <td><?php echo $result['district'] ?></td>
                                                         <?php
-                                                    }
-                                                    ?>
-                                                     <form method="POST" action="ministry_school_view.php">
-                                                    <td><button value="School"  class="btn btn-block btn-primary btn-sm" name="view_school">View</button></td>
-                                                         <input name="school_id" type="hidden" value="<?php echo $result['school_id']; ?>" />
-                                                         </form>
-                                                </tr>
-                                                <?php
+                                                        $child_count=getChildrenCount($result['school_id']);
+                                                        foreach($child_count as $row) {
+                                                            ?>
+                                                            <td><?php echo $row['count_child'] ?></td>
+                                                            <?php
+                                                        }
+                                                        ?>
+                                                        <form method="POST" action="ministry_school_view.php">
+                                                            <td><button value="School"  class="btn btn-block btn-primary btn-sm" name="view_school">View</button></td>
+                                                            <input name="school_id" type="hidden" value="<?php echo $result['school_id']; ?>" />
+                                                        </form>
+                                                    </tr>
+                                                    <?php
                                                 }
-                                                    ?>
+                                                ?>
                                             </table>
                                         </div>
                                         <!-- /.box-body -->
@@ -123,8 +123,8 @@
                                     <!-- /.box -->
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                            </form>
+                        </div>
                 </section>
                 <!-- /.Left col -->
 

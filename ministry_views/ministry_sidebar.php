@@ -13,11 +13,25 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li>
-                <a href="ministry_progress.php"><i class="fa fa-book"></i> <span>Application Progress</span></a>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>Application</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="ministry_application_progress.php"><i class="fa fa-circle-o"></i>Progress</a></li>
+                    <li><a href="ministry_application_statistics.php"><i class="fa fa-circle-o"></i>Statistics</a></li>
+                </ul>
             </li>
-            <li>
-                <a href="documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>School</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="ministry_application_progress.php"><i class="fa fa-circle-o"></i>Progress</a></li>
+                    <li><a href="ministry_application_statistics.php"><i class="fa fa-circle-o"></i>Statistics</a></li>
+                </ul>
             </li>
         </ul>
     </section>
