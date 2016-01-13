@@ -32,14 +32,10 @@
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]> -->
+    <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-
-    <script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
-
-
-
+    <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini layout-boxed layout-boxed2" style="margin: 0 50px;">
 <div class="wrapper">
@@ -63,67 +59,35 @@
             <div class="row">
                 <form class="form-horizontal">
                     <div class="form-group">
-                        <label for="number" class="col-sm-2 control-label">Number</label>
-
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="number" placeholder="Student Number">
+                        <label class="col-xs-2 control-label">Student Number</label>
+                        <div class="col-xs-4 selectContainer">
+                            <select class="form-control" name="size">
+                                <option value="2223">2253</option>
+                                <option value="2254">2254</option>
+                                <option value="2255">2255</option>
+                                <option value="2222">2222</option>
+                                <option value="2224">2224</option>
+                            </select>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">Name in Full</label>
-
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="name" placeholder="Student Name">
-                        </div>
-                    </div>
 
                     <div class="form-group">
-                        <label for="address" class="col-sm-2 control-label">Address</label>
-
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="address" placeholder="Student Address">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="registered_date" class="col-sm-2 control-label">Registered Date</label>
-
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control pull-right" id="reservationtime">
-                            <input type="text" class="form-control" id="registered_date" placeholder="Registered Date">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="registered_grade" class="col-sm-2 control-label">Registered Grade</label>
-
-                        <div class="bootstrap-timepicker">
-                            <div class="form-group">
-                                <label>Time picker:</label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control timepicker">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-clock-o"></i>
-                                    </div>
-                                </div><!-- /.input group -->
-                            </div><!-- /.form group -->
-                        </div>
-
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="registered_grade"
-                                   placeholder="Registered Grade">
+                        <label class="col-xs-2 control-label">Date</label>
+                        <div class="col-xs-4 date">
+                            <div class="input-group input-append date" id="datePicker">
+                                <input type="text" class="form-control" name="date" />
+                    <span class="input-group-addon add-on "><span class="glyphicon glyphicon-calendar"></span>
+                            </div>
                         </div>
                     </div>
 
 
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-success">Add Student</button>
+                            <button type="submit" class="btn btn-success">Add Record</button>
                         </div>
                     </div>
-
-                </form>
             </div>
         </section>
 
@@ -182,76 +146,5 @@
 <script src="../dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
-
-<script>
-    $(function () {
-        //Initialize Select2 Elements
-        $(".select2").select2();
-
-        //Datemask dd/mm/yyyy
-        $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
-        //Datemask2 mm/dd/yyyy
-        $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
-        //Money Euro
-        $("[data-mask]").inputmask();
-
-        //Date range picker
-        $('#reservation').daterangepicker();
-        //Date range picker with time picker
-        $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
-        //Date range as a button
-        $('#daterange-btn').daterangepicker(
-            {
-                ranges: {
-                    'Today': [moment(), moment()],
-                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                    'This Month': [moment().startOf('month'), moment().endOf('month')],
-                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-                },
-                startDate: moment().subtract(29, 'days'),
-                endDate: moment()
-            },
-            function (start, end) {
-                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-            }
-        );
-
-        //iCheck for checkbox and radio inputs
-        $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-            checkboxClass: 'icheckbox_minimal-blue',
-            radioClass: 'iradio_minimal-blue'
-        });
-        //Red color scheme for iCheck
-        $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-            checkboxClass: 'icheckbox_minimal-red',
-            radioClass: 'iradio_minimal-red'
-        });
-        //Flat red color scheme for iCheck
-        $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-            checkboxClass: 'icheckbox_flat-green',
-            radioClass: 'iradio_flat-green'
-        });
-
-        //Colorpicker
-        $(".my-colorpicker1").colorpicker();
-        //color picker with addon
-        $(".my-colorpicker2").colorpicker();
-
-        //Timepicker
-        $(".timepicker").timepicker({
-            showInputs: false
-        });
-    });
-</script>
-
-<![endif]-->
-
 </body>
 </html>
-
-
-
-
-

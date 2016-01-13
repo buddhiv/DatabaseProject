@@ -46,7 +46,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="add_student.php"><i class="fa fa-circle-o"></i>Add new Student</a></li>
-                    <li><a href="../pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>Add Teacher</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i>Add Teacher</a></li>
                 </ul>
             </li>
 
@@ -57,16 +57,16 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="../pages/layout/boxed.html"><i class="fa fa-circle-o"></i>Add Leaving Record</a></li>
-                    <li><a href="../pages/layout/fixed.html"><i class="fa fa-circle-o"></i>Add Acadamic Achievements</a>
+                    <li><a href="./leaving_record.php"><i class="fa fa-circle-o"></i>Add Leaving Record</a></li>
+                    <li><a href="./add_acadamic_achievement.php"><i class="fa fa-circle-o"></i>Add Acadamic Achievements</a>
                     </li>
-                    <li><a href="../pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Add Non Acadamic
+                    <li><a href="./add_non_acadamic_achievement.php"><i class="fa fa-circle-o"></i>Add Non Acadamic
                             Achievements</a></li>
                 </ul>
             </li>
 
             <li>
-                <a href="../pages/widgets.html">
+                <a href="view_applications.php">
                     <i class="fa fa-folder"></i> <span>View Applications</span>
                     <small class="label pull-right bg-green">new</small>
                 </a>

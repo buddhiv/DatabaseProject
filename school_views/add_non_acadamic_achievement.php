@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Registrar | Home</title>
+    <title>School View | Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -37,90 +37,91 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="hold-transition skin-blue sidebar-mini layout-boxed" style="margin: 0 50px;">
+<body class="hold-transition skin-blue sidebar-mini layout-boxed layout-boxed2" style="margin: 0 50px;">
 <div class="wrapper">
-
-    <!--    Menu-->
-    <?php include 'public_menu.php'; ?>
-
+    <?php include "school_menu.php" ?>
     <!-- Left side column. contains the logo and sidebar -->
-    <?php include 'public_sidebar.php'; ?>
+    <?php include 'school_sidebar.php' ?>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <section class="content-header">
+        <section class="content-header callout callout-info">
             <h1>
-                WELCOME
-                <small>to Ministry of Education</small>
+                New Student
+                <small><b>Registration</b></small>
             </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                <!--                <li class="active">Dashboard</li>-->
-            </ol>
         </section>
 
+
         <section class="content">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>
+            <!-- Small boxes (Stat box) -->
 
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <img src="../images/slider/slide1.jpg" alt="Chania">
-                    </div>
-
-                    <div class="item">
-                        <img src="../images/slider/slide2.jpg" alt="Chania">
-                    </div>
-
-                    <div class="item">
-                        <img src="../images/slider/slide3.jpg" alt="Flower">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-xs-2 control-label">Student Number</label>
+                    <div class="col-xs-6 selectContainer">
+                        <select class="form-control" name="size">
+                            <option value="2223">2253</option>
+                            <option value="2254">2254</option>
+                            <option value="2255">2255</option>
+                            <option value="2222">2222</option>
+                            <option value="2224">2224</option>
+                        </select>
                     </div>
                 </div>
 
-                <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
+
+                <div class="form-group">
+                    <label class="col-xs-2 control-label">Date</label>
+                    <div class="col-xs-6 date">
+                        <div class="input-group input-append date" id="datePicker">
+                            <input type="text" class="form-control" name="date" />
+                    <span class="input-group-addon add-on "><span class="glyphicon glyphicon-calendar"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="case" class="col-sm-2 control-label">case</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="case" placeholder="Case">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="place" class="col-sm-2 control-label">place</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="plcae" placeholder="Place">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-success">Add Record</button>
+                    </div>
+                </div>
+
+            </form>
+
         </section>
 
-        <!-- Main content -->
-        <section class="content">
-
-            <!-- Main row -->
-            <div class="row">
-                <!-- Left col -->
-                <section class="col-lg-6 connectedSortable">
-                    Buddhi
-                </section>
-                <!-- /.Left col -->
-
-                <!--                Right col-->
-                <section>
-                    Vikasitha Vithanage
-                </section>
-                <!--                Right col-->
-            </div>
-            <!-- /.row (main row) -->
-
-        </section>
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <?php include '../footer.php'; ?>
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 2.3.0
+        </div>
+        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+        reserved.
+    </footer>
 
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
 
