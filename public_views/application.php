@@ -79,7 +79,45 @@
                         <!-- form start -->
                         <form class="form-horizontal">
                             <div class="box-body">
-                                <h5>Details of the child:</h5>
+                                <h5>01. Category applied for</h5>
+
+                                <div class="form-group">
+                                    <label for="category" class="col-sm-3 control-label">Select category</label>
+
+                                    <div class="col-sm-9">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="female" id="female"
+                                                       value="option1" checked/>
+                                                Resident Category
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="female" id="female"
+                                                       value="female"/>
+                                                Staff Category
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="female" id="female"
+                                                       value="female"/>
+                                                Past Pupil Category
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="female" id="female"
+                                                       value="female"/>
+                                                Present Pupil Category
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                <h5>02. Details of the child:</h5>
 
                                 <div class="form-group">
                                     <label for="nameinfull" class="col-sm-3 control-label">Name in full</label>
@@ -154,7 +192,7 @@
                                 </div>
                             </div>
                             <div class="box-body">
-                                <h5>Details of the Applicant:</h5>
+                                <h5>03. Details of the Applicant:</h5>
 
                                 <div class="form-group">
                                     <label for="applicantnameinfull" class="col-sm-3 control-label">Name in full</label>
@@ -221,7 +259,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="residentialdistrict" class="col-sm-3 control-label">Resident
+                                    <label for="residentialdistrict" class="col-sm-3 control-label">Residential
                                         District</label>
 
                                     <div class="col-sm-9">
@@ -249,55 +287,142 @@
                                 </div>
                             </div>
                             <div class="box-body">
-                                <h5>Schools applying for:</h5>
+                                <h5>04. Schools applying for:</h5>
+
+                                <div class="form-group select2">
+                                    <label class="col-sm-3 control-label" for="schools">Select school</label>
+
+                                    <div class="col-sm-9">
+                                        <select class="form-control select2" id="schools" style="width: 100%;">
+                                            <option selected="selected">Alabama</option>
+                                            <option>Alaska</option>
+                                            <option>California</option>
+                                            <option>Delaware</option>
+                                            <option>Tennessee</option>
+                                            <option>Texas</option>
+                                            <option>Washington</option>
+                                        </select>
+                                    </div>
+                                </div>
+
 
                                 <div class="col-xs-12">
-
                                     <div class="box">
                                         <div class="box-body table-responsive no-padding">
                                             <table class="table table-hover">
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>User</th>
-                                                    <th>Date</th>
-                                                    <th>Status</th>
-                                                    <th>Reason</th>
+                                                    <th>School number</th>
+                                                    <th>Name of school</th>
+                                                    <th>Category of school</th>
+                                                    <th>Distance from the residence</th>
                                                 </tr>
                                                 <tr>
-                                                    <td>183</td>
-                                                    <td>John Doe</td>
-                                                    <td>11-7-2014</td>
-                                                    <td><span class="label label-success">Approved</span></td>
-                                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback
-                                                        doner.
-                                                    </td>
+                                                    <td>1</td>
+                                                    <td>Mahinda College</td>
+                                                    <td>National School</td>
+                                                    <td>10km</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>219</td>
-                                                    <td>Alexander Pierce</td>
-                                                    <td>11-7-2014</td>
-                                                    <td><span class="label label-warning">Pending</span></td>
-                                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback
-                                                        doner.
-                                                    </td>
+                                                    <td>2</td>
+                                                    <td>Richmond College</td>
+                                                    <td>National School</td>
+                                                    <td>7km</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>657</td>
-                                                    <td>Bob Doe</td>
-                                                    <td>11-7-2014</td>
-                                                    <td><span class="label label-primary">Approved</span></td>
-                                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback
-                                                        doner.
-                                                    </td>
+                                                    <td>3</td>
+                                                    <td>Royal College</td>
+                                                    <td>National School</td>
+                                                    <td>14.5km</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>175</td>
-                                                    <td>Mike Doe</td>
-                                                    <td>11-7-2014</td>
-                                                    <td><span class="label label-danger">Denied</span></td>
-                                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback
-                                                        doner.
-                                                    </td>
+                                                    <td>4</td>
+                                                    <td>Benedict College</td>
+                                                    <td>National School</td>
+                                                    <td>45km</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5</td>
+                                                    <td>Aloysius College</td>
+                                                    <td>National School</td>
+                                                    <td>5km</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->
+                                </div>
+                            </div>
+
+                            <div class="box-body">
+                                <h5>05. Electoral list registration:</h5>
+
+                                <div class="col-xs-12">
+                                    <div class="box">
+                                        <div class="box-body table-responsive no-padding">
+                                            <table class="table table-hover">
+                                                <?php
+                                                $year = date("Y");
+                                                ?>
+                                                <tr>
+                                                    <th>Year</th>
+                                                    <th>Polling division</th>
+                                                    <th>GN division & no.</th>
+                                                    <th>Polling district</th>
+                                                    <th>Street/Village</th>
+                                                    <th>Household no.</th>
+                                                    <th>Serial no.</th>
+                                                    <th>Name of electors</th>
+                                                </tr>
+                                                <tr>
+                                                    <td><?php echo $year; ?></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><?php echo $year - 1; ?></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><?php echo $year - 2; ?></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><?php echo $year - 3; ?></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><?php echo $year - 4; ?></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -308,7 +433,7 @@
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                                <button type="submit" class="btn btn-primary pull-right">Next</button>
                             </div>
                             <!-- /.box-footer -->
                         </form>
