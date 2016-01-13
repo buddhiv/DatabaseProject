@@ -39,14 +39,85 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini layout-boxed layout-boxed2" style="margin: 0 50px;">
 <div class="wrapper">
-<?php include "school_menu.php"?>
+    <?php include "school_menu.php" ?>
     <!-- Left side column. contains the logo and sidebar -->
-    <?php include 'school_sidebar.php'?>
+    <?php include 'school_sidebar.php' ?>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper" >
+    <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        
+        <section class="content-header callout callout-info">
+            <h1>
+                New Student
+                <small><b>Registration</b></small>
+            </h1>
+        </section>
+
+
+        <section class="content">
+            <!-- Small boxes (Stat box) -->
+
+            <form>
+            <table class="table table-hover">
+                <tr>
+                    <td class="active" style="text-align:center;">Application Id</td>
+                    <td class="active" style="text-align:center;" >View Application</td>
+                    <td class="active" style="text-align:center;">Confirm Location</td>
+                    <td class="active"></td>
+                </tr>
+
+                <tr class="danger">
+                    <td class="active" style="text-align:center;">1</td>
+                    <td class="active" style="text-align:center;"><a href="#">View Application</a></td>
+                    <td class="active" style="text-align:center;"><div class="checkbox btn-block"> <input type="checkbox" value=""> </div>
+                    </td>
+                    <td class="active"><button type="submit" class="btn btn-success btn-block" >Save</button></a></td>
+                </tr>
+
+                <tr class="danger">
+                    <td class="active" style="text-align:center;">2</td>
+                    <td class="active" style="text-align:center;"><a href="#">View Application</a></td>
+                    <td class="active" style="text-align:center;"><div class="checkbox btn-block"> <input type="checkbox" value=""> </div>
+                    </td>
+                    <td class="active"><button type="submit" class="btn btn-success btn-block" >Save</button></a></td>
+                </tr>
+
+                <tr class="success">
+                    <td class="active" style="text-align:center;">3</td>
+                    <td class="active" style="text-align:center;"><a href="#">View Application</a></td>
+                    <td class="active" style="text-align:center;"><div class="checkbox btn-block"> <input type="checkbox" value="" checked> </div>
+                    </td>
+                    <td class="active"><button type="submit" class="btn btn-success btn-block" >Save</button></a></td>
+                </tr>
+
+                <tr class="success">
+                    <td class="active" style="text-align:center;">4</td>
+                    <td class="active" style="text-align:center;"><a href="#">View Application</a></td>
+                    <td class="active" style="text-align:center;"><div class="checkbox btn-block"> <input type="checkbox" value="" checked> </div>
+                    </td>
+                    <td class="active"><button type="submit" class="btn btn-success btn-block" >Save</button></a></td>
+                </tr>
+
+                <tr class="success">
+                    <td class="active" style="text-align:center;">5</td>
+                    <td class="active" style="text-align:center;"><a href="#">View Application</a></td>
+                    <td class="active" style="text-align:center;"><div class="checkbox btn-block"> <input type="checkbox" value="" checked> </div>
+                    </td>
+                    <td class="active"><button type="submit" class="btn btn-success btn-block" >Save</button></a></td>
+                </tr>
+
+                <tr class="success">
+                    <td class="active" style="text-align:center;">6</td>
+                    <td class="active" style="text-align:center;"><a href="#">View Application</a></td>
+                    <td class="active" style="text-align:center;"><div class="checkbox btn-block"> <input type="checkbox" value="" checked> </div>
+                    </td>
+                    <td class="active"><button type="submit" class="btn btn-success btn-block" >Save</button></a></td>
+                </tr>
+            </table>
+
+            </form>
+
+        </section>
 
         <!-- /.content -->
     </div>

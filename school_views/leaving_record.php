@@ -39,14 +39,57 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini layout-boxed layout-boxed2" style="margin: 0 50px;">
 <div class="wrapper">
-<?php include "school_menu.php"?>
+    <?php include "school_menu.php" ?>
     <!-- Left side column. contains the logo and sidebar -->
-    <?php include 'school_sidebar.php'?>
+    <?php include 'school_sidebar.php' ?>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper" >
+    <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        
+        <section class="content-header callout callout-info">
+            <h1>
+                New Student
+                <small><b>Registration</b></small>
+            </h1>
+        </section>
+
+
+        <section class="content">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">Student Number</label>
+                        <div class="col-xs-4 selectContainer">
+                            <select class="form-control" name="size">
+                                <option value="2223">2253</option>
+                                <option value="2254">2254</option>
+                                <option value="2255">2255</option>
+                                <option value="2222">2222</option>
+                                <option value="2224">2224</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">Date</label>
+                        <div class="col-xs-4 date">
+                            <div class="input-group input-append date" id="datePicker">
+                                <input type="text" class="form-control" name="date" />
+                    <span class="input-group-addon add-on "><span class="glyphicon glyphicon-calendar"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success">Add Record</button>
+                        </div>
+                    </div>
+            </div>
+        </section>
 
         <!-- /.content -->
     </div>
