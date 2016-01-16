@@ -61,12 +61,12 @@
         <section class="content">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form class="form-horizontal">
+                <form class="form-horizontal" action="index.php" method="POST">
                     <div class="form-group">
                         <label for="number" class="col-sm-2 control-label">Number</label>
 
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="number" placeholder="Student Number">
+                            <input type="text" class="form-control" id="number" name="number" placeholder="Student Number">
                         </div>
                     </div>
 
@@ -74,7 +74,7 @@
                         <label for="name" class="col-sm-2 control-label">Name in Full</label>
 
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="name" placeholder="Student Name">
+                            <input type="text" class="form-control" id="name_in_full" name="name_in_full" placeholder="Student Name">
                         </div>
                     </div>
 
@@ -82,7 +82,7 @@
                         <label for="address" class="col-sm-2 control-label">Address</label>
 
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="address" placeholder="Student Address">
+                            <input type="text" class="form-control" id="address" name="address" placeholder="Student Address">
                         </div>
                     </div>
 
@@ -94,7 +94,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="Date"/>
+                                        <input type="text" class="form-control" id="date" name="date"/>
                                 </div>
 
                         </div>
@@ -106,11 +106,12 @@
 
                         <div class="col-sm-6">
                             <input type="text" class="form-control" id="registered_grade"
-                                   placeholder="Registered Grade">
+                                   placeholder="Registered Grade" name="registered_grade">
                         </div>
                     </div>
 
 
+                    <input type="hidden" id="add_student" name="add_student">
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="submit" class="btn btn-success">Add Student</button>

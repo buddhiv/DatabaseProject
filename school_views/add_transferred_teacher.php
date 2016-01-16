@@ -142,16 +142,6 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="registered_grade" class="col-sm-2 control-label">Registered Grade</label>
-
-
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="registered_grade"
-                                   placeholder="Registered Grade">
-                        </div>
-                    </div>
-
 
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
