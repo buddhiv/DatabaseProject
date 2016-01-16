@@ -18,6 +18,30 @@ class Staff
     private $child_school;
     private $marks;
 
+    /**
+     * Staff constructor.
+     * @param $distance_permananent_address
+     * @param $complete_sevice_years_school_edu
+     * @param $period_work_rural
+     * @param $current_school_stat
+     * @param $current_school
+     * @param $period_work_child_school
+     * @param $child_school
+     * @param $marks
+     */
+    public function __construct($distance_permananent_address, $complete_sevice_years_school_edu, $period_work_rural, $current_school_stat, $current_school, $period_work_child_school, $child_school,$confirm ,$marks)
+    {
+        $this->distance_permananent_address = $distance_permananent_address;
+        $this->complete_sevice_years_school_edu = $complete_sevice_years_school_edu;
+        $this->period_work_rural = $period_work_rural;
+        $this->current_school_stat = $current_school_stat;
+        $this->current_school = $current_school;
+        $this->period_work_child_school = $period_work_child_school;
+        $this->child_school = $child_school;
+        $this->marks = $marks;
+    }
+
+
     public function getMarksFromServiceYearsSchool()
     {
         $this->marks = $this->complete_sevice_years_school_edu * 1;

@@ -94,38 +94,86 @@
                                                 include '../php/controller/SchoolController.php';
                                                 include '../php/controller/ChildController.php';
                                                 include '../php/controller/MethodController.php';
+                                                include '../php/controller/MarkController.php';
+                                                include '../php/controller/ResidentController.php';
+                                                include '../php/controller/PastPupilController.php';
+                                                include '../php/controller/PresentPupilController.php';
                                                 include '../php/model/Resident.php';
+                                                include '../php/model/PastPupil.php';
+                                                include '../php/model/PresentPupil.php';
+
+                                                $id=$_POST["calculate_school_id"];
+                                                $methods=getMethod($id);
+
+                                                foreach ($methods as $result_2) {
+                                                    if(strcmp($result_2['method_name'],"RESIDENT")==0){
+                                                        $res_detail=getAllResidenMethodInforChild($result_2['method_id']);
+                                                        foreach ($res_detail as $result_3) {
+                                                            $resi=new Resident($result_3['resident_id'],$result_2['method_id'],$result_3['num_of_years_spent'],$result_3['ownership'],$result_3['num_of_closes_schools'],$result_3['confirm'],null);
+                                                       if($resi->getConfirm()==1){
+                                                           $resi_marks=$resi->getFullMarks();
+                                                            insertMarksForChild("RESIDENT",$resi_marks,$result_2['child_id']);
+                                                       }
+
+
+                                                        }
+
+                                                    }elseif(strcmp($result_2['method_name'],"PAST STUDENT")==0){
+
+                                                        $past_student_detail=getAllPastPupilMethodInforChild($result_2['method_id']);
+                                                        foreach ($past_student_detail as $result_4) {
+                                                            $resi=new PastPupil($result_4['num_of_years_studied'],$result_4['count_non_acadamic'],$result_4['ordinary_level'],$result_4['advanced_level'],$result_4['confirm'],null);
+                                                            if($resi->getConfirm()==1){
+                                                                $resi_marks=$resi->getFullMarks();
+                                                                insertMarksForChild("PAST STUDENT",$resi_marks,$result_2['child_id']);
+                                                            }
+
+
+                                                        }
+
+
+                                                    }elseif(strcmp($result_2['method_name'],"PRESENT STUDENT")==0){
+
+                                                        $present_student_detail=getAllPresentPupilMethodInforChild($result_2['method_id']);
+                                                        foreach ($present_student_detail as $result_5) {
+                                                            $resi=new PresentPupil($result_5['num_of_years_studied'],$result_5['count_achievement'],$result_5['confirm'],null);
+                                                            if($resi->getConfirm()==1){
+                                                                $resi_marks=$resi->getFullMarks();
+                                                                insertMarksForChild("PRESENT STUDENT",$resi_marks,$result_2['child_id']);
+                                                            }
+
+
+                                                        }
+
+
+                                                    }
+
+                                                }
                                                 $schools = getAllSchools();
 
                                                 foreach ($schools as $result) {
-                                                ?>
-                                                <tr>
-                                                    <td><?php echo $result['school_id'] ?></td>
-                                                    <td><?php echo $result['name'] ?></td>
-                                                    <td><?php echo $result['district'] ?></td>
-                                                    <?php
-                                                    $child_count=getChildrenCount($result['school_id']);
-                                                    foreach($child_count as $row) {
-                                                        ?>
-                                                        <td><?php echo $row['count_child'] ?></td>
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $result['school_id'] ?></td>
+                                                        <td><?php echo $result['name'] ?></td>
+                                                        <td><?php echo $result['district'] ?></td>
                                                         <?php
-                                                    }
-                                                    ?>
-                                                     <form method="POST" action="ministry_school_view.php">
-                                                    <td><button value="School"  class="btn btn-block btn-primary btn-sm" name="view_school">View</button></td>
-                                                         <input name="school_id" type="hidden" value="<?php echo $result['school_id']; ?>" />
-                                                         </form>
-                                                    <form method="POST" action="ministry_application_progress_calculate.php">
-                                                       <td> <button value="School"  class="btn btn-block btn-primary btn-sm" name="view_school">Calculate Marks</button></td>
-                                                        <input type="hidden" class="button" name="calculate_school_id" value="<?php echo $result['school_id']; ?>" />
+                                                        $child_count=getChildrenCount($result['school_id']);
+                                                        foreach($child_count as $row) {
+                                                            ?>
+                                                            <td><?php echo $row['count_child'] ?></td>
+                                                            <?php
+                                                        }
+                                                        ?>
+                                                        <form method="POST" action="ministry_school_view.php">
+                                                            <td><button value="School"  class="btn btn-block btn-primary btn-sm" name="view_school">View</button></td>
+                                                            <input name="school_id" type="hidden" value="<?php echo $result['school_id']; ?>" />
+                                                        </form>
 
-                                                    </form>
-
-
-                                                </tr>
-                                                <?php
+                                                    </tr>
+                                                    <?php
                                                 }
-                                                    ?>
+                                                ?>
                                             </table>
 
                                         </div>
@@ -134,8 +182,8 @@
                                     <!-- /.box -->
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                            </form>
+                        </div>
                 </section>
                 <!-- /.Left col -->
 

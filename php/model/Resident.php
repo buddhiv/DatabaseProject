@@ -8,22 +8,69 @@
  */
 class Resident
 {
-    private $id;
+    private $resident_id;
+    private $method_id;
     private $spent_years;
     private $ownership;
     private $num_of_close_school;
     private $confirm;
     private $marks;
 
-    public function __construct($id, $spent_years, $ownership, $num_of_close_school, $confirm, $marks)
+    /**
+     * Resident constructor.
+     * @param $resident_id
+     * @param $method_id
+     * @param $spent_years
+     * @param $ownership
+     * @param $num_of_close_school
+     * @param $confirm
+     * @param $marks
+     */
+
+    //Resident(1,2,4,"MOTHER",3,1,null);
+    public function __construct($resident_id, $method_id, $spent_years, $ownership, $num_of_close_school, $confirm, $marks)
     {
-        $this->id = $id;
+        $this->resident_id = $resident_id;
+        $this->method_id = $method_id;
         $this->spent_years = $spent_years;
         $this->ownership = $ownership;
         $this->num_of_close_school = $num_of_close_school;
         $this->confirm = $confirm;
         $this->marks = $marks;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getResidentId()
+    {
+        return $this->resident_id;
+    }
+
+    /**
+     * @param mixed $resident_id
+     */
+    public function setResidentId($resident_id)
+    {
+        $this->resident_id = $resident_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMethodId()
+    {
+        return $this->method_id;
+    }
+
+    /**
+     * @param mixed $method_id
+     */
+    public function setMethodId($method_id)
+    {
+        $this->method_id = $method_id;
+    }
+
 
     /**
      * @return mixed
