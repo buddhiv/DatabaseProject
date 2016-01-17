@@ -6,6 +6,8 @@
  * Date: 1/7/2016
  * Time: 11:12 PM
  */
+namespace Model;
+
 class Resident
 {
     private $resident_id;

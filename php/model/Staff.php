@@ -6,6 +6,8 @@
  * Date: 1/9/2016
  * Time: 2:12 AM
  */
+namespace Model;
+
 class Staff
 {
 

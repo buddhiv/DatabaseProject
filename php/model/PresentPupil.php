@@ -6,6 +6,8 @@
  * Date: 1/8/2016
  * Time: 4:59 PM
  */
+namespace Model;
+
 class PresentPupil
 {
 
