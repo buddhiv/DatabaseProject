@@ -6,6 +6,9 @@
  * Date: 1/16/16
  * Time: 6:58 PM
  */
+
+namespace Model;
+
 class Connection
 {
     private static $instance;

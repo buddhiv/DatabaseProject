@@ -6,6 +6,8 @@
  * Time: 2:35 AM
  */
 
+namespace Model;
+
 class Student {
     private $number;
     private $name_in_full;

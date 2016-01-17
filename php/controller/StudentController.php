@@ -6,8 +6,10 @@
  * Time: 5:54 PM
  */
 
-include "../model/Student.php";
-include "../Connection.php";
+use Model\Connection;
+use Model\Student;
+
+
 
 class StudentController{
 
