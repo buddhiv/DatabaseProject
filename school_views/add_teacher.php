@@ -61,29 +61,13 @@
         <section class="content">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form class="form-horizontal">
+                <form class="form-horizontal" method="post" action="../php/controller/TeacherController.php">
 
                     <div class="form-group">
                         <label for="name" class="col-sm-3 control-label">Name in Full</label>
 
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="name" placeholder="Teacher Name">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="registered_date" class="col-sm-3 control-label">Registered Date</label>
-
-                        <div class="col-sm-6">
-                            <input type="date" class="form-control pull-right" id="registered_date">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="subject" class="col-sm-3 control-label">Subject</label>
-
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="subject" placeholder="Main Teaching Subject">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Teacher Name">
                         </div>
                     </div>
 
@@ -91,15 +75,15 @@
                         <label for="address" class="col-sm-3 control-label">Address</label>
 
                         <div class="col-sm-6">
-                            <textarea style="resize:none;" class="form-control" id="address" placeholder="Teacher Address"></textarea>
+                            <textarea style="resize:none;" class="form-control" id="address" name="address" placeholder="Teacher Address"></textarea>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="distance" class="col-sm-3 control-label">Distance from Residence</label>
+                        <label for="registered_date" class="col-sm-3 control-label">Registered Date</label>
 
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="distance" placeholder="Distance in km">
+                            <input type="date" class="form-control pull-right" id="registered_date" name="registered_date">
                         </div>
                     </div>
 
@@ -107,13 +91,29 @@
                         <label for="contact_number" class="col-sm-3 control-label">Contact Number</label>
 
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="subject" placeholder="Contact Number">
+                            <input type="text" class="form-control" id="contact_number" name="contact_number" placeholder="Contact Number">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject" class="col-sm-3 control-label">Subject</label>
+
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Main Teaching Subject">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="distance" class="col-sm-3 control-label">Distance from Residence</label>
+
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="distance" name="distance" placeholder="Distance in km">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-10">
-                            <button type="submit" class="btn btn-success">Add Teacher</button>
+                            <button type="submit" class="btn btn-success" id = "addTeacherButton" name="addTeacherButton">Add Teacher</button>
                         </div>
                     </div>
 
