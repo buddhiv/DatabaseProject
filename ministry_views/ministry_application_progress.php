@@ -73,7 +73,11 @@
                 <section class="col-lg-12">
                     <div class="box box-primary">
                         <div class="box-header with-border">
+                            <form method="POST" action="ministry_application_progress_calculate.php">
+                                <td> <button value="School"  class="btn btn-block btn-primary btn-sm" name="view_school" >Calculate Marks</button></td>
+                                <input type="hidden" class="button" name="calculate_school_id" value="<?php echo "marks"; ?>" />
 
+                            </form>
                             <div class="box-body">
 
 
@@ -91,7 +95,7 @@
 
                                                 <?php
                                                 include '../php/mysql_connector.php';
-                                                include '../php/controller/SchoolController.php';
+                                                include '../php/controller/MethodSchController.php';
                                                 include '../php/controller/ChildController.php';
                                                 include '../php/controller/MethodController.php';
                                                 include '../php/model/Resident.php';
@@ -115,11 +119,6 @@
                                                     <td><button value="School"  class="btn btn-block btn-primary btn-sm" name="view_school">View</button></td>
                                                          <input name="school_id" type="hidden" value="<?php echo $result['school_id']; ?>" />
                                                          </form>
-                                                    <form method="POST" action="ministry_application_progress_calculate.php">
-                                                       <td> <button value="School"  class="btn btn-block btn-primary btn-sm" name="view_school">Calculate Marks</button></td>
-                                                        <input type="hidden" class="button" name="calculate_school_id" value="<?php echo $result['school_id']; ?>" />
-
-                                                    </form>
 
 
                                                 </tr>

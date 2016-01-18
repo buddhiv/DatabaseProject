@@ -11,7 +11,7 @@ if (file_exists('../mysql_connector.php')) {
 function getMarkForStudent($school_id){
     $link = getConnection();
 
-    $sql = "SELECT child.name_with_initials,child.applicant_id,marks.mark,marks.case FROM marks,school_child,child WHERE school_child.child_id=child.child_id AND marks.child_id=child.child_id AND school_child.school_id='" . $school_id . "'";
+    $sql = "SELECT child.name_with_initials,child.applicant_id,marks.mark,method.method_name FROM marks,school_child,child,method WHERE method.method_id=child.method_id AND school_child.child_id=child.child_id AND marks.child_id=child.child_id AND school_child.school_id='" . $school_id . "'";
     $resultset = mysqli_query($link, $sql);
     mysqli_close($link);
     return $resultset;

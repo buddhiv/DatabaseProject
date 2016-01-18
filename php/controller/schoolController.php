@@ -10,7 +10,7 @@
 namespace Controllers;
 
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .= "/databaseproject/php/Connection.php";
+$path = "/databaseproject/php/Connection.php";
 include_once($path);
 
 use Model\Connection;

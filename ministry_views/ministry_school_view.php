@@ -57,7 +57,7 @@
                 <?php
                 $id=$_POST["school_id"];
                 include '../php/mysql_connector.php';
-                include '../php/controller/SchoolController.php';
+                include '../php/controller/MethodSchController.php';
                 $school_name=getSchool($id);
                 foreach($school_name as $result){
                     echo $result['name'];
@@ -108,7 +108,7 @@
                                             <td><?php echo $result['applicant_id'] ?></td>
                                             <td><?php echo $result['name_with_initials'] ?></td>
 
-                                            <td><?php echo $result['case'] ?></td>
+                                            <td><?php echo $result['method_name'] ?></td>
 
                                                 <td><?php echo $result['mark'] ?></td>
 
