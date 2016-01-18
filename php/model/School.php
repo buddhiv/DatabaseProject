@@ -6,6 +6,8 @@
  * Date: 1/13/2016
  * Time: 5:51 PM
  */
+namespace Model;
+
 class School
 {
     private $school_id;

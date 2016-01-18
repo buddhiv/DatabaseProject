@@ -61,7 +61,7 @@
         <section class="content">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form class="form-horizontal" action="index.php" method="POST">
+                <form class="form-horizontal" action="./index.php" method="POST">
                     <div class="form-group">
                         <label for="number" class="col-sm-2 control-label">Number</label>
 
@@ -94,7 +94,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="date" name="date"/>
+                                        <input type="text" class="form-control" id="Date" name="date"/>
                                 </div>
 
                         </div>

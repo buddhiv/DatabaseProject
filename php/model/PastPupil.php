@@ -6,6 +6,8 @@
  * Date: 1/8/2016
  * Time: 2:45 PM
  */
+namespace Model;
+
 class PastPupil
 {
 
@@ -13,23 +15,25 @@ class PastPupil
     private $extra_activities_at_school;
     private $ordianry_level;
     private $advanced_level;
-    private $co_activities_school_out;
+    private $confirm;
     private $marks;
 
     /**
      * PastPupil constructor.
      * @param $num_of_years_studied
      * @param $extra_activities_at_school
-     * @param $acadamic_activities
-     * @param $co_activities_school_out
+     * @param $ordianry_level
+     * @param $advanced_level
+     * @param $confirm
+     * @param $marks
      */
-    public function __construct($num_of_years_studied, $extra_activities_at_school, $ordianry_level, $advanced_level, $co_activities_school_out, $marks)
+    public function __construct($num_of_years_studied, $extra_activities_at_school, $ordianry_level, $advanced_level, $confirm, $marks)
     {
         $this->num_of_years_studied = $num_of_years_studied;
         $this->extra_activities_at_school = $extra_activities_at_school;
-        $this->co_activities_school_out = $co_activities_school_out;
         $this->ordianry_level = $ordianry_level;
         $this->advanced_level = $advanced_level;
+        $this->confirm = $confirm;
         $this->marks = $marks;
     }
 
@@ -63,16 +67,60 @@ class PastPupil
         return $this->marks;
     }
 
-    public function getMarksFromCoActivitiesAfterSchool()
-    {
-
-    }
-
     public function getFullMarks()
     {
-        $newmarks = $this->getMarksFromAcadamicAchievement() + $this->getMarksFromCoActivitiesAfterSchool() + $this->getMarksFromExtraActivitiesSchool() + $this->getMarksFromNumberOfYears();
+        $newmarks = $this->getMarksFromAcadamicAchievement() + $this->getMarksFromExtraActivitiesSchool() + $this->getMarksFromNumberOfYears();
         return $newmarks;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getOrdianryLevel()
+    {
+        return $this->ordianry_level;
+    }
+
+    /**
+     * @param mixed $ordianry_level
+     */
+    public function setOrdianryLevel($ordianry_level)
+    {
+        $this->ordianry_level = $ordianry_level;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdvancedLevel()
+    {
+        return $this->advanced_level;
+    }
+
+    /**
+     * @param mixed $advanced_level
+     */
+    public function setAdvancedLevel($advanced_level)
+    {
+        $this->advanced_level = $advanced_level;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getConfirm()
+    {
+        return $this->confirm;
+    }
+
+    /**
+     * @param mixed $confirm
+     */
+    public function setConfirm($confirm)
+    {
+        $this->confirm = $confirm;
+    }
+
 
     /**
      * @return mixed

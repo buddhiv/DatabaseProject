@@ -6,8 +6,11 @@
  * Time: 8:35 PM
  */
 
-namespace Model;
-include "../php/controller/StudentController.php";
+include_once "../php/controller/StudentController.php";
+include_once "../php/model/Student.php";
+
+use Controllers\StudentController;
+use Model\Student;
 
 
 if(isset($_POST['add_student'])){
@@ -22,11 +25,15 @@ if(isset($_POST['add_student'])){
     $student = new Student($address,$grade,$name_in_full,$number,$registered_date);
     $studentController->addStudent($student);
 
+    include "add_student.php";
+}else{
+
+    include "school_index.php";
 }
 
 
 
-include "./add_student.php";
+
 
 
 
