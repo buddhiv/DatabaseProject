@@ -12,10 +12,20 @@
                 </label>
 
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" id="documents"/>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="text" class="form-control datepicker" name="studentfrom"/>
+                    </div>
                 </div>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" id="documents"/>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="text" class="form-control datepicker" name="studentto"/>
+                    </div>
                 </div>
             </div>
             <div class="form-group">
@@ -37,7 +47,7 @@
                     Educational achievements gained during schooling period
                 </label>
 
-                <div class="col-sm-2">
+                <div class="col-sm-4">
                     <input type="text" class="form-control" id="documents"/>
                 </div>
             </div>
@@ -48,7 +58,7 @@
                     Achievements gained in co-curricular activities during the schooling period
                 </label>
 
-                <div class="col-sm-2">
+                <div class="col-sm-4">
                     <input type="text" class="form-control" id="documents"/>
                 </div>
             </div>
@@ -60,7 +70,7 @@
                     various types of assistance provided for the development of the school
                 </label>
 
-                <div class="col-sm-2">
+                <div class="col-sm-4">
                     <input type="text" class="form-control" id="documents"/>
                 </div>
             </div>

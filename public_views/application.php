@@ -195,7 +195,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                             <div class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </div>
-                                            <input type="text" class="form-control datepicker" name="ageon31st"/>
+                                            <input type="text" class="form-control" name="ageon31st"/>
                                         </div>
                                     </div>
                                 </div>
@@ -272,8 +272,15 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                         District</label>
 
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="residentialdistrict"
-                                               placeholder="">
+                                        <select class="form-control select2">
+                                            <?php
+                                            foreach ($districts as $district) {
+                                                ?>
+                                                <option><?php echo $district; ?></option>
+                                                <?php
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">

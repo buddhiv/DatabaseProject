@@ -36,7 +36,8 @@
             <h5>(c)</h5>
 
             <div class="form-group">
-                <label class="col-sm-8 control-label pull-left" for="permanentdifficultservice" style="text-align: left;">
+                <label class="col-sm-8 control-label pull-left" for="permanentdifficultservice"
+                       style="text-align: left;">
                     If serving presently in a difficult school, period of difficult school service
                 </label>
 
@@ -61,14 +62,31 @@
         <div class="box-body">
             <h5>(e)</h5>
 
-            <div class="form-group">
-                <label class="col-sm-8 control-label pull-left" for="earlierdifficultservice" style="text-align: left;">
-                    Un-utilized leave
-                </label>
+            <label>Un-utilized leave</label>
 
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" id="earlierdifficultservice"/>
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <tr>
+                                <th>Year</th>
+                                <th>Leaves</th>
+                            </tr>
+                            <?php
+                            for ($year = date("Y"); $year >= (date("Y") - 4); $year--) {
+                                ?>
+                                <tr>
+                                    <td><?php echo $year; ?></td>
+                                    <td><input type="text" name="<?php echo 'leaves' . $year ?>"/></td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
                 </div>
+                <!-- /.box -->
             </div>
         </div>
         <div class="box-body">
