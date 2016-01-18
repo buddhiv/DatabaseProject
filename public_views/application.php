@@ -1,8 +1,6 @@
 <?php
 include '../php/controller/SchoolController.php';
 
-use Model\School;
-
 ?>
 
 <!DOCTYPE html>
@@ -301,14 +299,15 @@ use Model\School;
                                     <label for="selectschool" class="col-sm-3 control-label">Select School</label>
 
                                     <div class="col-sm-9">
-                                        <select class="form-control select2">
+                                        <select class="form-control select2" onchange="updateSchoolTable(this.value)">
                                             <?php
-                                            $schoolslist = getAllSchoolNames();
-                                            $school = new School();
-                                            foreach ($schoolslist as $s) {
-                                                $school = $s;
+                                            $schools = getAllSchoolNames();
+
+                                            foreach ($schools as $s) {
                                                 ?>
-                                                <option><?php echo $school->getName() . " " . $school->getDistrict(); ?></option>
+                                                <option value="<?php echo $s['school_id']; ?>">
+                                                    <?php echo $s['name'] . " " . $s['district']; ?>
+                                                </option>
                                                 <?php
                                             }
                                             ?>
@@ -320,27 +319,25 @@ use Model\School;
                                 <div class="col-xs-12">
                                     <div class="box">
                                         <div class="box-body table-responsive no-padding">
-                                            <table class="table table-hover">
+                                            <table class="table table-hover" id="schoolstable">
                                                 <tr>
                                                     <th>School number</th>
                                                     <th>Name of school</th>
                                                     <th>Category of school</th>
                                                     <th>Distance from the residence</th>
                                                 </tr>
-                                                <div id="school-table-vody">
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Mahinda College</td>
-                                                        <td>National School</td>
-                                                        <td>10km</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>Richmond College</td>
-                                                        <td>National School</td>
-                                                        <td>7km</td>
-                                                    </tr>
-                                                </div>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Mahinda College</td>
+                                                    <td>National School</td>
+                                                    <td>10km</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Richmond College</td>
+                                                    <td>National School</td>
+                                                    <td>7km</td>
+                                                </tr>
                                             </table>
                                         </div>
                                         <!-- /.box-body -->
@@ -537,6 +534,29 @@ use Model\School;
             showInputs: false
         });
     });
+</script>
+
+<script type="text/javascript">
+    function updateSchoolTable(school_id) {
+        if (school_id != "") {
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById('schoolstable').innerHTML = xmlhttp.responseText;
+                }
+            };
+
+            table_data = document.getElementById('schoolstable').innerHTML;
+            xmlhttp.open("GET", "SchoolController.php?data=" + table_data + "&id=" + school_id, true);
+            xmlhttp.send();
+        }
+    }
 </script>
 </body>
 </html>
