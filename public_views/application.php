@@ -1,16 +1,21 @@
 <?php
-include '../php/controller/SchoolController.php';
+include_once '../php/controller/SchoolController.php';
 
+use Controllers\SchoolController;
+
+$schoolController = new SchoolController();
+
+$districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Galle', 'Gampaha', 'Hambantota', 'Jaffna', 'Kaluthara', 'Kandy', 'Kilinochchi', 'Kegalle', 'Mannar', 'Matale', 'Matara', 'Monaragala', 'Mulattivu', 'Nuwaraeliya', 'Polonnaruwa', 'Rathnapura', 'Trincomalee', 'Vavuniya');
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>Registrar | Application</title>
     <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css"/>
     <!-- Font Awesome -->
@@ -177,8 +182,7 @@ include '../php/controller/SchoolController.php';
                                             <div class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="dateofbirth"
-                                                   data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                                            <input type="text" class="form-control datepicker" name="dateofbirth"/>
                                         </div>
                                     </div>
                                 </div>
@@ -191,8 +195,7 @@ include '../php/controller/SchoolController.php';
                                             <div class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="dateofbirth"
-                                                   data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                                            <input type="text" class="form-control datepicker" name="ageon31st"/>
                                         </div>
                                     </div>
                                 </div>
@@ -301,7 +304,7 @@ include '../php/controller/SchoolController.php';
                                     <div class="col-sm-9">
                                         <select class="form-control select2" onchange="updateSchoolTable(this.value)">
                                             <?php
-                                            $schools = getAllSchoolNames();
+                                            $schools = $schoolController->getAllSchoolNames();
 
                                             foreach ($schools as $s) {
                                                 ?>
@@ -326,18 +329,6 @@ include '../php/controller/SchoolController.php';
                                                     <th>Category of school</th>
                                                     <th>Distance from the residence</th>
                                                 </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Mahinda College</td>
-                                                    <td>National School</td>
-                                                    <td>10km</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>Richmond College</td>
-                                                    <td>National School</td>
-                                                    <td>7km</td>
-                                                </tr>
                                             </table>
                                         </div>
                                         <!-- /.box-body -->
@@ -353,9 +344,6 @@ include '../php/controller/SchoolController.php';
                                     <div class="box">
                                         <div class="box-body table-responsive no-padding">
                                             <table class="table table-hover">
-                                                <?php
-                                                $year = date("Y");
-                                                ?>
                                                 <tr>
                                                     <th>Year</th>
                                                     <th>Polling division</th>
@@ -366,56 +354,40 @@ include '../php/controller/SchoolController.php';
                                                     <th>Serial no.</th>
                                                     <th>Name of electors</th>
                                                 </tr>
-                                                <tr>
-                                                    <td><?php echo $year; ?></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><?php echo $year - 1; ?></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><?php echo $year - 2; ?></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><?php echo $year - 3; ?></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><?php echo $year - 4; ?></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
+                                                <?php
+                                                for ($year = date("Y"); $year >= (date("Y") - 4); $year--) {
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $year; ?></td>
+                                                        <td><input type="text" class="form-control"
+                                                                   name="<?php echo 'pollingdivision' . $year ?>">
+                                                        </td>
+                                                        <td><input type="text" class="form-control"
+                                                                   name="<?php echo 'gndivision' . $year ?>"></td>
+                                                        <td>
+                                                            <select class="form-control select2">
+                                                                <?php
+                                                                foreach ($districts as $district) {
+                                                                    ?>
+                                                                    <option><?php echo $district; ?></option>
+                                                                    <?php
+                                                                }
+                                                                ?>
+                                                            </select>
+                                                        </td>
+                                                        <td><input type="text" class="form-control"
+                                                                   name="<?php echo 'street' . $year ?>"></td>
+                                                        <td><input type="text" class="form-control"
+                                                                   name="<?php echo 'householdno' . $year ?>"></td>
+                                                        <td><input type="text" class="form-control"
+                                                                   name="<?php echo 'serialno' . $year ?>"></td>
+                                                        <td><input type="text" class="form-control"
+                                                                   name="<?php echo 'nameofelectors' . $year ?>">
+                                                        </td>
+                                                    </tr>
+                                                    <?php
+                                                }
+                                                ?>
                                             </table>
                                         </div>
                                         <!-- /.box-body -->
@@ -455,9 +427,10 @@ include '../php/controller/SchoolController.php';
 <script src="../plugins/input-mask/jquery.inputmask.js"></script>
 <script src="../plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
 <script src="../plugins/input-mask/jquery.inputmask.extensions.js"></script>
-<!-- date-range-picker -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
 <script src="../plugins/daterangepicker/daterangepicker.js"></script>
+<!-- datepicker -->
+<script src="../plugins/datepicker/bootstrap-datepicker.js"></script>
 <!-- bootstrap color picker -->
 <script src="../plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
 <!-- bootstrap time picker -->
@@ -533,6 +506,12 @@ include '../php/controller/SchoolController.php';
         $(".timepicker").timepicker({
             showInputs: false
         });
+
+        $('.datepicker').datepicker({
+            autoclose: true,
+            todayHighlight: true,
+            format: 'yyyy-mm-dd'
+        });
     });
 </script>
 
@@ -553,7 +532,7 @@ include '../php/controller/SchoolController.php';
             };
 
             table_data = document.getElementById('schoolstable').innerHTML;
-            xmlhttp.open("GET", "SchoolController.php?data=" + table_data + "&id=" + school_id, true);
+            xmlhttp.open("GET", "update_schools_table.php?data=" + table_data + "&id=" + school_id, true);
             xmlhttp.send();
         }
     }

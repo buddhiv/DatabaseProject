@@ -39,7 +39,6 @@
     <script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
 
 
-
 </head>
 <body class="hold-transition skin-blue sidebar-mini layout-boxed layout-boxed2" style="margin: 0 50px;">
 <div class="wrapper">
@@ -66,7 +65,8 @@
                         <label for="number" class="col-sm-2 control-label">Number</label>
 
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="number" name="number" placeholder="Student Number">
+                            <input type="text" class="form-control" id="number" name="number"
+                                   placeholder="Student Number">
                         </div>
                     </div>
 
@@ -74,7 +74,8 @@
                         <label for="name" class="col-sm-2 control-label">Name in Full</label>
 
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="name_in_full" name="name_in_full" placeholder="Student Name">
+                            <input type="text" class="form-control" id="name_in_full" name="name_in_full"
+                                   placeholder="Student Name">
                         </div>
                     </div>
 
@@ -82,7 +83,8 @@
                         <label for="address" class="col-sm-2 control-label">Address</label>
 
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="address" name="address" placeholder="Student Address">
+                            <input type="text" class="form-control" id="address" name="address"
+                                   placeholder="Student Address">
                         </div>
                     </div>
 
@@ -90,12 +92,12 @@
                         <label for="registered_date" class="col-sm-2 control-label">Registered Date</label>
 
                         <div class="col-sm-6">
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="Date" name="date"/>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
                                 </div>
+                                <input type="text" class="form-control" id="Date" name="date"/>
+                            </div>
 
                         </div>
                     </div>
@@ -112,6 +114,7 @@
 
 
                     <input type="hidden" id="add_student" name="add_student">
+
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="submit" class="btn btn-success">Add Student</button>
