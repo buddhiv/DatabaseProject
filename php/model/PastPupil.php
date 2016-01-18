@@ -6,6 +6,8 @@
  * Date: 1/8/2016
  * Time: 2:45 PM
  */
+namespace Model;
+
 class PastPupil
 {
 

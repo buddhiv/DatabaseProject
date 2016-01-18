@@ -95,7 +95,7 @@
 
                                                 <?php
                                                 include '../php/mysql_connector.php';
-                                                include '../php/controller/SchoolController.php';
+                                                include '../php/controller/MethodSchController.php';
                                                 include '../php/controller/ChildController.php';
                                                 include '../php/controller/MethodController.php';
                                                 include '../php/model/Resident.php';

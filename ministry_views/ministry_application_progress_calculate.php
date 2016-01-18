@@ -91,7 +91,7 @@
 
                                                 <?php
                                                 include '../php/mysql_connector.php';
-                                                include '../php/controller/SchoolController.php';
+                                                include '../php/controller/MethodSchController.php';
                                                 include '../php/controller/ChildController.php';
                                                 include '../php/controller/MethodController.php';
                                                 include '../php/controller/MarkController.php';
@@ -114,7 +114,7 @@
                                                     if (strcmp($result_2['method_name'], "RESIDENT") == 0) {
                                                         $res_detail = getAllResidenMethodInforChild($result_2['method_id']);
                                                         foreach ($res_detail as $result_3) {
-                                                            $resi = new Resident($result_3['resident_id'], $result_2['method_id'], $result_3['num_of_years_spent'], $result_3['ownership'], $result_3['num_of_closes_schools'], $result_3['confirm'], null);
+                                                            $resi = new \Model\Resident($result_3['resident_id'], $result_2['method_id'], $result_3['num_of_years_spent'], $result_3['ownership'], $result_3['num_of_closes_schools'], $result_3['confirm'], null);
                                                             if ($resi->getConfirm() == 1) {
                                                                 $resi_marks = $resi->getFullMarks();
                                                                 insertMarksForChild("RESIDENT", $resi_marks, $result_2['child_id']);
@@ -126,7 +126,8 @@
 
                                                         $past_student_detail = getAllPastPupilMethodInforChild($result_2['method_id']);
                                                         foreach ($past_student_detail as $result_4) {
-                                                            $resi = new PastPupil($result_4['num_of_years_studied'], $result_4['count_non_acadamic'], $result_4['ordinary_level'], $result_4['advanced_level'], $result_4['confirm'], null);
+
+                                                            $resi = new \Model\PastPupil($result_4['num_of_years_studied'], $result_4['count_non_acadamic'], $result_4['ordinary_level'], $result_4['advanced_level'], $result_4['confirm'], null);
                                                             if ($resi->getConfirm() == 1) {
                                                                 $resi_marks = $resi->getFullMarks();
                                                                 insertMarksForChild("PAST STUDENT", $resi_marks, $result_2['child_id']);
@@ -138,7 +139,7 @@
 
                                                         $present_student_detail = getAllPresentPupilMethodInforChild($result_2['method_id']);
                                                         foreach ($present_student_detail as $result_5) {
-                                                            $resi = new PresentPupil($result_5['num_of_years_studied'], $result_5['count_achievement'], $result_5['confirm'], null);
+                                                            $resi = new \Model\PresentPupil($result_5['num_of_years_studied'], $result_5['count_achievement'], $result_5['confirm'], null);
                                                             if ($resi->getConfirm() == 1) {
                                                                 $resi_marks = $resi->getFullMarks();
                                                                 insertMarksForChild("PRESENT STUDENT", $resi_marks, $result_2['child_id']);
@@ -152,7 +153,7 @@
 
                                                         $teacher_schools = getAllSchoolTeacherWork($result_2['method_id']);
                                                         $perman_work_yeas = 0;
-                                                        $staff = new Staff(null, null, null, null, null, null, null, null, null, null);
+                                                        $staff = new \Model\Staff(null, null, null, null, null, null, null, null, null, null);
                                                         foreach ($teacher_schools as $result_6) {
 
 

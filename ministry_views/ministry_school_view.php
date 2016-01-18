@@ -57,7 +57,7 @@
                 <?php
                 $id=$_POST["school_id"];
                 include '../php/mysql_connector.php';
-                include '../php/controller/SchoolController.php';
+                include '../php/controller/MethodSchController.php';
                 $school_name=getSchool($id);
                 foreach($school_name as $result){
                     echo $result['name'];
