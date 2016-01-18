@@ -108,7 +108,7 @@
                                             <td><?php echo $result['applicant_id'] ?></td>
                                             <td><?php echo $result['name_with_initials'] ?></td>
 
-                                            <td><?php echo $result['case'] ?></td>
+                                            <td><?php echo $result['method_name'] ?></td>
 
                                                 <td><?php echo $result['mark'] ?></td>
 
