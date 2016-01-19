@@ -36,7 +36,7 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
-    <script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <script src="../plugins/jQuery/jQuery-2.1.4.min.js"></script>
 
 
 </head>
@@ -128,13 +128,7 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-            <b>Version</b> 2.3.0
-        </div>
-        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-        reserved.
-    </footer>
+    <?php include '../footer.php'; ?>
 
     <!-- /.control-sidebar -->
     <!-- Add the sidebar's background. This div must be placed

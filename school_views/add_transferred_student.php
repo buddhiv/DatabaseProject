@@ -1,3 +1,7 @@
+<?php
+$districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Galle', 'Gampaha', 'Hambantota', 'Jaffna', 'Kaluthara', 'Kandy', 'Kilinochchi', 'Kegalle', 'Mannar', 'Matale', 'Matara', 'Monaragala', 'Mulattivu', 'Nuwaraeliya', 'Polonnaruwa', 'Rathnapura', 'Trincomalee', 'Vavuniya');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,43 +85,43 @@
                         <label for="name" class="col-sm-2 control-label">District</label>
 
                         <div class="col-sm-6">
-                                    <select class="form-control select2" style="width: 100%;" name="district" id="district">
-                                        <option></option>
-                                        <option>Galle</option>
-                                        <option>Colombo</option>
-                                        <option>Mathara</option>
-                                        <option>Hambanthota</option>
-                                        <option>Rathnapura</option>
-                                        <option>Anuradhapura</option>
-                                        <option>Polonnaruwa</option>
-                                        <option>Ampara</option>
-                                    </select>
+                            <select class="form-control select2" style="width: 100%;" name="district" id="district">
+                                <?php
+                                foreach ($districts as $district) {
+                                    ?>
+                                    <option><?php echo $district; ?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
 
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">School</label>
-                        <div class="col-sm-6">
-                                    <select class="form-control select2" style="width: 100%;" name="school" id="school">
 
-                                    </select>
-                         </div>
+                        <div class="col-sm-6" id="schoolsfordistrict">
+                            <select class="form-control select2" style="width: 100%;" name="school" id="school">
+
+                            </select>
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">Student Name</label>
+
                         <div class="col-sm-6">
-                                    <select class="form-control select2" style="width: 100%;">
-                                        <option selected="selected">Galle</option>
-                                        <option>Colombo</option>
-                                        <option>Mathara</option>
-                                        <option>Hambanthota</option>
-                                        <option>Rathnapura</option>
-                                        <option>Anuradhapura</option>
-                                        <option>Polonnaruwa</option>
-                                        <option>Ampara</option>
-                                    </select>
+                            <select class="form-control select2" style="width: 100%;">
+                                <option selected="selected">Galle</option>
+                                <option>Colombo</option>
+                                <option>Mathara</option>
+                                <option>Hambanthota</option>
+                                <option>Rathnapura</option>
+                                <option>Anuradhapura</option>
+                                <option>Polonnaruwa</option>
+                                <option>Ampara</option>
+                            </select>
                         </div>
                     </div>
 
@@ -167,13 +171,7 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-            <b>Version</b> 2.3.0
-        </div>
-        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-        reserved.
-    </footer>
+    <?php include '../footer.php'; ?>
 
     <!-- /.control-sidebar -->
     <!-- Add the sidebar's background. This div must be placed
@@ -224,17 +222,17 @@
 
 
     $(document).ready(function () {
-        $("#district").change(function(){
+        $("#district").change(function () {
             load_district_schools();
         });
     });
 
-    function load_district_schools(){
+    function load_district_schools() {
         $.post(
-            "ajax_files.php",
-            { district: $('#district').val() },
+            "get_schools_from_district.php",
+            {district: $('#schoolsfordistrict').val()},
             function (data) {
-               $('#school').html(data);
+                $('#schoolsfordistrict').innerHTML(data);
             }
         );
     }
