@@ -29,7 +29,7 @@
                     <span>School</span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="ministry_application_progress.php"><i class="fa fa-circle-o"></i>Progress</a></li>
+                    <li><a href="ministry_add_school.php"><i class="fa fa-circle-o"></i>Add School</a></li>
                     <li><a href="ministry_application_statistics.php"><i class="fa fa-circle-o"></i>Statistics</a></li>
                 </ul>
             </li>
