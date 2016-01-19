@@ -108,15 +108,8 @@
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">Student Name</label>
                         <div class="col-sm-6">
-                                    <select class="form-control select2" style="width: 100%;">
-                                        <option selected="selected">Galle</option>
-                                        <option>Colombo</option>
-                                        <option>Mathara</option>
-                                        <option>Hambanthota</option>
-                                        <option>Rathnapura</option>
-                                        <option>Anuradhapura</option>
-                                        <option>Polonnaruwa</option>
-                                        <option>Ampara</option>
+                                    <select class="form-control select2" style="width: 100%;" name="full_name" id="full_name">
+
                                     </select>
                         </div>
                     </div>
@@ -227,6 +220,9 @@
         $("#district").change(function(){
             load_district_schools();
         });
+        $("#school").change(function(){
+            load_school_students();
+        });
     });
 
     function load_district_schools(){
@@ -235,9 +231,24 @@
             { district: $('#district').val() },
             function (data) {
                $('#school').html(data);
+               $('#full_name').html("<option value='0' selected></option>");
+            }
+        );
+        $("#full_name").val(0);
+    }
+
+    function load_school_students(){
+        var e = document.getElementById("school");
+        var value = e.options[e.selectedIndex].value;
+        $.post(
+            "ajax_files.php",
+            { school: value },
+            function (data) {
+                $('#full_name').html(data);
             }
         );
     }
+
 
 </script>
 

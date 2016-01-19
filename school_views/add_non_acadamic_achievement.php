@@ -57,7 +57,7 @@
         <section class="content">
             <!-- Small boxes (Stat box) -->
 
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="index.php" method="post">
                 <div class="form-group">
                     <label class="col-xs-2 control-label">Student Number</label>
                     <div class="col-xs-6 selectContainer">
@@ -74,29 +74,27 @@
 
                 <div class="form-group">
                     <label class="col-xs-2 control-label">Date</label>
-                    <div class="col-xs-6 date">
-                        <div class="input-group input-append date" id="datePicker">
-                            <input type="text" class="form-control" name="date" />
-                    <span class="input-group-addon add-on "><span class="glyphicon glyphicon-calendar"></span>
-                        </div>
+
+                    <div class="col-sm-6">
+                        <input type="date" class="form-control pull-right" id="date" name="date">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="case" class="col-sm-2 control-label">case</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="case" placeholder="Case">
+                        <input type="text" class="form-control" id="case" name="case" placeholder="Case">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="place" class="col-sm-2 control-label">place</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="plcae" placeholder="Place">
+                        <input type="text" class="form-control" id="place" name="place" placeholder="Place">
                     </div>
                 </div>
 
-
+                <input type="hidden" id="add_non_academic_achievement" name="add_non_academic_achievement">
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-success">Add Record</button>
