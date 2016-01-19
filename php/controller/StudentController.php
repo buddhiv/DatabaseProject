@@ -35,12 +35,19 @@ class StudentController
         $address = $student->getAddress();
         $registered_date = $student->getRegisterdDate();
         $grade = $student->getGrade();
+        $school_id = 1;                 //  NEED TO CHANGE
+        $is_old_boy = 0;
 
         $stmt = $connection->prepare("INSERT INTO student(name_in_full, address) VALUES (?,?)");
         $stmt->bind_param("ss", $name_in_full,$address);
         $result = $stmt->execute();
         $stmt->close();
 
+        $student_id = mysqli_insert_id($connection);
+        $stmt = $connection->prepare("INSERT INTO student_school(student_id, school_id, registered_date,is_old_boy, starting_grade, registration_number) VALUES (?,?,?,?,?,?)");
+        $stmt->bind_param("sssiss", $student_id,$school_id,$registered_date,$is_old_boy,$grade,$number);
+        $result = $stmt->execute();
+        $stmt->close();
 
 
         return $result;
