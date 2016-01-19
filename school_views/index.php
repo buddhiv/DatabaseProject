@@ -84,6 +84,15 @@ if(isset($_POST['add_student'])){
     $add_teacher->addTransferredTeacher($date);
 
 
+}elseif(isset($_POST['add_leaving_record'])){
+    $school_id =  1;              //$_SESSION["school_id"];
+    $student_id = $_POST["student_id"];
+    $date = $_POST["date"];
+
+    $studentController = new StudentController();
+    $studentController->addLeavingRecord($school_id,$student_id,$date);
+
+    include "./leaving_record.php";
 }else{
     include "school_index.php";
 }

@@ -123,18 +123,16 @@
                                                                 $count_sel=$select->getCount("RESIDENT");
                                                                 insertMarksForChild("RESIDENT", $resi_marks, $result_2['child_id']);
 
-
-
-
                                                             }
 
                                                         }
                                                         $resi_select=getResidentSelection($main_result['school_id']);
+
                                                         foreach($resi_select as $selec_resi){
                                                             if($count_sel>0){
-                                                                updateMarksForChild("QUALIFIED",$result_2['child_id']);
+                                                                updateMarksForChild("QUALIFIED",$selec_resi['child_id']);
                                                             }else{
-                                                                updateMarksForChild("NOT QUALIFIED",$result_2['child_id']);
+                                                                updateMarksForChild("NOT QUALIFIED",$selec_resi['child_id']);
                                                             }
                                                             $count_sel-=1;
                                                         }
@@ -148,11 +146,24 @@
                                                             $resi = new \Model\PastPupil($result_4['num_of_years_studied'], $result_4['count_non_acadamic'], $result_4['ordinary_level'], $result_4['advanced_level'], $result_4['confirm'], null);
                                                             if ($resi->getConfirm() == 1) {
                                                                 $resi_marks = $resi->getFullMarks();
+                                                                $count_sel=$select->getCount("PAST STUDENT");
                                                                 insertMarksForChild("PAST STUDENT", $resi_marks, $result_2['child_id']);
 
                                                             }
 
                                                         }
+                                                        $past_stu_select=getPastStudentSelection($main_result['school_id']);
+
+                                                        foreach($past_stu_select as $selec_past){
+                                                            if($count_sel>0){
+                                                                updateMarksForChild("QUALIFIED",$selec_past['child_id']);
+                                                            }else{
+                                                                updateMarksForChild("NOT QUALIFIED",$selec_past['child_id']);
+                                                            }
+                                                            $count_sel-=1;
+                                                        }
+
+
                                                     } elseif (strcmp($result_2['method_name'], "PRESENT STUDENT") == 0) {
 
                                                         $present_student_detail = getAllPresentPupilMethodInforChild($result_2['method_id']);
@@ -160,10 +171,22 @@
                                                             $resi = new \Model\PresentPupil($result_5['num_of_years_studied'], $result_5['count_achievement'], $result_5['confirm'], null);
                                                             if ($resi->getConfirm() == 1) {
                                                                 $resi_marks = $resi->getFullMarks();
+                                                                $count_sel=$select->getCount("PRESENT STUDENT");
                                                                 insertMarksForChild("PRESENT STUDENT", $resi_marks, $result_2['child_id']);
                                                             }
 
 
+                                                        }
+
+                                                        $present_stu_select=getPresentStudentSelection($main_result['school_id']);
+
+                                                        foreach($present_stu_select as $selec_prest){
+                                                            if($count_sel>0){
+                                                                updateMarksForChild("QUALIFIED",$selec_prest['child_id']);
+                                                            }else{
+                                                                updateMarksForChild("NOT QUALIFIED",$selec_prest['child_id']);
+                                                            }
+                                                            $count_sel-=1;
                                                         }
 
 
@@ -211,9 +234,21 @@
 
                                                         if ($staff->getConfirm() == 1) {
                                                             $staff_marks = $staff->getFullMarks();
+                                                            $count_sel=$select->getCount("PRESENT STUDENT");
                                                             insertMarksForChild("STAFF", $staff_marks, $result_2['child_id']);
                                                         }
 
+
+                                                        $staff_select=getStaffSelection($main_result['school_id']);
+
+                                                        foreach($staff_select as $selec_staff){
+                                                            if($count_sel>0){
+                                                                updateMarksForChild("QUALIFIED",$selec_staff['child_id']);
+                                                            }else{
+                                                                updateMarksForChild("NOT QUALIFIED",$selec_staff['child_id']);
+                                                            }
+                                                            $count_sel-=1;
+                                                        }
                                                     }
 
                                                 }
