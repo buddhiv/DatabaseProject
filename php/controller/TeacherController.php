@@ -5,41 +5,78 @@
  * Date: 1/18/16
  * Time: 8:39 AM
  */
-use \Model\Teacher;
 
-if (file_exists('../mysql_connector.php')) {
-    include '../mysql_connector.php';
-}
+namespace Controllers;
 
+$path = $_SERVER['DOCUMENT_ROOT'];
+$path .= "/databaseproject/php/model/Teacher.php";
+include_once($path);
 
-if(isset($_POST['addTeacherButton'])){
+$path = $_SERVER['DOCUMENT_ROOT'];
+$path .= "/databaseproject/php/Connection.php";
+include_once($path);
 
-    $name = $_POST['name'];
-    $registered_date = $_POST['registered_date'];
-    $subject = $_POST['subject'];
-    $address = $_POST['address'];
-    $distance = $_POST['distance'];
-    $contact_number = $_POST['contact_number'];
+use Model\Connection;
+use Model\Teacher;
 
 
-    $teacher = new Teacher($address,$distance,$name,$contact_number,$registered_date,$subject);
-    addTeacher($teacher);
 
-    echo $sql;
-}
+class TeacherController{
 
-function addTeacher(\Model\Teacher $teacher){
-    $name = $teacher->getName();
-    $registered_date = $teacher->getRegisteredDate();
-    $subject = $teacher->getSubject();
-    $address = $teacher->getAddress();
-    $distance = $teacher->getDistance();
-    $contact_number = $teacher->getPhoneNumber();
+    function addTeacher(Teacher $teacher){
 
-    $link = mysqli_get_connector::getConnection();
+        $connectionObject = Connection::getInstance();
+        $connection = $connectionObject->get_connection();
 
-    $sql = "INSERT INTO teacher (subject, address, name_in_full, telephone) VALUES ( '$subject', '$address', '$name', '$contact_number')";
-    $resultset = mysqli_query($link,$sql);
-    return $resultset;
 
+        $name_in_full = $teacher->getName();
+        $subject = $teacher->getSubject();
+        $address = $teacher->getAddress();
+        $telephone = $teacher->getPhoneNumber();
+
+        $registered_date = $teacher->getRegisteredDate();
+        $distance = $teacher->getDistance();
+        $school_id = 1;
+
+        $stmt = $connection->prepare("INSERT INTO teacher (name_in_full, subject, address,  telephone) VALUES (?,?,?,?)");
+        $stmt->bind_param("ssss", $name_in_full,$subject,$address,$telephone);
+        $result = $stmt->execute();
+        $stmt->close();
+
+        $teacher_id = mysqli_insert_id($connection);
+
+        $stmt = $connection->prepare("INSERT INTO teacher_school (teacher_id,school_id,start_of_working_date,distance_from_permanent_residence) VALUES (?,?,?,?)");
+        $stmt->bind_param("iisi",$teacher_id,$school_id,$registered_date,$distance);
+        $result = $stmt->execute();
+        $stmt->close();
+
+        return $result;
+
+    }
+
+    function addTransferredTeacher($date){
+
+        $connectionObject = Connection::getInstance();
+        $connection = $connectionObject->get_connection();
+
+        //register leaving
+        $oldSchool_id = 1;
+        $teacher_id = 1;
+        $transferred_date =$date;
+
+        $stmt = $connection->prepare("UPDATE  teacher_school SET leaving_date = ? WHERE teacher_id = ? AND school_id = ?");
+        $stmt->bind_param("sii", $date,$teacher_id,$oldSchool_id);
+        $result = $stmt->execute();
+        $stmt->close();
+
+        //register for new school
+        $newSchool_id = 2;
+        $distance = 12;
+        $stmt = $connection->prepare("INSERT INTO teacher_school (teacher_id,school_id,start_of_working_date,distance_from_permanent_residence) VALUES (?,?,?,?)");
+        $stmt->bind_param("iisi",$teacher_id,$newSchool_id,$transferred_date,$distance);
+        $result = $stmt->execute();
+        $stmt->close();
+
+        return $result;
+    }
 }

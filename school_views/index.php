@@ -7,10 +7,22 @@
  */
 
 include_once "../php/controller/StudentController.php";
+include_once "../php/controller/TeacherController.php";
+include_once "../php/controller/AchievementController.php";
+
+
 include_once "../php/model/Student.php";
+include_once "../php/model/Teacher.php";
+include_once "../php/model/Achievement.php";
+
 
 use Controllers\StudentController;
+use Controllers\TeacherController;
+use Controllers\AchievementController;
+
 use Model\Student;
+use Model\Teacher;
+use Model\Achievement;
 
 
 if(isset($_POST['add_student'])){
@@ -26,8 +38,62 @@ if(isset($_POST['add_student'])){
     $studentController->addStudent($student);
 
     include "add_student.php";
-}else{
+}elseif(isset($_POST['add_teacher'])){
 
+    $name = $_POST['name'];
+    $registered_date = $_POST['registered_date'];
+    $subject = $_POST['subject'];
+    $address = $_POST['address'];
+    $distance = $_POST['distance'];
+    $contact_number = $_POST['contact_number'];
+
+    $teacher = new Teacher($address,$distance,$name,$contact_number,$registered_date,$subject);
+    $teacherController = new TeacherController;
+    $teacherController->addTeacher($teacher);
+
+}elseif(isset($_POST['add_non_academic_achievement'])){
+
+    $student_id = $_POST["size"];
+    $date = $_POST["date"];
+    $case = $_POST["case"];
+    $place = $_POST["place"];
+
+    $achievement = new Achievement($student_id,$date,$case,$place,'','');
+
+    $achievement_controller = new AchievementController();
+    $achievement_controller->addNonAcademicAchievement($achievement);
+
+
+}elseif(isset($_POST['addAcademicAchievement'])){
+
+    $student_id = $_POST["size"];
+    $date = $_POST["date"];
+    $exam = $_POST["exam"];
+    $result = $_POST["comment"];
+
+    $achievement = new Achievement($student_id,$date,"","",$exam,$result);
+
+    $achievement_controller = new AchievementController();
+    $achievement_controller->addAcademicAchievement($achievement);
+
+}elseif(isset($_POST['add_transferred_teacher'])){
+
+    $date = $_POST["date"];
+
+    $add_teacher = new TeacherController();
+    $add_teacher->addTransferredTeacher($date);
+
+
+}elseif(isset($_POST['add_leaving_record'])){
+    $school_id =  1;              //$_SESSION["school_id"];
+    $student_id = $_POST["student_id"];
+    $date = $_POST["date"];
+
+    $studentController = new StudentController();
+    $studentController->addLeavingRecord($school_id,$student_id,$date);
+
+    include "./leaving_record.php";
+}else{
     include "school_index.php";
 }
 

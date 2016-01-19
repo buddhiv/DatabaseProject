@@ -61,7 +61,7 @@
         <section class="content">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form class="form-horizontal" method="post" action="../php/controller/TeacherController.php">
+                <form class="form-horizontal" method="post" action="./index.php">
 
                     <div class="form-group">
                         <label for="name" class="col-sm-3 control-label">Name in Full</label>
@@ -111,9 +111,10 @@
                         </div>
                     </div>
 
+                    <input type="hidden" name="add_teacher" id="add_teacher">
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-10">
-                            <button type="submit" class="btn btn-success" id = "addTeacherButton" name="addTeacherButton">Add Teacher</button>
+                            <button type="submit" class="btn btn-success">Add Teacher</button>
                         </div>
                     </div>
 

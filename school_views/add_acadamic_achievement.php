@@ -57,7 +57,7 @@
         <section class="content">
             <!-- Small boxes (Stat box) -->
 
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="index.php" method="post">
                 <div class="form-group">
                     <label class="col-xs-2 control-label">Student Number</label>
                     <div class="col-xs-6 selectContainer">
@@ -74,18 +74,16 @@
 
                 <div class="form-group">
                     <label class="col-xs-2 control-label">Date</label>
-                    <div class="col-xs-6 date">
-                        <div class="input-group input-append date" id="datePicker">
-                            <input type="text" class="form-control" name="date" />
-                    <span class="input-group-addon add-on "><span class="glyphicon glyphicon-calendar"></span>
-                        </div>
+
+                    <div class="col-sm-6">
+                        <input type="date" class="form-control pull-right" id="date" name="date">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="case" class="col-sm-2 control-label">exam</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="case" placeholder="Case">
+                        <input type="text" class="form-control" id="exam" name="exam" placeholder="Exam">
                     </div>
                 </div>
 
@@ -93,10 +91,11 @@
 
                     <label for="comment" class="col-sm-2">Subjects and Results</label>
                     <div class="col-sm-6">
-                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                        <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
                     </div>
                 </div>
 
+                <input type="hidden" id="addAcademicAchievement" name="addAcademicAchievement">
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-success">Add Record</button>

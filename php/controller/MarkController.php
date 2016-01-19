@@ -73,3 +73,13 @@ function getPresentStudentSelection($school_id){
     return $resultset;
 
 }
+
+function getStaffSelection($school_id){
+    $link = getConnection();
+
+    $sql = "SELECT method.method_id,method.method_name,child.child_id,marks.mark FROM method,school_child,child,marks WHERE marks.child_id=child.child_id AND school_child.child_id=child.child_id AND method.method_id=child.method_id AND method.method_name='STAFF' AND school_child.school_id='" . $school_id . "' ORDER BY marks.mark";
+    $resultset = mysqli_query($link, $sql);
+    mysqli_close($link);
+    return $resultset;
+
+}

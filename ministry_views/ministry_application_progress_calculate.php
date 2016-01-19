@@ -234,9 +234,21 @@
 
                                                         if ($staff->getConfirm() == 1) {
                                                             $staff_marks = $staff->getFullMarks();
+                                                            $count_sel=$select->getCount("PRESENT STUDENT");
                                                             insertMarksForChild("STAFF", $staff_marks, $result_2['child_id']);
                                                         }
 
+
+                                                        $staff_select=getStaffSelection($main_result['school_id']);
+
+                                                        foreach($staff_select as $selec_staff){
+                                                            if($count_sel>0){
+                                                                updateMarksForChild("QUALIFIED",$selec_staff['child_id']);
+                                                            }else{
+                                                                updateMarksForChild("NOT QUALIFIED",$selec_staff['child_id']);
+                                                            }
+                                                            $count_sel-=1;
+                                                        }
                                                     }
 
                                                 }
