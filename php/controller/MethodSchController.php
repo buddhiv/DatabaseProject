@@ -5,6 +5,11 @@
  * Date: 1/19/2016
  * Time: 2:17 AM
  */
+if (file_exists('../mysql_connector.php')) {
+    include '../mysql_connector.php';
+}
+include '../model/School.php';
+
 
 function getAllSchools()
 {
