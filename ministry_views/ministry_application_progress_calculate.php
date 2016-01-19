@@ -103,24 +103,42 @@
                                                 include '../php/model/Staff.php';
                                                 include '../php/model/PastPupil.php';
                                                 include '../php/model/PresentPupil.php';
+                                                include '../php/model/Selection.php';
 
                                                 $id=$_POST["calculate_school_id"];
                                                 $all_schools=getAllSchools();
 
+
                                                 foreach($all_schools as $main_result){
                                                 $methods=getMethod($main_result['school_id']);
-
+                                                $select=new Selection($main_result['capacity']);
                                                 foreach ($methods as $result_2) {
                                                     if (strcmp($result_2['method_name'], "RESIDENT") == 0) {
                                                         $res_detail = getAllResidenMethodInforChild($result_2['method_id']);
                                                         foreach ($res_detail as $result_3) {
                                                             $resi = new \Model\Resident($result_3['resident_id'], $result_2['method_id'], $result_3['num_of_years_spent'], $result_3['ownership'], $result_3['num_of_closes_schools'], $result_3['confirm'], null);
                                                             if ($resi->getConfirm() == 1) {
+
                                                                 $resi_marks = $resi->getFullMarks();
+                                                                $count_sel=$select->getCount("RESIDENT");
                                                                 insertMarksForChild("RESIDENT", $resi_marks, $result_2['child_id']);
+
+
+
+
                                                             }
 
                                                         }
+                                                        $resi_select=getResidentSelection($main_result['school_id']);
+                                                        foreach($resi_select as $selec_resi){
+                                                            if($count_sel>0){
+                                                                updateMarksForChild("QUALIFIED",$result_2['child_id']);
+                                                            }else{
+                                                                updateMarksForChild("NOT QUALIFIED",$result_2['child_id']);
+                                                            }
+                                                            $count_sel-=1;
+                                                        }
+
 
                                                     } elseif (strcmp($result_2['method_name'], "PAST STUDENT") == 0) {
 

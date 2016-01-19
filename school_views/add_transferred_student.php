@@ -81,9 +81,9 @@
                         <label for="name" class="col-sm-2 control-label">District</label>
 
                         <div class="col-sm-6">
-
-                                    <select class="form-control select2" style="width: 100%;">
-                                        <option selected="selected">Galle</option>
+                                    <select class="form-control select2" style="width: 100%;" name="district" id="district">
+                                        <option></option>
+                                        <option>Galle</option>
                                         <option>Colombo</option>
                                         <option>Mathara</option>
                                         <option>Hambanthota</option>
@@ -99,15 +99,8 @@
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">School</label>
                         <div class="col-sm-6">
-                                    <select class="form-control select2" style="width: 100%;">
-                                        <option selected="selected">Galle</option>
-                                        <option>Colombo</option>
-                                        <option>Mathara</option>
-                                        <option>Hambanthota</option>
-                                        <option>Rathnapura</option>
-                                        <option>Anuradhapura</option>
-                                        <option>Polonnaruwa</option>
-                                        <option>Ampara</option>
+                                    <select class="form-control select2" style="width: 100%;" name="school" id="school">
+
                                     </select>
                          </div>
                     </div>
@@ -228,6 +221,24 @@
         autoclose: true,
         todayHighlight: true
     });
+
+
+    $(document).ready(function () {
+        $("#district").change(function(){
+            load_district_schools();
+        });
+    });
+
+    function load_district_schools(){
+        $.post(
+            "ajax_files.php",
+            { district: $('#district').val() },
+            function (data) {
+               $('#school').html(data);
+            }
+        );
+    }
+
 </script>
 
 <script>

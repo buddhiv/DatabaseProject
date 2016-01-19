@@ -9,7 +9,7 @@
 function getAllSchools()
 {
     $link = getConnection();
-    $sql = "SELECT school_id,name,district FROM school";
+    $sql = "SELECT school_id,name,district,capacity FROM school";
 
     $resultset = mysqli_query($link, $sql);
     mysqli_close($link);
