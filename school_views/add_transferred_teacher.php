@@ -1,3 +1,7 @@
+<?php
+$districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Galle', 'Gampaha', 'Hambantota', 'Jaffna', 'Kaluthara', 'Kandy', 'Kilinochchi', 'Kegalle', 'Mannar', 'Matale', 'Matara', 'Monaragala', 'Mulattivu', 'Nuwaraeliya', 'Polonnaruwa', 'Rathnapura', 'Trincomalee', 'Vavuniya');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -82,15 +86,14 @@
 
                         <div class="col-sm-6">
 
-                                    <select class="form-control select2" style="width: 100%;">
-                                        <option selected="selected">Galle</option>
-                                        <option>Colombo</option>
-                                        <option>Mathara</option>
-                                        <option>Hambanthota</option>
-                                        <option>Rathnapura</option>
-                                        <option>Anuradhapura</option>
-                                        <option>Polonnaruwa</option>
-                                        <option>Ampara</option>
+                                    <select class="form-control select2" style="width: 100%;" name="district" id="district">
+                                        <?php
+                                        foreach ($districts as $district){
+                                            ?>
+                                            <option><?php echo $district ?></option>
+                                            <?php
+                                        }
+                                        ?>
                                     </select>
 
                         </div>
