@@ -112,7 +112,7 @@
 
                                                 <td><?php echo $result['mark'] ?></td>
 
-                                            <td>YES</td>
+                                            <td><?php echo $result['case'] ?></td>
                                             <td><button class="btn btn-block btn-primary btn-sm">view child</button></td>
                                         </tr>
                                         <?php

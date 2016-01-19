@@ -18,7 +18,7 @@ class School
     private $telephone;
     private $category;
     private $is_rural;
-
+    private $capacity;
     /**
      * School constructor.
      * @param $address
@@ -29,8 +29,9 @@ class School
      * @param $school_id
      * @param $telephone
      */
-    public function __construct($address, $category, $district, $divisional_sec_area, $name, $school_id, $telephone)
+    public function __construct($address, $category, $district, $divisional_sec_area, $name, $school_id, $telephone,$is_rural,$capacity)
     {
+        $this->is_rural = $is_rural;
         $this->address = $address;
         $this->category = $category;
         $this->district = $district;
@@ -38,7 +39,25 @@ class School
         $this->name = $name;
         $this->school_id = $school_id;
         $this->telephone = $telephone;
+        $this->capacity=$capacity;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCapacity()
+    {
+        return $this->capacity;
+    }
+
+    /**
+     * @param mixed $capacity
+     */
+    public function setCapacity($capacity)
+    {
+        $this->capacity = $capacity;
+    }
+
 
     /**
      * @return mixed

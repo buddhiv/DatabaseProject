@@ -17,7 +17,6 @@ $path .= "/databaseproject/php/Connection.php";
 include_once($path);
 
 
-
 use Model\Connection;
 use Model\Student;
 
@@ -39,20 +38,19 @@ class StudentController
         $is_old_boy = 0;
 
         $stmt = $connection->prepare("INSERT INTO student(name_in_full, address) VALUES (?,?)");
-        $stmt->bind_param("ss", $name_in_full,$address);
+        $stmt->bind_param("ss", $name_in_full, $address);
         $result = $stmt->execute();
         $stmt->close();
 
         $student_id = mysqli_insert_id($connection);
         $stmt = $connection->prepare("INSERT INTO student_school(student_id, school_id, registered_date,is_old_boy, starting_grade, registration_number) VALUES (?,?,?,?,?,?)");
-        $stmt->bind_param("sssiss", $student_id,$school_id,$registered_date,$is_old_boy,$grade,$number);
+        $stmt->bind_param("sssiss", $student_id, $school_id, $registered_date, $is_old_boy, $grade, $number);
         $result = $stmt->execute();
         $stmt->close();
 
 
         return $result;
     }
-
 
     function getStudentList($school_id){
         $connectionObject = Connection::getInstance();
@@ -75,7 +73,17 @@ class StudentController
         $stmt->close();
         return $result;
     }
-}
 
+    function getStudentsBySchool($school_id)
+    {
+        $connectionObject = Connection::getInstance();
+        $connection = $connectionObject->get_connection();
+
+        $sql = "SELECT * FROM student_school LEFT JOIN student on student.student_id = student_school.student_id WHERE student_school.school_id = " . $school_id;
+        $resultset = mysqli_query($connection, $sql);
+
+        return $resultset;
+    }
+}
 
 ?>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,8 +73,13 @@
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <form method="POST" action="ministry_application_progress_calculate.php">
-                                <td> <button value="School"  class="btn btn-block btn-primary btn-sm" name="view_school" >Calculate Marks</button></td>
-                                <input type="hidden" class="button" name="calculate_school_id" value="<?php echo "marks"; ?>" />
+                                <td>
+                                    <button value="School" class="btn btn-block btn-primary btn-sm" name="view_school">
+                                        Calculate Marks
+                                    </button>
+                                </td>
+                                <input type="hidden" class="button" name="calculate_school_id"
+                                       value="<?php echo "marks"; ?>"/>
 
                             </form>
                             <div class="box-body">
@@ -99,32 +103,37 @@
                                                 include '../php/controller/ChildController.php';
                                                 include '../php/controller/MethodController.php';
                                                 include '../php/model/Resident.php';
+
                                                 $schools = getAllSchools();
 
                                                 foreach ($schools as $result) {
-                                                ?>
-                                                <tr>
-                                                    <td><?php echo $result['school_id'] ?></td>
-                                                    <td><?php echo $result['name'] ?></td>
-                                                    <td><?php echo $result['district'] ?></td>
-                                                    <?php
-                                                    $child_count=getChildrenCount($result['school_id']);
-                                                    foreach($child_count as $row) {
-                                                        ?>
-                                                        <td><?php echo $row['count_child'] ?></td>
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $result['school_id'] ?></td>
+                                                        <td><?php echo $result['name'] ?></td>
+                                                        <td><?php echo $result['district'] ?></td>
                                                         <?php
-                                                    }
-                                                    ?>
-                                                     <form method="POST" action="ministry_school_view.php">
-                                                    <td><button value="School"  class="btn btn-block btn-primary btn-sm" name="view_school">View</button></td>
-                                                         <input name="school_id" type="hidden" value="<?php echo $result['school_id']; ?>" />
-                                                         </form>
-
-
-                                                </tr>
-                                                <?php
+                                                        $child_count = getChildrenCount($result['school_id']);
+                                                        foreach ($child_count as $row) {
+                                                            ?>
+                                                            <td><?php echo $row['count_child'] ?></td>
+                                                            <?php
+                                                        }
+                                                        ?>
+                                                        <form method="POST" action="ministry_school_view.php">
+                                                            <td>
+                                                                <button value="School"
+                                                                        class="btn btn-block btn-primary btn-sm"
+                                                                        name="view_school">View
+                                                                </button>
+                                                            </td>
+                                                            <input name="school_id" type="hidden"
+                                                                   value="<?php echo $result['school_id']; ?>"/>
+                                                        </form>
+                                                    </tr>
+                                                    <?php
                                                 }
-                                                    ?>
+                                                ?>
                                             </table>
 
                                         </div>
@@ -133,8 +142,8 @@
                                     <!-- /.box -->
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                            </form>
+                        </div>
                 </section>
                 <!-- /.Left col -->
 
@@ -149,7 +158,6 @@
 
 </div>
 <!-- ./wrapper -->
-
 
 
 <script>

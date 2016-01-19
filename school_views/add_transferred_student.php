@@ -85,7 +85,9 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                         <label for="name" class="col-sm-2 control-label">District</label>
 
                         <div class="col-sm-6">
-                            <select class="form-control select2" style="width: 100%;" name="district" id="district">
+                            <select class="form-control select2" style="width: 100%;"
+                                    onchange="load_district_schools(this.value)" name="district" id="district">
+                                <option></option>
                                 <?php
                                 foreach ($districts as $district) {
                                     ?>
@@ -101,8 +103,9 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">School</label>
 
-                        <div class="col-sm-6" id="schoolsfordistrict">
-                            <select class="form-control select2" style="width: 100%;" name="school" id="school">
+                        <div class="col-sm-6">
+                            <select class="form-control select2" style="width: 100%;" name="schoolsfordistrict"
+                                    id="schoolsfordistrict" onchange="load_school_students(this.value)">
 
                             </select>
                         </div>
@@ -112,22 +115,10 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                         <label for="name" class="col-sm-2 control-label">Student Name</label>
 
                         <div class="col-sm-6">
-<<<<<<< HEAD
-                            <select class="form-control select2" style="width: 100%;">
-                                <option selected="selected">Galle</option>
-                                <option>Colombo</option>
-                                <option>Mathara</option>
-                                <option>Hambanthota</option>
-                                <option>Rathnapura</option>
-                                <option>Anuradhapura</option>
-                                <option>Polonnaruwa</option>
-                                <option>Ampara</option>
-                            </select>
-=======
-                                    <select class="form-control select2" style="width: 100%;" name="full_name" id="full_name">
+                            <select class="form-control select2" style="width: 100%;" name="studentsforschool"
+                                    id="studentsforschool">
 
-                                    </select>
->>>>>>> a34b1ee418503e7ba4fa1ebded78395b93c76d2d
+                            </select>
                         </div>
                     </div>
 
@@ -226,39 +217,46 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
         todayHighlight: true
     });
 
-
-    $(document).ready(function () {
-        $("#district").change(function () {
-            load_district_schools();
-        });
-        $("#school").change(function(){
-            load_school_students();
-        });
-    });
-
-    function load_district_schools() {
-        $.post(
-            "get_schools_from_district.php",
-            {district: $('#schoolsfordistrict').val()},
-            function (data) {
-                $('#schoolsfordistrict').innerHTML(data);
-               $('#school').html(data);
-               $('#full_name').html("<option value='0' selected></option>");
+    function load_district_schools(district) {
+        if (district != "") {
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
             }
-        );
-        $("#full_name").val(0);
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById('schoolsfordistrict').innerHTML = xmlhttp.responseText;
+                }
+            };
+
+            xmlhttp.open("GET", "get_schools_from_district.php?district=" + district, true);
+            xmlhttp.send();
+        }
     }
 
-    function load_school_students(){
-        var e = document.getElementById("school");
-        var value = e.options[e.selectedIndex].value;
-        $.post(
-            "ajax_files.php",
-            { school: value },
-            function (data) {
-                $('#full_name').html(data);
+    function load_school_students(school_id) {
+        if (school_id != "") {
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
             }
-        );
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    string = xmlhttp.responseText;
+                    alert(string);
+                    document.getElementById('studentsforschool').innerHTML = string;
+                }
+            };
+
+            xmlhttp.open("GET", "get_students_from_school.php?school_id=" + school_id, true);
+            xmlhttp.send();
+        }
     }
 
 

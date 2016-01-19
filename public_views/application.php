@@ -378,6 +378,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                                                    name="<?php echo 'gndivision' . $year ?>"></td>
                                                         <td>
                                                             <select class="form-control select2">
+                                                                <option></option>
                                                                 <?php
                                                                 foreach ($districts as $district) {
                                                                     ?>
