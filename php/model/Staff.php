@@ -14,11 +14,13 @@ class Staff
     private $distance_permananent_address;
     private $complete_sevice_years_school_edu;
     private $period_work_rural;
+    private $period_work_rural_past;
     private $current_school_stat;
     private $current_school;
     private $period_work_child_school;
     private $child_school;
     private $marks;
+    private $confirm;
 
     /**
      * Staff constructor.
@@ -31,7 +33,7 @@ class Staff
      * @param $child_school
      * @param $marks
      */
-    public function __construct($distance_permananent_address, $complete_sevice_years_school_edu, $period_work_rural, $current_school_stat, $current_school, $period_work_child_school, $child_school,$confirm ,$marks)
+    public function __construct($distance_permananent_address, $complete_sevice_years_school_edu, $period_work_rural,$period_work_rural_past ,$current_school_stat, $current_school, $period_work_child_school, $child_school,$confirm ,$marks)
     {
         $this->distance_permananent_address = $distance_permananent_address;
         $this->complete_sevice_years_school_edu = $complete_sevice_years_school_edu;
@@ -41,10 +43,12 @@ class Staff
         $this->period_work_child_school = $period_work_child_school;
         $this->child_school = $child_school;
         $this->marks = $marks;
+        $this->period_work_rural_past = $period_work_rural_past;
+        $this->confirm = $confirm;
     }
 
 
-    public function getMarksFromServiceYearsSchool()
+    public function getMarksFromServiceYearsSchool()//okkkkkkkkkkkkkkkkkk
     {
         $this->marks = $this->complete_sevice_years_school_edu * 1;
         if ($this->marks > 25) {
@@ -54,7 +58,7 @@ class Staff
         }
     }
 
-    public function getMarksFromDistance()
+    public function getMarksFromDistance()///okkkkkkkkkkk
     {
         if ($this->distance_permananent_address >= 100) {
             $this->marks = 35;
@@ -70,7 +74,7 @@ class Staff
 
     public function getMarksFromRuralService()
     {//getting marks for rural service
-        if (strcmp($this->current_school_stat, "RURAL") == 0) {//check for current school
+        if (strcmp($this->current_school_stat, "1") == 0) {//check for current school// 1 for rural 0 for not rural
             $this->marks = $this->period_work_rural * 6;
             if ($this->marks > 30) {
                 return 30;
@@ -78,7 +82,7 @@ class Staff
                 return $this->marks;
             }
         } else {//if person has worked earlier
-            $this->marks = $this->period_work_rural * 4;
+            $this->marks = $this->period_work_rural_past * 4;
             if ($this->marks > 20) {
                 return 20;
             } else {
@@ -87,7 +91,7 @@ class Staff
         }
     }
 
-    public function getMarksfromSameSchool()
+    public function getMarksfromSameSchool()//okkkkkkkkkkkkkk
     {
         if (strcmp($this->current_school, $this->child_school) == 0) {
             if ($this->period_work_child_school >= 3) {
@@ -104,6 +108,40 @@ class Staff
         $full_marks = $this->getMarksFromDistance() + $this->getMarksFromRuralService() + $this->getMarksfromSameSchool() + $this->getMarksFromServiceYearsSchool();
         return $full_marks;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPeriodWorkRuralPast()
+    {
+        return $this->period_work_rural_past;
+    }
+
+    /**
+     * @param mixed $period_work_rural_past
+     */
+    public function setPeriodWorkRuralPast($period_work_rural_past)
+    {
+        $this->period_work_rural_past = $period_work_rural_past;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getConfirm()
+    {
+        return $this->confirm;
+    }
+
+    /**
+     * @param mixed $confirm
+     */
+    public function setConfirm($confirm)
+    {
+        $this->confirm = $confirm;
+    }
+
+
 
     /**
      * @return mixed

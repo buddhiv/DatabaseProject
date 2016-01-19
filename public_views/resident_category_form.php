@@ -36,7 +36,7 @@
 
             <div class="form-group">
                 <label class="col-sm-8 control-label pull-left" for="noofyears" style="text-align: left;">
-                    Ownership of the residence
+                    Ownership of the place of residence
                 </label>
 
                 <div class="col-sm-4">

@@ -5,9 +5,6 @@
  * Date: 1/13/2016
  * Time: 9:37 PM
  */
-
-
-
 function getMethodNameFromSchoolIdt($school_id){
     $link = getConnection();
 
