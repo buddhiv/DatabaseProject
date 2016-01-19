@@ -338,6 +338,10 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                                 </tr>
                                             </table>
                                         </div>
+                                        <a onclick="deleteSchoolTableRow()" class="btn btn-app pull-right"
+                                           style="width: 10px; height: 25px; padding: 2px;">
+                                            <i class="fa fa-eraser"></i>
+                                        </a>
                                         <!-- /.box-body -->
                                     </div>
                                     <!-- /.box -->
@@ -541,6 +545,13 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
             table_data = document.getElementById('schoolstable').innerHTML;
             xmlhttp.open("GET", "update_schools_table.php?data=" + table_data + "&id=" + school_id, true);
             xmlhttp.send();
+        }
+    }
+
+    function deleteSchoolTableRow() {
+        rowCount = document.getElementById('schoolstable').rows.length;
+        if (rowCount > 1) {
+            document.getElementById('schoolstable').deleteRow(rowCount-1);
         }
     }
 </script>
