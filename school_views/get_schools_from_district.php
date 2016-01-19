@@ -7,19 +7,23 @@
  */
 include_once "../php/Connection.php";
 include_once '../php/controller/schoolController.php';
+include_once '../php/controller/StudentController.php';
 
-use \Controllers\SchoolController;
-use \Model\Connection;
+$schoolController = new \Controllers\SchoolController();
+$studentController = new \Controllers\StudentController();
 
-if (isset($_POST['schoolsfordistrict'])) {
-    if ($_POST['schoolsfordistrict'] != "") {
-        $link = getConnection();
-        $sql = "SELECT * FROM school WHERE district = '" . $_POST['district'] . "'";
-        $result = mysqli_query($link, $sql);
-        mysqli_close($link);
+if (isset($_GET['district'])) {
+    if ($_GET['district'] != "") {
+        $schools = $schoolController->getSchoolsFromDistrict($_GET['district']);
+
+        echo '<option></option>';
+        foreach ($schools as $school) {
+            echo '<option value="' . $school['school_id'] . '">' . $school['name'] . '</option >';
+        }
+    } else {
+        echo '<option>dfj</option>';
     }
-    ?>
-
-    <?php
+}else{
+    echo '<option>gfhn</option>';
 }
 ?>
