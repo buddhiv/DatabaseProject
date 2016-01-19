@@ -1,12 +1,10 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
     <?php
 
     $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Galle', 'Gampaha', 'Hambantota', 'Jaffna', 'Kaluthara', 'Kandy', 'Kilinochchi', 'Kegalle', 'Mannar', 'Matale', 'Matara', 'Monaragala', 'Mulattivu', 'Nuwaraeliya', 'Polonnaruwa', 'Rathnapura', 'Trincomalee', 'Vavuniya');
-    $schools = array('National','Provincial');
+    $schools = array('National', 'Provincial');
     ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,6 +36,7 @@
     <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker-bs3.css">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    <link rel="stylesheet" href="../plugins/select2/select2.css"/>
 </head>
 <body class="hold-transition skin-blue sidebar-mini layout-boxed" style="margin: 0 50px;">
 <div class="wrapper">
@@ -80,205 +79,101 @@
 
                                 <div class="form-group">
 
-                            </div>
-                            <div class="box-body">
-
-                                <div class="form-group">
-                                    <label for="nameinfull" class="col-sm-3 control-label">Name</label>
-
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="schoolname" placeholder="">
-                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="namewithinitials" class="col-sm-3 control-label">Address</label>
+                                <div class="box-body">
 
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="schooladdress"
-                                               placeholder="">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="schooldistrict" class="col-sm-3 control-label">
-                                        District</label>
+                                    <div class="form-group">
+                                        <label for="nameinfull" class="col-sm-3 control-label">Name</label>
 
-                                    <div class="col-sm-9">
-                                        <select class="form-control select2">
-                                            <?php
-                                            foreach ($districts as $district) {
-                                                ?>
-                                                <option><?php echo $district; ?></option>
-                                                <?php
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="divisionalsecretaryarea" class="col-sm-3 control-label">Divisional Secretary Area</label>
-
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="divisionalsecretaryarea"
-                                               placeholder="">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="isrural" class="col-sm-3 control-label">Is Rural</label>
-
-                                    <div class="col-sm-9">
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="ruralno" id="ruralno"
-                                                       value="option1" checked/>
-                                                No
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="ruralyes" id="ruralyes"
-                                                       value="Yes"/>
-                                                Yes
-                                            </label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="schoolname" placeholder="">
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="namewithinitials" class="col-sm-3 control-label">Address</label>
 
-                                </div>
-                                <div class="form-group">
-                                    <label for="schooltelephone" class="col-sm-3 control-label">Telephone</label>
-
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="schooltelephone"
-                                               placeholder="">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="schooldistrict" class="col-sm-3 control-label">
-                                        Category</label>
-
-                                    <div class="col-sm-9">
-                                        <select class="form-control select2">
-                                            <?php
-                                            foreach ($schools as $schools) {
-                                                ?>
-                                                <option><?php echo $schools; ?></option>
-                                                <?php
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="box-footer">
-                                    <button type="submit" class="btn btn-primary pull-right">Submit</button>
-                                </div>
-                            <div class="box-body">
-
-
-                                <div class="form-group">
-                                    <label for="selectschool" class="col-sm-3 control-label">Select School</label>
-
-                                    <div class="col-sm-9">
-                                        <select class="form-control select2" onchange="updateSchoolTable(this.value)">
-                                            <?php
-                                            $schools = $schoolController->getAllSchoolNames();
-
-                                            foreach ($schools as $s) {
-                                                ?>
-                                                <option value="<?php echo $s['school_id']; ?>">
-                                                    <?php echo $s['name'] . " " . $s['district']; ?>
-                                                </option>
-                                                <?php
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-xs-12">
-                                    <div class="box">
-                                        <div class="box-body table-responsive no-padding">
-                                            <table class="table table-hover" id="schoolstable">
-                                                <tr>
-                                                    <th>School number</th>
-                                                    <th>Name of school</th>
-                                                    <th>Category of school</th>
-                                                    <th>Distance from the residence</th>
-                                                </tr>
-                                            </table>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="schooladdress"
+                                                   placeholder="">
                                         </div>
-                                        <a onclick="deleteSchoolTableRow()" class="btn btn-app pull-right"
-                                           style="width: 10px; height: 25px; padding: 2px;">
-                                            <i class="fa fa-eraser"></i>
-                                        </a>
-                                        <!-- /.box-body -->
                                     </div>
-                                    <!-- /.box -->
-                                </div>
-                            </div>
+                                    <div class="form-group">
+                                        <label for="schooldistrict" class="col-sm-3 control-label">
+                                            District</label>
 
-                            <div class="box-body">
-                                <h5>05. Electoral list registration:</h5>
-
-                                <div class="col-xs-12">
-                                    <div class="box">
-                                        <div class="box-body table-responsive no-padding">
-                                            <table class="table table-hover">
-                                                <tr>
-                                                    <th>Year</th>
-                                                    <th>Polling division</th>
-                                                    <th>GN division & no.</th>
-                                                    <th>Polling district</th>
-                                                    <th>Street/Village</th>
-                                                    <th>Household no.</th>
-                                                    <th>Serial no.</th>
-                                                    <th>Name of electors</th>
-                                                </tr>
+                                        <div class="col-sm-9">
+                                            <select class="form-control select2">
+                                                <option></option>
                                                 <?php
-                                                for ($year = date("Y"); $year >= (date("Y") - 4); $year--) {
+                                                foreach ($districts as $district) {
                                                     ?>
-                                                    <tr>
-                                                        <td><?php echo $year; ?></td>
-                                                        <td><input type="text" class="form-control"
-                                                                   name="<?php echo 'pollingdivision' . $year ?>">
-                                                        </td>
-                                                        <td><input type="text" class="form-control"
-                                                                   name="<?php echo 'gndivision' . $year ?>"></td>
-                                                        <td>
-                                                            <select class="form-control select2">
-                                                                <?php
-                                                                foreach ($districts as $district) {
-                                                                    ?>
-                                                                    <option><?php echo $district; ?></option>
-                                                                    <?php
-                                                                }
-                                                                ?>
-                                                            </select>
-                                                        </td>
-                                                        <td><input type="text" class="form-control"
-                                                                   name="<?php echo 'street' . $year ?>"></td>
-                                                        <td><input type="text" class="form-control"
-                                                                   name="<?php echo 'householdno' . $year ?>"></td>
-                                                        <td><input type="text" class="form-control"
-                                                                   name="<?php echo 'serialno' . $year ?>"></td>
-                                                        <td><input type="text" class="form-control"
-                                                                   name="<?php echo 'nameofelectors' . $year ?>">
-                                                        </td>
-                                                    </tr>
+                                                    <option><?php echo $district; ?></option>
                                                     <?php
                                                 }
                                                 ?>
-                                            </table>
+                                            </select>
                                         </div>
-                                        <!-- /.box-body -->
                                     </div>
-                                    <!-- /.box -->
-                                </div>
-                            </div>
-                            <!-- /.box-body -->
-                            <div class="box-footer">
-                                <button type="submit" class="btn btn-primary pull-right">Next</button>
-                            </div>
-                            <!-- /.box-footer -->
+                                    <div class="form-group">
+                                        <label for="divisionalsecretaryarea" class="col-sm-3 control-label">Divisional
+                                            Secretary Area</label>
+
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="divisionalsecretaryarea"
+                                                   placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="isrural" class="col-sm-3 control-label">Is Rural</label>
+
+                                        <div class="col-sm-9">
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="ruralno" id="ruralno"
+                                                           value="option1" checked/>
+                                                    No
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="ruralyes" id="ruralyes"
+                                                           value="Yes"/>
+                                                    Yes
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="schooltelephone" class="col-sm-3 control-label">Telephone</label>
+
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="schooltelephone"
+                                                   placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="schooldistrict" class="col-sm-3 control-label">
+                                            Category</label>
+
+                                        <div class="col-sm-9">
+                                            <select class="form-control select2">
+                                                <option></option>
+                                                <?php
+                                                foreach ($schools as $schools) {
+                                                    ?>
+                                                    <option><?php echo $schools; ?></option>
+                                                    <?php
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="box-footer">
+                                        <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                                    </div>
+
+                                    <!-- /.box-footer -->
                         </form>
                     </div>
                 </section>
@@ -419,7 +314,7 @@
     function deleteSchoolTableRow() {
         rowCount = document.getElementById('schoolstable').rows.length;
         if (rowCount > 1) {
-            document.getElementById('schoolstable').deleteRow(rowCount-1);
+            document.getElementById('schoolstable').deleteRow(rowCount - 1);
         }
     }
 </script>
