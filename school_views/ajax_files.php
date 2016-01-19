@@ -11,52 +11,33 @@ if (isset($_POST['district'])) {
         mysqli_close($link);
     }
     ?>
+    <option></option>
+    <?php
+    while ($rows = mysqli_fetch_assoc($result)) {
+        ?>
+        <option value="<?php echo $rows['school_id']; ?>"><?php echo $rows['name']; ?></option>
+    <?php
+    }?>
 
-    <div class="form-group">
-        <label for="name" class="col-sm-2 control-label">School</label>
-
-        <div class="col-sm-6">
-            <select class="form-control select2" style="width: 100%;">
-                <option></option>
-                <?php
-                while ($rows = mysqli_fetch_assoc($result)) {
-                    ?>
-                    <option
-                        value="<?php echo $rows['name']; ?>  ID=<?php echo $rows['school_id']; ?>"><?php echo $rows['name']; ?></option>
-                <?php
-                }?>
-
-            </select>
-        </div>
-    </div>
 
 <?php
-}else if (isset($_POST['school'])) {
+} else if (isset($_POST['school'])) {
     if ($_POST['school'] != "") {
         $link = getConnection();
-        $sql = "SELECT * FROM student WHERE district = '" . $_POST['district'] . "'";
+        $sql = "SELECT s.student_id, s.name_in_full FROM student s NATURAL JOIN student_school ss WHERE ss.leaving_date IS NOT NULL AND school_id = " . $_POST['school'];
         $result = mysqli_query($link, $sql);
         mysqli_close($link);
     }
     ?>
 
-    <div class="form-group">
-        <label for="name" class="col-sm-2 control-label">School</label>
-
-        <div class="col-sm-6">
-            <select class="form-control select2" style="width: 100%;">
-                <option></option>
+               <option selected></option>
                 <?php
                 while ($rows = mysqli_fetch_assoc($result)) {
                     ?>
                     <option
-                        value="<?php echo $rows['school_id']; ?>  ID=<?php echo $rows['school_id']; ?>"><?php echo $rows['name']; ?></option>
+                        value="<?php echo $rows['student_id']; ?>"><?php echo $rows['name_in_full']; ?></option>
                 <?php
                 }?>
-
-            </select>
-        </div>
-    </div>
 
 <?php
 }

@@ -112,6 +112,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                         <label for="name" class="col-sm-2 control-label">Student Name</label>
 
                         <div class="col-sm-6">
+<<<<<<< HEAD
                             <select class="form-control select2" style="width: 100%;">
                                 <option selected="selected">Galle</option>
                                 <option>Colombo</option>
@@ -122,6 +123,11 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                 <option>Polonnaruwa</option>
                                 <option>Ampara</option>
                             </select>
+=======
+                                    <select class="form-control select2" style="width: 100%;" name="full_name" id="full_name">
+
+                                    </select>
+>>>>>>> a34b1ee418503e7ba4fa1ebded78395b93c76d2d
                         </div>
                     </div>
 
@@ -225,6 +231,9 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
         $("#district").change(function () {
             load_district_schools();
         });
+        $("#school").change(function(){
+            load_school_students();
+        });
     });
 
     function load_district_schools() {
@@ -232,10 +241,29 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
             "get_schools_from_district.php",
             {district: $('#schoolsfordistrict').val()},
             function (data) {
+<<<<<<< HEAD
                 $('#schoolsfordistrict').innerHTML(data);
+=======
+               $('#school').html(data);
+               $('#full_name').html("<option value='0' selected></option>");
+>>>>>>> a34b1ee418503e7ba4fa1ebded78395b93c76d2d
+            }
+        );
+        $("#full_name").val(0);
+    }
+
+    function load_school_students(){
+        var e = document.getElementById("school");
+        var value = e.options[e.selectedIndex].value;
+        $.post(
+            "ajax_files.php",
+            { school: value },
+            function (data) {
+                $('#full_name').html(data);
             }
         );
     }
+
 
 </script>
 
