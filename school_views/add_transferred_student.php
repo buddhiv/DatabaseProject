@@ -241,12 +241,9 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
             "get_schools_from_district.php",
             {district: $('#schoolsfordistrict').val()},
             function (data) {
-<<<<<<< HEAD
                 $('#schoolsfordistrict').innerHTML(data);
-=======
                $('#school').html(data);
                $('#full_name').html("<option value='0' selected></option>");
->>>>>>> a34b1ee418503e7ba4fa1ebded78395b93c76d2d
             }
         );
         $("#full_name").val(0);

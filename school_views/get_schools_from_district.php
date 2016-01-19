@@ -5,8 +5,11 @@
  * Date: 1/19/2016
  * Time: 12:56 PM
  */
-include_once "../php/mysql_connector.php";
+include_once "../php/Connection.php";
+include_once '../php/controller/schoolController.php';
 
+use \Controllers\SchoolController;
+use \Model\Connection;
 
 if (isset($_POST['schoolsfordistrict'])) {
     if ($_POST['schoolsfordistrict'] != "") {
