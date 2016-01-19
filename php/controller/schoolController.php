@@ -91,4 +91,16 @@ class SchoolController
 
         return $resultset;
     }
+
+    function getSchoolsFromDistrict($district)
+    {
+        $connectionObject = Connection::getInstance();
+        $connection = $connectionObject->get_connection();
+        $sql = "SELECT * FROM school WHERE district='" . $district . "'";
+
+        $resultset = mysqli_query($connection, $sql);
+
+        return $resultset;
+    }
+
 }
