@@ -67,8 +67,8 @@ $result = $studentController->getStudentList($_SESSION['school_id']);
         <!-- Content Header (Page header) -->
         <section class="content-header callout callout-info">
             <h1>
-                New Student
-                <small><b>Registration</b></small>
+                Add Academic
+                <small><b>Achievement</b></small>
             </h1>
         </section>
 

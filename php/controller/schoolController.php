@@ -105,7 +105,9 @@ class SchoolController
 
     function checkForLogIn($school_id,$password)
     {
-        session_start();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         $connectionObject = Connection::getInstance();
         $connection = $connectionObject->get_connection();
 

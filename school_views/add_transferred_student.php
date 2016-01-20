@@ -70,7 +70,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
         <!-- Content Header (Page header) -->
         <section class="content-header callout callout-info">
             <h1>
-                New Student
+                New Transferred Student
                 <small><b>Registration</b></small>
             </h1>
         </section>
