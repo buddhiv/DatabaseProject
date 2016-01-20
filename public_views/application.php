@@ -186,19 +186,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="dateofbirth" class="col-sm-3 control-label">Age on 31st
-                                        Jan <?php echo date("Y"); ?></label>
-
-                                    <div class="col-sm-9">
-                                        <div class="input-group">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </div>
-                                            <input type="text" class="form-control" name="ageon31st"/>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
                             <div class="box-body">
                                 <h5>03. Details of the Applicant:</h5>
@@ -273,12 +261,9 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                         District</label>
 
                                     <div class="col-sm-9">
-<<<<<<< HEAD
-                                        <select class="form-control select2">
-                                            <option></option>
-=======
-                                        <select class="form-control select2" name="district">
 
+                                        <select class="form-control select2" name="district">
+                                            <option></option>
                                             <?php
                                             foreach ($districts as $district) {
                                                 ?>
