@@ -82,10 +82,17 @@
                 <section class="col-lg-12">
 
                     <?php
-                    //include 'resident_category_form.php';
-//                    include 'past_pupil_category_form.php';
-                    include 'present_pupil_category_form.php';
-//                    include 'staff_category_form.php';
+                    $type = $_GET['type'];
+
+                    if ($type == 'resident') {
+                        include 'resident_category_form.php';
+                    } else if ($type == 'staff') {
+                        include 'staff_category_form.php';
+                    } else if ($type == 'pastpupil') {
+                        include 'past_pupil_category_form.php';
+                    } else if ($type == 'presentpupil') {
+                        include 'present_pupil_category_form.php';
+                    }
                     ?>
 
                 </section>

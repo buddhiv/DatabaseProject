@@ -20,21 +20,21 @@
             <ul class="nav navbar-nav">
                 <!-- About us: style can be found in dropdown.less -->
                 <li class="">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <a href="about.php">
                         <i class="fa fa-info-circle">&nbsp;</i>
                         <span class="hidden-xs">About</span>
                     </a>
                 </li>
                 <!-- How to: style can be found in dropdown.less -->
                 <li class="">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <a href="faq.php">
                         <i class="fa fa-question-circle">&nbsp;</i>
                         <span class="hidden-xs">FAQ</span>
                     </a>
                 </li>
                 <!-- Application: style can be found in dropdown.less -->
                 <li class="">
-                    <a href="application.php" class="dropdown-toggle" data-toggle="dropdown">
+                    <a href="application.php">
                         <i class="fa fa-book">&nbsp;</i>
                         <span class="hidden-xs">Application</span>
                     </a>

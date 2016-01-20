@@ -11,16 +11,15 @@ include_once "../php/model/Applicant.php";
 include_once "../php/controller/ChildController1.php";
 include_once "../php/controller/ApplicantController.php";
 
-use Model\Child;
-use Model\Applicant;
-use Controllers\ChildController1;
 use Controllers\ApplicantController;
+use Model\Applicant;
+use Model\Child;
 
 
 if (isset($_POST['next'])) {
 
     //read category
-    if(isset($_POST["category"])){
+    if (isset($_POST["category"])) {
         $category = $_POST["category"];
     }
 
@@ -36,7 +35,6 @@ if (isset($_POST['next'])) {
     $date_of_birth = $_POST["dateofbirth"];
     $age = $_POST["ageon31st"];
     $address = $_POST["permanentaddress"];
-//    $medium = $_POST{""};
     $medium = "Sinhala";
     $applicant_nic = $_POST["applicantnic"];
 
@@ -47,9 +45,9 @@ if (isset($_POST['next'])) {
     $name_in_full = $_POST["applicantnameinfull"];
     $name_with_initials = $_POST["applicantnamewithinitials"];
     $nic = $_POST["applicantnic"];
-    if(isset($_POST["issrilankan"])){
+    if (isset($_POST["issrilankan"])) {
         $is_sri_lankan = "TRUE";
-    }else{
+    } else {
         $is_sri_lankan = "FALSE";
 
     }
@@ -64,8 +62,17 @@ if (isset($_POST['next'])) {
 
 
     $applicant_controller = new ApplicantController();
-    $applicant_controller->addApplicant($applicant,$child);
+    $applicant_controller->addApplicant($applicant, $child);
 
+    if ($category == 'Resident') {
+        header('Location: category_form.php?type=resident');
+    } else if ($category == 'Staff') {
+        header('Location: category_form.php?type=staff');
+    } else if ($category == 'PastPupil') {
+        header('Location: category_form.php?type=pastpupil');
+    } else if ($category == 'PresentPupil') {
+        header('Location: category_form.php?type=presentpupil');
+    }
 
 //    $childController = new ChildController1();
 //    $childController->addChild($child);
