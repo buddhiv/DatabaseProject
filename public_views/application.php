@@ -273,6 +273,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
 
                                     <div class="col-sm-9">
                                         <select class="form-control select2">
+                                            <option></option>
                                             <?php
                                             foreach ($districts as $district) {
                                                 ?>
@@ -306,21 +307,31 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                 <h5>04. Schools applying for:</h5>
 
                                 <div class="form-group">
-                                    <label for="selectschool" class="col-sm-3 control-label">Select School</label>
+                                    <label for="selectschool" class="col-sm-3 control-label">Select District</label>
 
                                     <div class="col-sm-9">
-                                        <select class="form-control select2" onchange="updateSchoolTable(this.value)">
+                                        <select id="district" name="district"
+                                                class="form-control select2"
+                                                onchange="load_district_schools(this.value)">
+                                            <option></option>
                                             <?php
-                                            $schools = $schoolController->getAllSchoolNames();
-
-                                            foreach ($schools as $s) {
+                                            foreach ($districts as $district) {
                                                 ?>
-                                                <option value="<?php echo $s['school_id']; ?>">
-                                                    <?php echo $s['name'] . " " . $s['district']; ?>
-                                                </option>
+                                                <option><?php echo $district; ?></option>
                                                 <?php
                                             }
                                             ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="selectschool" class="col-sm-3 control-label">Select School</label>
+
+                                    <div class="col-sm-9">
+                                        <select id="schoolsfordistrict" name="schoolsfordistrict"
+                                                class="form-control select2"
+                                                onchange="updateSchoolTable(this.value)">
+
                                         </select>
                                     </div>
                                 </div>
@@ -552,7 +563,27 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
     function deleteSchoolTableRow() {
         rowCount = document.getElementById('schoolstable').rows.length;
         if (rowCount > 1) {
-            document.getElementById('schoolstable').deleteRow(rowCount-1);
+            document.getElementById('schoolstable').deleteRow(rowCount - 1);
+        }
+    }
+
+    function load_district_schools(district) {
+        if (district != "") {
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById('schoolsfordistrict').innerHTML = xmlhttp.responseText;
+                }
+            };
+
+            xmlhttp.open("GET", "get_schools_from_district.php?district=" + district, true);
+            xmlhttp.send();
         }
     }
 </script>

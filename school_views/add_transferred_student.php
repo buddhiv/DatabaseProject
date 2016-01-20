@@ -249,7 +249,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     string = xmlhttp.responseText;
-                    alert(string);
+//                    alert(string);
                     document.getElementById('studentsforschool').innerHTML = string;
                 }
             };
