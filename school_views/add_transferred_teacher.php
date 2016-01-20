@@ -85,6 +85,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                         <label for="name" class="col-sm-2 control-label">District</label>
 
                         <div class="col-sm-6">
+<<<<<<< HEAD
                             <select class="form-control select2" style="width: 100%;"
                                     onchange="load_district_schools(this.value)" name="district" id="district">
                                 <option></option>
@@ -96,6 +97,18 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                 }
                                 ?>
                             </select>
+=======
+
+                                    <select class="form-control select2" style="width: 100%;" name="district" id="district">
+                                        <?php
+                                        foreach ($districts as $district){
+                                            ?>
+                                            <option><?php echo $district ?></option>
+                                            <?php
+                                        }
+                                        ?>
+                                    </select>
+>>>>>>> d5fcc9c1c523f5b46c7536639c58e0ee7982db1d
 
                         </div>
                     </div>
