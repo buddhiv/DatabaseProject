@@ -1,4 +1,8 @@
 <?php
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 /**
  * Created by PhpStorm.
  * User: Buddhi
@@ -13,10 +17,10 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="../images/school_badge/<?php echo $_SESSION['school_id']?>.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>Mahinda College</p>
+                <p><?php echo $_SESSION['school_name']?></p>
             </div>
         </div>
         <!-- search form -->

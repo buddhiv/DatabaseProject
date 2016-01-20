@@ -1,4 +1,8 @@
 <?php
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 /**
  * Created by PhpStorm.
  * User: Buddhi
@@ -38,8 +42,8 @@
 <!-- User Account: style can be found in dropdown.less -->
 <li class="dropdown user user-menu">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-        <img src="../images/school_badge/user2-160x160.jpg" class="user-image" alt="User Image">
-        <span class="hidden-xs">Mahinda College</span>
+        <img src="../images/school_badge/<?php echo $_SESSION['school_id']?>.jpg" class="user-image" alt="User Image">
+        <span class="hidden-xs"><?php echo $_SESSION['school_name']?></span>
     </a>
     <ul class="dropdown-menu">
         <!-- User image -->
@@ -53,7 +57,7 @@
                 <a href="#" class="btn btn-default btn-flat">My Profile</a>
             </div>
             <div class="pull-right">
-                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                <a href="./logout.php" class="btn btn-default btn-flat">Sign out</a>
             </div>
         </li>
     </ul>

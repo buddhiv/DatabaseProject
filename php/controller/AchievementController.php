@@ -43,7 +43,6 @@ class AchievementController {
         $achievement_id = mysqli_insert_id($connection);
 
         $stmt = $connection->prepare("INSERT INTO non_acadamic (achievement_id,ncase,place,date) VALUES (?,?,?,?)");
-        echo("INSERT INTO non_acadamic (achievement_id,ncase,place,date) VALUES ($achievement_id,$case,$place,$date)") ;
         $stmt->bind_param("isis",$achievement_id,$case,$place,$date);
         $result = $stmt->execute();
         $stmt->close();

@@ -70,7 +70,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
         <!-- Content Header (Page header) -->
         <section class="content-header callout callout-info">
             <h1>
-                New Student
+                New Transferred Student
                 <small><b>Registration</b></small>
             </h1>
         </section>
@@ -126,7 +126,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                         <label for="number" class="col-sm-2 control-label">Registration Number</label>
 
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="number" placeholder="Student Number" name="number">
+                            <input type="text" class="form-control" id="number" placeholder="Student Number" name="registration_number">
                         </div>
                     </div>
 
