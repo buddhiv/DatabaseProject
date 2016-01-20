@@ -48,7 +48,7 @@ class ApplicationMethodController
 
     }
 
-    function addStaffMethod($present_pupil_id)
+    function addPresentPupilMethod($present_pupil_id)
     {
 
         $connectionObject = Connection::getInstance();
@@ -66,7 +66,7 @@ class ApplicationMethodController
 
     }
 
-    function addPresentPupilMethod($teacher_id)
+    function addStaffMethod($teacher_id)
     {
 
         $connectionObject = Connection::getInstance();

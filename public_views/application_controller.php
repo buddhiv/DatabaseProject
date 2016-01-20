@@ -128,7 +128,7 @@ if (isset($_POST['staff_next'])) {
     $present_pupil_id = $_POST["present_pupil_id"];
 
     $category_controller = new ApplicationMethodController();
-    $category_controller->addStaffMethod($present_pupil_id);
+    $category_controller->addPresentPupilMethod($present_pupil_id);
 
 }
 
