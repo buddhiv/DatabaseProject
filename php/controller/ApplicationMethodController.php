@@ -48,20 +48,20 @@ class ApplicationMethodController
 
     }
 
-    function addStaffMethod($teacher_id)
+    function addStaffMethod($present_pupil_id)
     {
 
         $connectionObject = Connection::getInstance();
         $connection = $connectionObject->get_connection();
 
-        $category = "STAFF";
+        $category = "PRESENT STUDENT";
         $confirm = 0;
 
         $sql = "INSERT INTO method (method_name) VALUES ('" . $category . "')";
         $result = mysqli_query($connection, $sql);
         $method_id = mysqli_insert_id($connection);
 
-        $sql = "INSERT INTO staff_method (teacher_id,method_id,confirm) VALUES (" . $teacher_id . "," . $method_id . "," . $confirm . ")";
+        $sql = "INSERT INTO present_pupil_method (student_id,method_id,confirm) VALUES (" . $present_pupil_id . "," . $method_id . "," . $confirm . ")";
         $result = mysqli_query($connection, $sql);
 
     }
@@ -84,20 +84,20 @@ class ApplicationMethodController
 
     }
 
-    function addPastPupilMethod($teacher_id)
+    function addPastPupilMethod($past_pupil_id)
     {
 
         $connectionObject = Connection::getInstance();
         $connection = $connectionObject->get_connection();
 
-        $category = "STAFF";
+        $category = "PAST STUDENT";
         $confirm = 0;
 
         $sql = "INSERT INTO method (method_name) VALUES ('" . $category . "')";
         $result = mysqli_query($connection, $sql);
         $method_id = mysqli_insert_id($connection);
 
-        $sql = "INSERT INTO staff_method (teacher_id,method_id,confirm) VALUES (" . $teacher_id . "," . $method_id . "," . $confirm . ")";
+        $sql = "INSERT INTO past_pupil_method (student_id,method_id,confirm) VALUES (" . $past_pupil_id . "," . $method_id . "," . $confirm . ")";
         $result = mysqli_query($connection, $sql);
 
     }

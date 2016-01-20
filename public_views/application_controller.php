@@ -116,5 +116,19 @@ if (isset($_POST['staff_next'])) {
     $category_controller = new ApplicationMethodController();
     $category_controller->addStaffMethod($teacher_id);
 
+}if (isset($_POST['past_pupil_next'])) {
+
+    $past_pupil_id = $_POST["past_pupil_id"];
+
+    $category_controller = new ApplicationMethodController();
+    $category_controller->addPastPupilMethod($past_pupil_id);
+
+}if (isset($_POST['present_pupil_next'])) {
+
+    $present_pupil_id = $_POST["present_pupil_id"];
+
+    $category_controller = new ApplicationMethodController();
+    $category_controller->addStaffMethod($present_pupil_id);
+
 }
 
