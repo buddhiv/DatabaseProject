@@ -16,6 +16,9 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/databaseproject/php/Connection.php";
 include_once($path);
 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 use Model\Connection;
 use Model\Teacher;
 
@@ -70,6 +73,7 @@ class TeacherController{
         $stmt->bind_param("iisi",$teacher_id,$school_id,$registered_date,$distance);
         $result = $stmt->execute();
         $stmt->close();
+
 
         return $result;
     }

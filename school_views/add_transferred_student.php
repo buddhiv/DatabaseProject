@@ -126,7 +126,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                         <label for="number" class="col-sm-2 control-label">Registration Number</label>
 
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="number" placeholder="Student Number" name="number">
+                            <input type="text" class="form-control" id="number" placeholder="Student Number" name="registration_number">
                         </div>
                     </div>
 

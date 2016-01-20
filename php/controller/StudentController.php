@@ -16,6 +16,7 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/databaseproject/php/Connection.php";
 include_once($path);
 
+session_start();
 
 use Model\Connection;
 use Model\Student;
@@ -68,10 +69,7 @@ class StudentController
         $stmt = $connection->prepare("INSERT INTO student_school(student_id, school_id, registered_date,is_old_boy, starting_grade, registration_number) VALUES (?,?,?,?,?,?)");
         $stmt->bind_param("sssiss", $student_id, $school_id, $registered_date, $is_old_boy, $grade, $number);
         $result = $stmt->execute();
-        echo ($result);
         $stmt->close();
-
-        echo ($result);
         return $result;
     }
 
@@ -81,7 +79,7 @@ class StudentController
         $connectionObject = Connection::getInstance();
         $connection = $connectionObject->get_connection();
 
-        $sql = "SELECT student_id,name_in_full FROM student NATURAL JOIN student_school WHERE leaving_date IS NULL AND school_id = " . $school_id;
+        $sql = "SELECT student_id,registration_number,name_in_full FROM student NATURAL JOIN student_school WHERE leaving_date IS NULL AND school_id = " . $school_id;
         $result = $connection->query($sql);
         return $result;
     }

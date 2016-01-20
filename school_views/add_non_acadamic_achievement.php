@@ -8,8 +8,7 @@ use Controllers\StudentController;
 use Model\Student;
 
 $studentController = new StudentController();
-//$studentController->getStudentList($_SESSION['school_id']);
-$result = $studentController->getStudentList(1);
+$result = $studentController->getStudentList($_SESSION['school_id']);
 
 
 ?>
@@ -89,7 +88,7 @@ $result = $studentController->getStudentList(1);
                             <?php
                             while($row = $result->fetch_assoc()) {
                                 ?>
-                                <option value="<?php echo $row['student_id']?>"><?php echo ($row['student_id'] ."  -  ". $row['name_in_full'])?></option>
+                                <option value="<?php echo $row['student_id']?>"><?php echo ($row['registration_number'] ."  -  ". $row['name_in_full'])?></option>
                             <?php
                             }
                             ?>
