@@ -237,6 +237,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
 
             xmlhttp.open("GET", "get_schools_from_district.php?district=" + district, true);
             xmlhttp.send();
+
         }
     }
 

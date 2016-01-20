@@ -29,21 +29,22 @@ class AchievementController {
         $connection = $connectionObject->get_connection();
 
         $student_id = $achievement->getStudentId();
-        $year = $achievement->getYear();
+        $school_id = $achievement->getSchoolId();
+        $achievement_case = $achievement->getAchievementCase();
+
+        $date = $achievement->getDate();
         $case = $achievement->getCase();
         $place = $achievement->getPlace();
-        $school_id = 1;
 
-
-        $stmt = $connection->prepare("INSERT INTO achievement (student_id, school_id, year) VALUES (?,?,?)");
-        $stmt->bind_param("iis", $student_id,$school_id,$year);
-        $result = $stmt->execute();
+        $stmt = $connection->prepare("INSERT INTO achievement (student_id, school_id, achievement_case) VALUES (?,?,?)");
+        $stmt->bind_param("iis", $student_id,$school_id,$achievement_case);
+        $result =  $stmt->execute();
         $stmt->close();
-
         $achievement_id = mysqli_insert_id($connection);
 
-        $stmt = $connection->prepare("INSERT INTO non acadamic (achievement_id,case,place) VALUES (?,?,?)");
-        $stmt->bind_param("iss",$achievement_id,$case,$place);
+        $stmt = $connection->prepare("INSERT INTO non_acadamic (achievement_id,ncase,place,date) VALUES (?,?,?,?)");
+        echo("INSERT INTO non_acadamic (achievement_id,ncase,place,date) VALUES ($achievement_id,$case,$place,$date)") ;
+        $stmt->bind_param("isis",$achievement_id,$case,$place,$date);
         $result = $stmt->execute();
         $stmt->close();
 
@@ -56,27 +57,30 @@ class AchievementController {
         $connection = $connectionObject->get_connection();
 
         $student_id = $achievement->getStudentId();
-        $year = $achievement->getYear();
-        $exam = $achievement->getExam();
-        $exam_result = $achievement->getSubjectResult();
-        $school_id = 1; //need to edit
 
+        $ol = $achievement->getOl();
+        $al = $achievement->getAl();
+        $achievement_case = $achievement->getAchievementCase();
+        $school_id = $achievement->getSchoolId();
 
-        $stmt = $connection->prepare("INSERT INTO achievement (student_id, school_id, year) VALUES (?,?,?)");
-        $stmt->bind_param("iis", $student_id,$school_id,$year);
+        $stmt = $connection->prepare("INSERT INTO achievement (student_id, school_id, achievement_case) VALUES (?,?,?)");
+        $stmt->bind_param("iis", $student_id,$school_id,$achievement_case);
+        echo($student_id." ".$school_id." ".$achievement_case);
         $result = $stmt->execute();
         $stmt->close();
+
 
         $achievement_id = mysqli_insert_id($connection);
 
-        $stmt = $connection->prepare("INSERT INTO acadamic (achievement_id,exam,result) VALUES (?,?,?)");
-        $stmt->bind_param("iss",$achievement_id,$exam,$exam_result);
+        $stmt = $connection->prepare("INSERT INTO acadamic (achievement_id,ordinary_level,advanced_level) VALUES (?,?,?)");
+
+        $stmt->bind_param("iss",$achievement_id,$ol,$al);
+
         $result = $stmt->execute();
+
         $stmt->close();
 
         return $result;
-
-
     }
 
 

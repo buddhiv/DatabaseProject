@@ -8,7 +8,7 @@
 if (file_exists('../mysql_connector.php')) {
     include '../mysql_connector.php';
 }
-include '../model/School.php';
+
 
 
 function getAllSchools()

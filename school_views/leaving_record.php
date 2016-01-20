@@ -98,7 +98,7 @@ use Model\Student;
 
 
                     <div class="form-group">
-                        <label for="registered_date" class="col-sm-2 control-label"> Date</label>
+                        <label for="registered_date" class="col-sm-2 control-label">Date</label>
 
                         <div class="col-sm-6">
                             <div class="input-group">

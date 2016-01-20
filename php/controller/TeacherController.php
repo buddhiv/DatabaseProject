@@ -20,11 +20,10 @@ use Model\Connection;
 use Model\Teacher;
 
 
-class TeacherController
-{
 
-    function addTeacher(Teacher $teacher)
-    {
+class TeacherController{
+
+    function addTeacher(Teacher $teacher){
 
         $connectionObject = Connection::getInstance();
         $connection = $connectionObject->get_connection();
@@ -40,14 +39,14 @@ class TeacherController
         $school_id = 1;
 
         $stmt = $connection->prepare("INSERT INTO teacher (name_in_full, subject, address,  telephone) VALUES (?,?,?,?)");
-        $stmt->bind_param("ssss", $name_in_full, $subject, $address, $telephone);
+        $stmt->bind_param("ssss", $name_in_full,$subject,$address,$telephone);
         $result = $stmt->execute();
         $stmt->close();
 
         $teacher_id = mysqli_insert_id($connection);
 
         $stmt = $connection->prepare("INSERT INTO teacher_school (teacher_id,school_id,start_of_working_date,distance_from_permanent_residence) VALUES (?,?,?,?)");
-        $stmt->bind_param("iisi", $teacher_id, $school_id, $registered_date, $distance);
+        $stmt->bind_param("iisi",$teacher_id,$school_id,$registered_date,$distance);
         $result = $stmt->execute();
         $stmt->close();
 
@@ -55,47 +54,31 @@ class TeacherController
 
     }
 
-    function addTransferredTeacher($date)
-    {
+    function addTransferredTeacher(Teacher $teacher){
 
         $connectionObject = Connection::getInstance();
         $connection = $connectionObject->get_connection();
 
-        //register leaving
-        $oldSchool_id = 1;
-        $teacher_id = 1;
-        $transferred_date = $date;
 
-        $stmt = $connection->prepare("UPDATE  teacher_school SET leaving_date = ? WHERE teacher_id = ? AND school_id = ?");
-        $stmt->bind_param("sii", $date, $teacher_id, $oldSchool_id);
-        $result = $stmt->execute();
-        $stmt->close();
+        $teacher_id = $teacher->getTeacherId();
+        $registered_date = $teacher->getRegisteredDate();
+        $distance = $teacher->getDistance();
+        $school_id = $_SESSION['school_id'];
 
-        //register for new school
-        $newSchool_id = 2;
-        $distance = 12;
         $stmt = $connection->prepare("INSERT INTO teacher_school (teacher_id,school_id,start_of_working_date,distance_from_permanent_residence) VALUES (?,?,?,?)");
-        $stmt->bind_param("iisi", $teacher_id, $newSchool_id, $transferred_date, $distance);
+        $stmt->bind_param("iisi",$teacher_id,$school_id,$registered_date,$distance);
         $result = $stmt->execute();
         $stmt->close();
 
         return $result;
     }
 
-<<<<<<< HEAD
-    function getTeachersBySchool($school_id)
-=======
     function getLeavedTeachersBySchool($school_id)
->>>>>>> f5b311ff9f63f1c9e933ec9e906affb58c56d90e
     {
         $connectionObject = Connection::getInstance();
         $connection = $connectionObject->get_connection();
 
-<<<<<<< HEAD
-        $sql = "SELECT * FROM teacher_school LEFT JOIN teacher on teacher.teacher_id = teacher_school.teacher_id WHERE teacher_school.school_id = " . $school_id;
-=======
         $sql = "SELECT t.teacher_id, t.name_in_full FROM teacher t NATURAL JOIN teacher_school ts WHERE ts.leaving_date IS NOT NULL AND school_id =" . $school_id;
->>>>>>> f5b311ff9f63f1c9e933ec9e906affb58c56d90e
         $resultset = mysqli_query($connection, $sql);
 
         return $resultset;

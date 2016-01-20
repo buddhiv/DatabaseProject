@@ -93,9 +93,40 @@
                                     <div class="form-group">
                                         <label for="namewithinitials" class="col-sm-3 control-label">Address</label>
 
+<<<<<<< HEAD
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="address" name="address"
                                                    placeholder="Address">
+=======
+
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="divisionalsecretaryarea"
+                                               placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="isrural" class="col-sm-3 control-label">Is Rural</label>
+
+                                    <div class="col-sm-9">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="ruralno" id="ruralno"
+                                                       value="no" />
+                                                No
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="ruralyes" id="ruralyes"
+                                                       value="Yes"/>
+                                                Yes
+                                            </label>
+
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="schooladdress"
+                                                   placeholder="">
+
+>>>>>>> 16cee4def709f8f86a9592a5e24f39d4247e6830
                                         </div>
                                     </div>
 
