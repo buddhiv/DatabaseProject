@@ -11,6 +11,9 @@ include_once "../php/model/Applicant.php";
 include_once "../php/model/Resident.php";
 include_once "../php/controller/ChildController1.php";
 include_once "../php/controller/ApplicantController.php";
+include_once "../php/controller/ApplicationMethodController.php";
+
+
 include_once "../php/controller/Application_ResidentController.php";
 
 use Controllers\ApplicantController;
@@ -113,6 +116,7 @@ if(isset($_POST['staff_next'])){
     $district = "GALLE";
     $school = "";
     $name = "Meepage Arachige Susila Samarasekara";
+
 
 
 }
