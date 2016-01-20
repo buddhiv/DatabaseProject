@@ -1,3 +1,6 @@
+
+<?php    $ownerships = array('APPLICANT','FATHER','MOTHER','REGISTERED_LEASE_BOND','UNREGISTERED_LEASE_BOND');?>
+
 <div class="box box-primary">
     <div class="box-header with-border">
         <h3 class="box-title">Children of residents in close proximity to the school</h3>
@@ -40,7 +43,16 @@
                 </label>
 
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="owner_ship" name="owner_ship"/>
+                    <select class="form-control select2" name="owner_ship">
+                        <option></option>
+                        <?php
+                        foreach ($ownerships as $ownership) {
+                            ?>
+                            <option><?php echo $ownership; ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
                 </div>
             </div>
             <h5>
@@ -68,7 +80,7 @@
 
 
         <div class="box-footer">
-            <button type="submit" class="btn btn-primary pull-right" name="resident_next">Next</button>
+            <button type="submit" class="btn btn-primary pull-right" id="resident_next" name="resident_next">Next</button>
         </div>
         <!-- /.box-footer -->
     </form>

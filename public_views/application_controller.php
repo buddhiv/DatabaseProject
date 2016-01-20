@@ -8,12 +8,16 @@
 
 include_once "../php/model/Child.php";
 include_once "../php/model/Applicant.php";
+include_once "../php/model/Resident.php";
 include_once "../php/controller/ChildController1.php";
 include_once "../php/controller/ApplicantController.php";
+include_once "../php/controller/Application_ResidentController.php";
 
 use Controllers\ApplicantController;
+use Controllers\Application_ResidentController;
 use Model\Applicant;
 use Model\Child;
+use Model\Resident;
 
 
 if (isset($_POST['next'])) {
@@ -76,25 +80,35 @@ if (isset($_POST['next'])) {
 
 
     //Resident Method
-    if (isset($_POST['resident_next'])) {
 
-        $noofyears_spouse = $_POST["noofyears_spouse"];
-        $noofyears_applicant = $_POST["noofyears_applicant"];
-        if ($noofyears_applicant > $noofyears_spouse) {
-            $spent_years = $noofyears_applicant;
-        } else {
-            $spent_years = $noofyears_spouse;
-        }
-
-        $ownership = $_POST["owner_ship"];
-        $num_of_close_school = $_POST["close_school"];
+    $childController = new ChildController1();
+    $childController->addChild($child);
 
 
+}
+//Resident category
+if (isset($_POST['resident_next'])) {
+
+    $noofyears_spouse = $_POST["noofyears_spouse"];
+    $noofyears_applicant = $_POST["noofyears_applicant"];
+    if ($noofyears_applicant > $noofyears_spouse) {
+        $spent_years = $noofyears_applicant;
+    } else {
+        $spent_years = $noofyears_spouse;
     }
 
-//    $childController = new ChildController1();
-//    $childController->addChild($child);
-//
+    $ownership = $_POST["owner_ship"];
+    $num_of_close_school = $_POST["close_school"];
 
+    echo $spent_years;
+    $resident = new Resident(null, null, $spent_years, $ownership, $num_of_close_school, null, null);
+
+    $resident_controller = new Application_ResidentController();
+    $resident_controller->addResidentDetails($resident);
+
+}
+
+
+if(isset($_POST['staff_next'])){
 
 }

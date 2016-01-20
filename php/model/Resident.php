@@ -96,7 +96,7 @@ class Resident
             $this->marks = 10;
         } elseif (strcmp($this->ownership, "APPLICANT") == 0) {
             $this->marks = 15;
-        } elseif (strcmp($this->ownership, "REGIDTERED_LEASE_BOND") == 0) {
+        } elseif (strcmp($this->ownership, "REGISTERED_LEASE_BOND") == 0) {
             $this->marks = 5;
         } elseif (strcmp($this->ownership, "UNREGISTERED_LEASE_BOND") == 0) {
             $this->marks = 3;
