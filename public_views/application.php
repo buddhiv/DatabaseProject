@@ -278,7 +278,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                             <option></option>
 =======
                                         <select class="form-control select2" name="district">
->>>>>>> f5b311ff9f63f1c9e933ec9e906affb58c56d90e
+
                                             <?php
                                             foreach ($districts as $district) {
                                                 ?>
