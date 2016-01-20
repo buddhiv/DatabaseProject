@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44ea6100-b1e0-438d-9bc4-ee58541347f0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/model/Achievement.php" afterPath="$PROJECT_DIR$/php/model/Achievement.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/controller/AchievementController.php" afterPath="$PROJECT_DIR$/php/controller/AchievementController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/model/Teacher.php" afterPath="$PROJECT_DIR$/php/model/Teacher.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/controller/TeacherController.php" afterPath="$PROJECT_DIR$/php/controller/TeacherController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/school_views/add_acadamic_achievement.php" afterPath="$PROJECT_DIR$/school_views/add_acadamic_achievement.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/school_views/add_non_acadamic_achievement.php" afterPath="$PROJECT_DIR$/school_views/add_non_acadamic_achievement.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/school_views/add_transferred_student.php" afterPath="$PROJECT_DIR$/school_views/add_transferred_student.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/school_views/add_transferred_teacher.php" afterPath="$PROJECT_DIR$/school_views/add_transferred_teacher.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/school_views/index.php" afterPath="$PROJECT_DIR$/school_views/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/school_views/leaving_record.php" afterPath="$PROJECT_DIR$/school_views/leaving_record.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/school_views/login.php" afterPath="$PROJECT_DIR$/school_views/login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/school_views/school_menu.php" afterPath="$PROJECT_DIR$/school_views/school_menu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/school_views/school_sidebar.php" afterPath="$PROJECT_DIR$/school_views/school_sidebar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="44ea6100-b1e0-438d-9bc4-ee58541347f0" name="Default" comment="" />
     <ignored path="DatabaseProject.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
