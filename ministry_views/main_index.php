@@ -8,7 +8,7 @@
 
 
 include_once "../php/model/School.php";
-include_once "../php/controller/StudentController.php";
+include_once "../php/controller/SchoolController.php";
 
 
 use Model\School;

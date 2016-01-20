@@ -74,6 +74,24 @@ if (isset($_POST['next'])) {
         header('Location: category_form.php?type=presentpupil');
     }
 
+
+    //Resident Method
+    if (isset($_POST['resident_next'])) {
+
+        $noofyears_spouse = $_POST["noofyears_spouse"];
+        $noofyears_applicant = $_POST["noofyears_applicant"];
+        if ($noofyears_applicant > $noofyears_spouse) {
+            $spent_years = $noofyears_applicant;
+        } else {
+            $spent_years = $noofyears_spouse;
+        }
+
+        $ownership = $_POST["owner_ship"];
+        $num_of_close_school = $_POST["close_school"];
+
+
+    }
+
 //    $childController = new ChildController1();
 //    $childController->addChild($child);
 //
