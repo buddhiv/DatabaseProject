@@ -110,5 +110,6 @@ if (isset($_POST['resident_next'])) {
 
 
 if(isset($_POST['staff_next'])){
+    $district = "GALLE";
 
 }
