@@ -54,26 +54,19 @@ class TeacherController{
 
     }
 
-    function addTransferredTeacher($date){
+    function addTransferredTeacher(Teacher $teacher){
 
         $connectionObject = Connection::getInstance();
         $connection = $connectionObject->get_connection();
 
-        //register leaving
-        $oldSchool_id = 1;
-        $teacher_id = 1;
-        $transferred_date =$date;
 
-        $stmt = $connection->prepare("UPDATE  teacher_school SET leaving_date = ? WHERE teacher_id = ? AND school_id = ?");
-        $stmt->bind_param("sii", $date,$teacher_id,$oldSchool_id);
-        $result = $stmt->execute();
-        $stmt->close();
+        $teacher_id = $teacher->getTeacherId();
+        $registered_date = $teacher->getRegisteredDate();
+        $distance = $teacher->getDistance();
+        $school_id = $_SESSION['school_id'];
 
-        //register for new school
-        $newSchool_id = 2;
-        $distance = 12;
         $stmt = $connection->prepare("INSERT INTO teacher_school (teacher_id,school_id,start_of_working_date,distance_from_permanent_residence) VALUES (?,?,?,?)");
-        $stmt->bind_param("iisi",$teacher_id,$newSchool_id,$transferred_date,$distance);
+        $stmt->bind_param("iisi",$teacher_id,$school_id,$registered_date,$distance);
         $result = $stmt->execute();
         $stmt->close();
 

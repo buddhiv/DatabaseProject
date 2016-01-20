@@ -79,13 +79,12 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
         <section class="content">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form class="form-horizontal">
+                <form class="form-horizontal" action="index.php">
 
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">District</label>
 
                         <div class="col-sm-6">
-<<<<<<< HEAD
                             <select class="form-control select2" style="width: 100%;"
                                     onchange="load_district_schools(this.value)" name="district" id="district">
                                 <option></option>
@@ -97,19 +96,6 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                 }
                                 ?>
                             </select>
-=======
-
-                                    <select class="form-control select2" style="width: 100%;" name="district" id="district">
-                                        <?php
-                                        foreach ($districts as $district){
-                                            ?>
-                                            <option><?php echo $district ?></option>
-                                            <?php
-                                        }
-                                        ?>
-                                    </select>
->>>>>>> d5fcc9c1c523f5b46c7536639c58e0ee7982db1d
-
                         </div>
                     </div>
 
@@ -136,6 +122,15 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                     </div>
 
                     <div class="form-group">
+                        <label for="distance" class="col-sm-2 control-label">Distance from Residence</label>
+
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="distance" name="distance" placeholder="Distance in km">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
                         <label for="registered_date" class="col-sm-2 control-label">Registered Date</label>
 
                         <div class="col-sm-6">
@@ -149,6 +144,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                         </div>
                     </div>
 
+                    <input type="hidden" id="add_transferred_teacher" name="add_transferred_teacher">
 
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">

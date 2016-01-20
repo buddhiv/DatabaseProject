@@ -24,8 +24,20 @@ use Model\Student;
 use Model\Teacher;
 use Model\Achievement;
 
+if(isset($_POST['login'])){
+   // $schoolController  = new School();
 
-if(isset($_POST['add_student'])){
+    $number = $_POST['number'];
+    $name_in_full = $_POST['name_in_full'];
+    $address = $_POST['address'];
+    $registered_date= $_POST['date'];
+    $grade = $_POST['registered_grade'];
+
+    $student = new Student($address,$grade,$name_in_full,$number,$registered_date);
+    $studentController->addStudent($student);
+
+    include "add_student.php";
+}elseif(isset($_POST['add_student'])){
     $studentController = new StudentController();
 
     $number = $_POST['number'];
@@ -65,39 +77,53 @@ if(isset($_POST['add_student'])){
     $teacherController = new TeacherController;
     $teacherController->addTeacher($teacher);
     include "add_transferred_student.php";
+}elseif(isset($_POST['add_transferred_teacher'])){
+
+    $teacher_id = $_POST['teachersforschool'];
+    $name = "";
+    $registered_date = $_POST['date'];
+    $subject = "";
+    $address = "";
+    $distance = $_POST['distance'];
+
+    $teacher = new Teacher($address,$distance,$name,$contact_number,$registered_date,$subject);
+    $teacher->setTeacherId($teacher_id);
+
+    $teacherController = new TeacherController();
+    $teacherController->addTransferredTeacher($teacher);
+    include "add_transferred_student.php";
+}elseif(isset($_POST['addAcademicAchievement'])){
+
+    $student_id = $_POST["student_id"];
+    $date = $_POST["date"];
+    $ol = $_POST["ol"];
+    $al = $_POST["al"];
+    //$school_id = $_SESSION['school_id'];
+
+    $achievement = new Achievement($student_id,1,"Academic");
+    $achievement->setOl($ol);
+    $achievement->setAl($al);
+
+    $achievement_controller = new AchievementController();
+    echo $achievement_controller->addAcademicAchievement($achievement);
+    include "add_acadamic_achievement.php";
+
 }elseif(isset($_POST['add_non_academic_achievement'])){
 
-    $student_id = $_POST["size"];
+    $student_id = $_POST["student_id"];
     $date = $_POST["date"];
     $case = $_POST["case"];
     $place = $_POST["place"];
 
-    $achievement = new Achievement($student_id,$date,$case,$place,'','');
+    $achievement = new Achievement($student_id,1,"Non_Academic");
+    $achievement->setDate($date);
+    $achievement->setCase($case);
+    $achievement->setPlace($place);
 
     $achievement_controller = new AchievementController();
     $achievement_controller->addNonAcademicAchievement($achievement);
 
-
-}elseif(isset($_POST['addAcademicAchievement'])){
-
-    $student_id = $_POST["size"];
-    $date = $_POST["date"];
-    $exam = $_POST["exam"];
-    $result = $_POST["comment"];
-
-    $achievement = new Achievement($student_id,$date,"","",$exam,$result);
-
-    $achievement_controller = new AchievementController();
-    $achievement_controller->addAcademicAchievement($achievement);
-
-}elseif(isset($_POST['add_transferred_teacher'])){
-
-    $date = $_POST["date"];
-
-    $add_teacher = new TeacherController();
-    $add_teacher->addTransferredTeacher($date);
-
-
+    include "add_non_acadamic_achievement.php";
 }elseif(isset($_POST['add_leaving_record'])){
     $school_id =  1;              //$_SESSION["school_id"];
     $student_id = $_POST["student_id"];
