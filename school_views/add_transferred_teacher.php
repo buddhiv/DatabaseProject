@@ -70,7 +70,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
         <!-- Content Header (Page header) -->
         <section class="content-header callout callout-info">
             <h1>
-                New Teacher
+                New Transferred Teacher
                 <small><b>Registration</b></small>
             </h1>
         </section>
@@ -247,7 +247,6 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     string = xmlhttp.responseText;
-                    alert(string);
                     document.getElementById('teachersforschool').innerHTML = string;
                 }
             };

@@ -8,7 +8,11 @@
 
 
 include_once "../php/model/School.php";
+<<<<<<< HEAD
+include_once "../php/controller/SchoolController.php";
+=======
 include_once "../php/controller/schoolController.php";
+>>>>>>> 98062dabf35f01eb6163be0442057ab20b630c90
 
 use Controllers\SchoolController;
 use Model\School;

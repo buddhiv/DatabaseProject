@@ -38,7 +38,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">This login for the schools</p>
+        <p class="login-box-msg">Choose your school and enter password</p>
 
         <form action="./index.php" method="post">
 

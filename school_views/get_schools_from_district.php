@@ -6,7 +6,7 @@
  * Time: 12:56 PM
  */
 include_once "../php/Connection.php";
-include_once '../php/controller/schoolController.php';
+include_once '../php/controller/SchoolController.php';
 include_once '../php/controller/StudentController.php';
 
 $schoolController = new \Controllers\SchoolController();

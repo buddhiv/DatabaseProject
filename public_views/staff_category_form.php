@@ -5,7 +5,7 @@
     </div>
     <!-- /.box-header -->
     <!-- form start -->
-    <form class="form-horizontal">
+    <form class="form-horizontal" method="post" action="application_controller.php">
         <div class="box-body">
             <h5>(a)</h5>
 
@@ -104,7 +104,7 @@
         </div>
 
         <div class="box-footer">
-            <button type="submit" class="btn btn-primary pull-right">Next</button>
+            <button type="submit" class="btn btn-primary pull-right" id="staff_next">Next</button>
         </div>
         <!-- /.box-footer -->
     </form>
