@@ -51,7 +51,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                About
+                ABOUT
                 <small>Registrar</small>
             </h1>
             <ol class="breadcrumb">
@@ -60,23 +60,35 @@
             </ol>
         </section>
 
+        <section>
+            <div class="row">
+                <img class="img-responsive pad" src="../dist/img/photo2.png" alt="Photo">
+            </div>
+        </section>
         <section class="content">
             <div class="row">
-                <section class="col-sm-6">
-                    <p style="margin-top: 20px;">
-                        Registrar is the online registration application for the Grade one applicants in Sri Lanka. With
-                        the development of technology we think that using a platform to register students for Grade one
-                        is a efficient way of preserving human resources and hours we lose in the manual process.
-                    </p>
+                <section class="col-sm-12">
+                    <div class="box box-primary">
+                        <div class="box-body">
+                            <p style="margin-top: 20px;">
+                                Registrar is the online registration application for the Grade one applicants in Sri
+                                Lanka.
+                                With
+                                the development of technology we think that using a platform to register students for
+                                Grade
+                                one
+                                is a efficient way of preserving human resources and hours we lose in the manual
+                                process.
+                            </p>
 
-                    <p style="margin-top: 20px;">
-                        Project Registrar was initilally deployed in 2016. This was completed by a group of
-                        undergraduates in University of Moratuwa. We chose this to replace our traditional method
-                        because we thought that this would show promise in developing efficiency in our work.
-                    </p>
-                </section>
-                <section class="col-sm-6">
-                    <img class="img-responsive pad" src="../dist/img/photo2.png" alt="Photo">
+                            <p style="margin-top: 20px;">
+                                Project Registrar was initilally deployed in 2016. This was completed by a group of
+                                undergraduates in University of Moratuwa. We chose this to replace our traditional
+                                method
+                                because we thought that this would show promise in developing efficiency in our work.
+                            </p>
+                        </div>
+                    </div>
                 </section>
             </div>
         </section>
