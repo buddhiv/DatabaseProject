@@ -83,7 +83,7 @@ $result = $studentController->getStudentList(1);
 
                     <div class="col-sm-6">
 
-                        <select class="form-control select2" style="width: 100%; height: 102%;" name="student_id">
+                        <select class="form-control select2" style="width: 100%; " name="student_id">
                             <?php
                             while($row = $result->fetch_assoc()) {
                                 ?>
@@ -98,7 +98,7 @@ $result = $studentController->getStudentList(1);
                 <div class="form-group">
                     <label for="case" class="col-sm-2 control-label">OL</label>
                     <div class="col-sm-6">
-                        <select class="form-control select2" style="width: 100%; height: 102%;" name="ol">
+                        <select class="form-control select2" style="width: 100%; " name="ol">
                             <option></option>
                             <option value="PASS">PASS</option>
                             <option value="FAIL">FAIL</option>
@@ -110,7 +110,7 @@ $result = $studentController->getStudentList(1);
                 <div class="form-group">
                     <label for="case" class="col-sm-2 control-label">AL</label>
                     <div class="col-sm-6">
-                        <select class="form-control select2" style="width: 100%; height: 102%;" name="al">
+                        <select class="form-control select2" style="width: 100%; " name="al">
                             <option></option>
                             <option value="PASS">PASS</option>
                             <option value="FAIL">FAIL</option>

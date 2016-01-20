@@ -79,7 +79,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
         <section class="content">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form class="form-horizontal" action="index.php">
+                <form class="form-horizontal" action="index.php" method="post">
 
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">District</label>

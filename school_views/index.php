@@ -67,7 +67,7 @@ if(isset($_POST['login'])){
 }elseif(isset($_POST['add_teacher'])){
 
     $name = $_POST['name'];
-    $registered_date = $_POST['registered_date'];
+    $registered_date = $_POST['date'];
     $subject = $_POST['subject'];
     $address = $_POST['address'];
     $distance = $_POST['distance'];
@@ -84,6 +84,7 @@ if(isset($_POST['login'])){
     $registered_date = $_POST['date'];
     $subject = "";
     $address = "";
+    $contact_number = "";
     $distance = $_POST['distance'];
 
     $teacher = new Teacher($address,$distance,$name,$contact_number,$registered_date,$subject);
@@ -95,7 +96,7 @@ if(isset($_POST['login'])){
 }elseif(isset($_POST['addAcademicAchievement'])){
 
     $student_id = $_POST["student_id"];
-    $date = $_POST["date"];
+
     $ol = $_POST["ol"];
     $al = $_POST["al"];
     //$school_id = $_SESSION['school_id'];

@@ -85,7 +85,7 @@ $result = $studentController->getStudentList(1);
 
                     <div class="col-sm-6">
 
-                        <select class="form-control select2" style="width: 100%; height: 102%;" name="student_id">
+                        <select class="form-control select2" style="width: 100%;" name="student_id">
                             <?php
                             while($row = $result->fetch_assoc()) {
                                 ?>

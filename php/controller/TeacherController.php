@@ -63,9 +63,10 @@ class TeacherController{
         $teacher_id = $teacher->getTeacherId();
         $registered_date = $teacher->getRegisteredDate();
         $distance = $teacher->getDistance();
-        $school_id = $_SESSION['school_id'];
+        $school_id = 2;//$_SESSION['school_id'];
 
         $stmt = $connection->prepare("INSERT INTO teacher_school (teacher_id,school_id,start_of_working_date,distance_from_permanent_residence) VALUES (?,?,?,?)");
+        echo ("INSERT INTO teacher_school (teacher_id,school_id,start_of_working_date,distance_from_permanent_residence) VALUES ($teacher_id,$school_id,$registered_date,$distance)");
         $stmt->bind_param("iisi",$teacher_id,$school_id,$registered_date,$distance);
         $result = $stmt->execute();
         $stmt->close();
