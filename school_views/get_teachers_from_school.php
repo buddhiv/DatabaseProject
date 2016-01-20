@@ -10,15 +10,15 @@ include_once '../php/controller/TeacherController.php';
 
 use Controllers\TeacherController;
 
-$studentController = new TeacherController();
+$teacherController = new TeacherController();
 
 if (isset($_GET['school_id'])) {
     if ($_GET['school_id'] != "") {
-        $teachers = $studentController->getLeavedTeachersBySchool($_GET['school_id']);
+        $teachers = $teacherController->getTeachersBySchool($_GET['school_id']);
 
         echo '<option></option>';
         foreach ($teachers as $teacher) {
-            echo '<option value=' . $teacher['teacher_id'] . '>' .$teacher['name_in_full'] . '</option>';
+            echo '<option value="' . $teacher['student_id'] . '">' . $teacher['number'] . " - " . $teacher['name_in_full'] . '</option>';
         }
     }
 }

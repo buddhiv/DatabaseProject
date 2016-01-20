@@ -66,16 +66,44 @@
             <!-- Main row -->
             <div class="row">
                 <!-- Left col -->
-                <section class="col-lg-6 connectedSortable">
-                    Supun
+                <section class="col-lg-8 connectedSortable center-block" style="left: 15%; top: 50px;">
+                    <div class="login-box-body" class="col-sm-7">
+                        <p class="login-box-msg">Sign in to start your session</p>
+
+                        <form action="../../index2.html" method="post">
+                            <div class="form-group has-feedback">
+                                <input type="email" class="form-control" placeholder="Email">
+                                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <input type="password" class="form-control" placeholder="Password">
+                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <div class="checkbox icheck" style="margin-left: 20px;">
+                                        <label>
+                                            <input type="checkbox"> Remember Me
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-xs-4">
+                                    <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                        </form>
+
+                        <div style="margin-top: 40px;">
+                            <a href="#">I forgot my password</a><br>
+                            <a href="register.html" class="text-center">Register a new membership</a>
+                        </div>
+
+                    </div>
                 </section>
                 <!-- /.Left col -->
 
-                <!--                Right col-->
-                <section>
-                    Arunoda Munasinghe
-                </section>
-                <!--                Right col-->
             </div>
             <!-- /.row (main row) -->
 

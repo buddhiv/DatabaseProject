@@ -92,7 +92,7 @@
                                     <div class="form-group">
                                         <label for="namewithinitials" class="col-sm-3 control-label">Address</label>
 
-<<<<<<< HEAD
+
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="divisionalsecretaryarea"
                                                placeholder="">
@@ -115,11 +115,11 @@
                                                        value="Yes"/>
                                                 Yes
                                             </label>
-=======
+
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="schooladdress"
                                                    placeholder="">
->>>>>>> 75824730ad89f01c7b9429bb52b5dd33bfdfbe8b
+
                                         </div>
                                     </div>
                                     <div class="form-group">
