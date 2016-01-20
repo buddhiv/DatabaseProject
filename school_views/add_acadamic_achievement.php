@@ -1,3 +1,18 @@
+<?php
+include_once "../php/model/Student.php";
+include_once "../php/controller/StudentController.php";
+
+
+use Controllers\StudentController;
+
+use Model\Student;
+
+$studentController = new StudentController();
+//$studentController->getStudentList($_SESSION['school_id']);
+$result = $studentController->getStudentList(1);
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +29,8 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="../plugins/datepicker/datepicker3.css">
+
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../dist/css/skins/skin-blue-light.css">
@@ -23,13 +40,15 @@
     <link rel="stylesheet" href="../plugins/morris/morris.css">
     <!-- jvectormap -->
     <link rel="stylesheet" href="../plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+    <link rel="stylesheet" href="../plugins/select2/select2.min.css">
     <!-- Date Picker -->
     <link rel="stylesheet" href="../plugins/datepicker/datepicker3.css">
     <!-- Daterange picker -->
     <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker-bs3.css">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-
+    <script src="../plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script src="../plugins/select2/select2.full.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -58,40 +77,44 @@
             <!-- Small boxes (Stat box) -->
 
             <form class="form-horizontal" action="index.php" method="post">
+
                 <div class="form-group">
-                    <label class="col-xs-2 control-label">Student Number</label>
-                    <div class="col-xs-6 selectContainer">
-                        <select class="form-control" name="size">
-                            <option value="2223">2253</option>
-                            <option value="2254">2254</option>
-                            <option value="2255">2255</option>
-                            <option value="2222">2222</option>
-                            <option value="2224">2224</option>
+                    <label for="name" class="col-sm-2 control-label">Student</label>
+
+                    <div class="col-sm-6">
+
+                        <select class="form-control select2" style="width: 100%; " name="student_id">
+                            <?php
+                            while($row = $result->fetch_assoc()) {
+                                ?>
+                                <option value="<?php echo $row['student_id']?>"><?php echo ($row['student_id'] ."  -  ". $row['name_in_full'])?></option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="case" class="col-sm-2 control-label">OL</label>
+                    <div class="col-sm-6">
+                        <select class="form-control select2" style="width: 100%; " name="ol">
+                            <option></option>
+                            <option value="PASS">PASS</option>
+                            <option value="FAIL">FAIL</option>
                         </select>
                     </div>
                 </div>
 
 
                 <div class="form-group">
-                    <label class="col-xs-2 control-label">Date</label>
-
+                    <label for="case" class="col-sm-2 control-label">AL</label>
                     <div class="col-sm-6">
-                        <input type="date" class="form-control pull-right" id="date" name="date">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="case" class="col-sm-2 control-label">exam</label>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" id="exam" name="exam" placeholder="Exam">
-                    </div>
-                </div>
-
-                <div class="form-group">
-
-                    <label for="comment" class="col-sm-2">Subjects and Results</label>
-                    <div class="col-sm-6">
-                        <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+                        <select class="form-control select2" style="width: 100%; " name="al">
+                            <option></option>
+                            <option value="PASS">PASS</option>
+                            <option value="FAIL">FAIL</option>
+                        </select>
                     </div>
                 </div>
 
@@ -140,6 +163,7 @@
 <!-- Sparkline -->
 <script src="../plugins/sparkline/jquery.sparkline.min.js"></script>
 <!-- jvectormap -->
+<script src="../plugins/select2/select2.full.min.js"></script>
 <script src="../plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
 <script src="../plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 <!-- jQuery Knob Chart -->
@@ -161,5 +185,76 @@
 <script src="../dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
+
+<script type="text/javascript">
+    $('#Date').datepicker({
+        autoclose: true,
+        todayHighlight: true,
+        format: 'yyyy-mm-dd'
+    });
+</script>
+
+<script>
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Datemask dd/mm/yyyy
+        $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+        //Datemask2 mm/dd/yyyy
+        $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
+        //Money Euro
+        $("[data-mask]").inputmask();
+
+        //Date range picker
+        $('#reservation').daterangepicker();
+        //Date range picker with time picker
+        $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+        //Date range as a button
+        $('#daterange-btn').daterangepicker(
+            {
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                startDate: moment().subtract(29, 'days'),
+                endDate: moment()
+            },
+            function (start, end) {
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            }
+        );
+
+        //iCheck for checkbox and radio inputs
+        $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+            checkboxClass: 'icheckbox_minimal-blue',
+            radioClass: 'iradio_minimal-blue'
+        });
+        //Red color scheme for iCheck
+        $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+            checkboxClass: 'icheckbox_minimal-red',
+            radioClass: 'iradio_minimal-red'
+        });
+        //Flat red color scheme for iCheck
+        $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+            checkboxClass: 'icheckbox_flat-green',
+            radioClass: 'iradio_flat-green'
+        });
+
+        //Colorpicker
+        $(".my-colorpicker1").colorpicker();
+        //color picker with addon
+        $(".my-colorpicker2").colorpicker();
+
+        //Timepicker
+        $(".timepicker").timepicker({
+            showInputs: false
+        });
+    });
+</script>
 </body>
 </html>

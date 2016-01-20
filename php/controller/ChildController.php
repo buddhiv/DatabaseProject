@@ -5,9 +5,15 @@
  * Date: 1/7/2016
  * Time: 11:31 AM
  */
+
 if (file_exists('../mysql_connector.php')) {
     include '../mysql_connector.php';
 }
+
+use Model\Connection;
+use Model\Child;
+
+
 function getChildrenCount($school_id)
 {
     $link = getConnection();
