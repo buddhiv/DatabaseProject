@@ -14,11 +14,11 @@ $studentController = new StudentController();
 
 if (isset($_GET['school_id'])) {
     if ($_GET['school_id'] != "") {
-        $students = $studentController->getStudentsBySchool($_GET['school_id']);
+        $students = $studentController->getLeavedStudentsBySchool($_GET['school_id']);
 
         echo '<option></option>';
         foreach ($students as $student) {
-            echo '<option value="' . $student['student_id'] . '">' . $student['number'] . " - " . $student['name_in_full'] . '</option>';
+            echo '<option value=' . $student['student_id'] . '>' . $student['registration_number'] . " - " . $student['name_in_full'] . '</option>';
         }
     }
 }

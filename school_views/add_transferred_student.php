@@ -79,7 +79,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
         <section class="content">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form class="form-horizontal">
+                <form class="form-horizontal" action="./index.php" method="post">
 
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">District</label>
@@ -126,7 +126,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                         <label for="number" class="col-sm-2 control-label">Registration Number</label>
 
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="number" placeholder="Student Number">
+                            <input type="text" class="form-control" id="number" placeholder="Student Number" name="number">
                         </div>
                     </div>
 
@@ -138,7 +138,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control" id="Date"/>
+                                <input type="text" class="form-control" id="Date" name="date"/>
                             </div>
 
                         </div>
@@ -149,10 +149,12 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
 
 
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="registered_grade"
+                            <input type="text" class="form-control" id="registered_grade" name="registered_grade"
                                    placeholder="Registered Grade">
                         </div>
                     </div>
+
+                    <input type="hidden" id="add_transferred_student" name="add_transferred_student">
 
 
                     <div class="form-group">
@@ -214,7 +216,8 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
 <script type="text/javascript">
     $('#Date').datepicker({
         autoclose: true,
-        todayHighlight: true
+        todayHighlight: true,
+        format: 'yyyy-mm-dd'
     });
 
     function load_district_schools(district) {
@@ -249,7 +252,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     string = xmlhttp.responseText;
-                    alert(string);
+//                    alert(string);
                     document.getElementById('studentsforschool').innerHTML = string;
                 }
             };

@@ -34,7 +34,7 @@ class StudentController
         $address = $student->getAddress();
         $registered_date = $student->getRegisterdDate();
         $grade = $student->getGrade();
-        $school_id = 1;                 //  NEED TO CHANGE
+        $school_id = 1; //  NEED TO CHANGE
         $is_old_boy = 0;
 
         $stmt = $connection->prepare("INSERT INTO student(name_in_full, address) VALUES (?,?)");
@@ -52,23 +52,49 @@ class StudentController
         return $result;
     }
 
-    function getStudentList($school_id){
+    function addTransferredStudent(Student $student)
+    {
         $connectionObject = Connection::getInstance();
         $connection = $connectionObject->get_connection();
 
-        $sql = "SELECT student_id,name_in_full FROM student NATURAL JOIN student_school WHERE leaving_date IS NULL AND school_id = ".$school_id;
+        $number = $student->getNumber();
+        $registered_date = $student->getRegisterdDate();
+        $grade = $student->getGrade();
+        $student_id = $student->getStudentId();
+
+        $school_id = 1; //  NEED TO CHANGE
+        $is_old_boy = 0;
+
+        $stmt = $connection->prepare("INSERT INTO student_school(student_id, school_id, registered_date,is_old_boy, starting_grade, registration_number) VALUES (?,?,?,?,?,?)");
+        $stmt->bind_param("sssiss", $student_id, $school_id, $registered_date, $is_old_boy, $grade, $number);
+        $result = $stmt->execute();
+        echo ($result);
+        $stmt->close();
+
+        echo ($result);
+        return $result;
+    }
+
+
+    function getStudentList($school_id)
+    {
+        $connectionObject = Connection::getInstance();
+        $connection = $connectionObject->get_connection();
+
+        $sql = "SELECT student_id,name_in_full FROM student NATURAL JOIN student_school WHERE leaving_date IS NULL AND school_id = " . $school_id;
         $result = $connection->query($sql);
         return $result;
     }
 
 
-    function addLeavingRecord($school_id,$student_id,$date){
+    function addLeavingRecord($school_id, $student_id, $date)
+    {
         $connectionObject = Connection::getInstance();
         $connection = $connectionObject->get_connection();
 
 
         $stmt = $connection->prepare("UPDATE student_school SET leaving_date=? WHERE student_id=? AND school_id=?");
-        $stmt->bind_param("sii", $date,$student_id,$school_id);
+        $stmt->bind_param("sii", $date, $student_id, $school_id);
         $result = $stmt->execute();
         $stmt->close();
         return $result;
@@ -79,7 +105,19 @@ class StudentController
         $connectionObject = Connection::getInstance();
         $connection = $connectionObject->get_connection();
 
-        $sql = "SELECT * FROM student_school LEFT JOIN student on student.student_id = student_school.student_id WHERE student_school.school_id = " . $school_id;
+        $sql = "SELECT * FROM student_school NATURAL JOIN student on student.student_id = student_school.student_id WHERE student_school.school_id = " . $school_id;
+        $resultset = mysqli_query($connection, $sql);
+
+        return $resultset;
+    }
+
+
+    function getLeavedStudentsBySchool($school_id)
+    {
+        $connectionObject = Connection::getInstance();
+        $connection = $connectionObject->get_connection();
+
+        $sql = "SELECT s.student_id, s.name_in_full,ss.registration_number FROM student s NATURAL JOIN student_school ss WHERE ss.leaving_date IS NOT NULL AND school_id =" . $school_id;
         $resultset = mysqli_query($connection, $sql);
 
         return $resultset;
