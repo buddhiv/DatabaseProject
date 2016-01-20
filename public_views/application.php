@@ -134,7 +134,8 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                     <label for="nameinfull" class="col-sm-3 control-label">Name in full</label>
 
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="nameinfull" name="nameinfull" placeholder="">
+                                        <input type="text" class="form-control" id="nameinfull" name="nameinfull"
+                                               placeholder="">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -186,19 +187,6 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="dateofbirth" class="col-sm-3 control-label">Age on 31st
-                                        Jan <?php echo date("Y"); ?></label>
-
-                                    <div class="col-sm-9">
-                                        <div class="input-group">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </div>
-                                            <input type="text" class="form-control" name="ageon31st"/>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <div class="box-body">
                                 <h5>03. Details of the Applicant:</h5>
@@ -242,7 +230,8 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                     <label for="applicantreligion" class="col-sm-3 control-label">Religion</label>
 
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="applicantreligion" name="applicantreligion"
+                                        <input type="text" class="form-control" id="applicantreligion"
+                                               name="applicantreligion"
                                                placeholder="">
                                     </div>
                                 </div>
@@ -251,7 +240,8 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                         Address</label>
 
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="permanentaddress" name="permanentaddress"
+                                        <input type="text" class="form-control" id="permanentaddress"
+                                               name="permanentaddress"
                                                placeholder="">
                                     </div>
                                 </div>
@@ -273,12 +263,8 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                         District</label>
 
                                     <div class="col-sm-9">
-<<<<<<< HEAD
-                                        <select class="form-control select2">
-                                            <option></option>
-=======
                                         <select class="form-control select2" name="district">
->>>>>>> f5b311ff9f63f1c9e933ec9e906affb58c56d90e
+                                            <option></option>
                                             <?php
                                             foreach ($districts as $district) {
                                                 ?>
@@ -370,7 +356,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                 <div class="col-xs-12">
                                     <div class="box">
                                         <div class="box-body table-responsive no-padding">
-                                            <table class="table table-hover" >
+                                            <table class="table table-hover">
                                                 <tr>
                                                     <th>Year</th>
                                                     <th>Polling division</th>
@@ -425,7 +411,8 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary pull-right" name="next" id="next">Next</button>
+                                <button type="submit" class="btn btn-primary pull-right" name="next" id="next">Next
+                                </button>
                             </div>
                             <!-- /.box-footer -->
                         </form>
