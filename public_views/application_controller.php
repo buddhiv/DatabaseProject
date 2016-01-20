@@ -14,10 +14,7 @@ include_once "../php/controller/ApplicantController.php";
 include_once "../php/controller/ApplicationMethodController.php";
 
 
-include_once "../php/controller/Application_ResidentController.php";
-
 use Controllers\ApplicantController;
-use Controllers\Application_ResidentController;
 use Controllers\ApplicationMethodController;
 use Model\Applicant;
 use Model\Child;
@@ -112,12 +109,12 @@ if (isset($_POST['resident_next'])) {
 
 }
 
+if (isset($_POST['staff_next'])) {
 
-if(isset($_POST['staff_next'])){
-
-    $name = $_POST["teacher_id"];
+    $teacher_id = $_POST["teachers"];
 
     $category_controller = new ApplicationMethodController();
     $category_controller->addStaffMethod($teacher_id);
 
 }
+

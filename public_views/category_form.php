@@ -256,6 +256,47 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
             xmlhttp.send();
         }
     }
+
+    function load_school_pastpupils(school_id) {
+        if (school_id != "") {
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    string = xmlhttp.responseText;
+                    document.getElementById('pastpupils').innerHTML = string;
+                }
+            };
+
+            xmlhttp.open("GET", "get_pastpupils_from_school.php?school_id=" + school_id, true);
+            xmlhttp.send();
+        }
+    }
+    function load_school_presentpupils(school_id) {
+        if (school_id != "") {
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    string = xmlhttp.responseText;
+                    document.getElementById('presentpupils').innerHTML = string;
+                }
+            };
+
+            xmlhttp.open("GET", "get_presentpupils_from_school.php?school_id=" + school_id, true);
+            xmlhttp.send();
+        }
+    }
 </script>
 
 </body>

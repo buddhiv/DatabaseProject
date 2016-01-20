@@ -6,72 +6,52 @@
     <!-- form start -->
     <form class="form-horizontal">
         <div class="box-body">
+            <h5>Select a Past Pupil</h5>
+
             <div class="form-group">
-                <label class="col-sm-8 control-label pull-left" for="documents" style="text-align: left;">
-                    Period spent in the school as a pupil (From - To)
+                <label class="col-sm-3 control-label pull-left" for="posts" style="text-align: left;">
+                    Select District
                 </label>
 
-                <div class="col-sm-2">
-                    <div class="input-group">
-                        <div class="input-group-addon">
-                            <i class="fa fa-calendar"></i>
-                        </div>
-                        <input type="text" class="form-control datepicker" name="studentfrom"/>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="input-group">
-                        <div class="input-group-addon">
-                            <i class="fa fa-calendar"></i>
-                        </div>
-                        <input type="text" class="form-control datepicker" name="studentto"/>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-8 control-label pull-left" for="documents" style="text-align: left;">
-                    Grade (From - To)
-                </label>
-
-                <div class="col-sm-2">
-                    <input type="text" class="form-control" id="documents"/>
-                </div>
-                <div class="col-sm-2">
-                    <input type="text" class="form-control" id="documents"/>
+                <div class="col-sm-9">
+                    <select class="form-control select2" id="district" name="district"
+                            onchange="load_district_schools(this.value)">
+                        <option></option>
+                        <?php
+                        foreach ($districts as $district) {
+                            ?>
+                            <option><?php echo $district ?></option>
+                            <?php
+                        }
+                        ?>
+                    </select>
                 </div>
             </div>
         </div>
         <div class="box-body">
             <div class="form-group">
-                <label class="col-sm-8 control-label pull-left" for="documents" style="text-align: left;">
-                    Educational achievements gained during schooling period
+                <label class="col-sm-3 control-label pull-left" for="distance" style="text-align: left;">
+                    Select School
                 </label>
 
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" id="documents"/>
+                <div class="col-sm-9">
+                    <select id="schoolsfordistrict" class="select2 form-control" name="school"
+                            onchange="load_school_pastpupils(this.value)">
+
+                    </select>
                 </div>
             </div>
         </div>
         <div class="box-body">
             <div class="form-group">
-                <label class="col-sm-8 control-label pull-left" for="documents" style="text-align: left;">
-                    Achievements gained in co-curricular activities during the schooling period
+                <label class="col-sm-3 control-label pull-left" for="pastpupils" style="text-align: left;">
+                    Past Pupils
                 </label>
 
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" id="documents"/>
-                </div>
-            </div>
-        </div>
-        <div class="box-body">
-            <div class="form-group">
-                <label class="col-sm-8 control-label pull-left" for="documents" style="text-align: left;">
-                    Memberships in past pupil assosiations, educational achievements after period of schooling and
-                    various types of assistance provided for the development of the school
-                </label>
+                <div class="col-sm-9">
+                    <select class="form-control select2" id="pastpupils" name="name">
 
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" id="documents"/>
+                    </select>
                 </div>
             </div>
         </div>

@@ -135,7 +135,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
 
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="nameinfull" name="nameinfull"
-                                               onkeyup="validate_for_string(this, this.value)">
+                                               onkeyup="validate_for_name(this, this.value)">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -144,7 +144,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
 
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="namewithinitials"
-                                               name="namewithinitials" placeholder="">
+                                               name="namewithinitials" onkeyup="validate_for_name(this, this.value)">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -579,7 +579,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
         }
     }
 
-    function validate_for_string(component, value) {
+    function validate_for_name(component, value) {
         var len = value.length;
 
         if (value != "") {

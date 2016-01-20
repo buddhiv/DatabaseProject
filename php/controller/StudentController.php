@@ -120,6 +120,28 @@ class StudentController
 
         return $resultset;
     }
+
+    function getPastPupilsBySchool($school_id)
+    {
+        $connectionObject = Connection::getInstance();
+        $connection = $connectionObject->get_connection();
+
+        $sql = "SELECT * FROM student_school LEFT JOIN student ON student.student_id = student_school.student_id WHERE student_school.school_id = " . $school_id . " AND student_school.leaving_date IS NOT NULL";
+        $resultset = mysqli_query($connection, $sql);
+
+        return $resultset;
+    }
+
+    function getPresentPupilsBySchool($school_id)
+    {
+        $connectionObject = Connection::getInstance();
+        $connection = $connectionObject->get_connection();
+
+        $sql = "SELECT * FROM student_school LEFT JOIN student ON student.student_id = student_school.student_id WHERE student_school.school_id = " . $school_id . " AND student_school.leaving_date IS NULL";
+        $resultset = mysqli_query($connection, $sql);
+
+        return $resultset;
+    }
 }
 
 ?>

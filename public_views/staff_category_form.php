@@ -7,13 +7,16 @@
     <!-- form start -->
     <form class="form-horizontal" method="post" action="application_controller.php">
         <div class="box-body">
+            <h5>Select a staff member</h5>
+
             <div class="form-group">
                 <label class="col-sm-3 control-label pull-left" for="posts" style="text-align: left;">
                     Select District
                 </label>
 
                 <div class="col-sm-9">
-                    <select class="form-control select2" id="district" name="district" onchange="load_district_schools(this.value)">
+                    <select class="form-control select2" id="district" name="district"
+                            onchange="load_district_schools(this.value)">
                         <option></option>
                         <?php
                         foreach ($districts as $district) {
@@ -47,7 +50,7 @@
                 </label>
 
                 <div class="col-sm-9">
-                    <select class="form-control select2" id="teachers" name="name">
+                    <select class="form-control select2" id="teachers" name="teachers">
 
                     </select>
                 </div>
