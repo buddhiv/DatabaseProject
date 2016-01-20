@@ -74,60 +74,37 @@
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
-                        <form class="form-horizontal">
+                        <form class="form-horizontal" action="main_index.php" method="post">
                             <div class="box-body">
 
                                 <div class="form-group">
 
                                 </div>
                                 <div class="box-body">
-
                                     <div class="form-group">
                                         <label for="nameinfull" class="col-sm-3 control-label">Name</label>
 
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="schoolname" placeholder="">
+                                            <input type="text" class="form-control" id="schoolname" name="schoolname"
+                                                   placeholder="">
                                         </div>
                                     </div>
+
                                     <div class="form-group">
                                         <label for="namewithinitials" class="col-sm-3 control-label">Address</label>
 
-
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="divisionalsecretaryarea"
-                                               placeholder="">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="isrural" class="col-sm-3 control-label">Is Rural</label>
-
-                                    <div class="col-sm-9">
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="ruralno" id="ruralno"
-                                                       value="no" />
-                                                No
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="ruralyes" id="ruralyes"
-                                                       value="Yes"/>
-                                                Yes
-                                            </label>
-
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="schooladdress"
-                                                   placeholder="">
-
+                                            <input type="text" class="form-control" id="address" name="address"
+                                                   placeholder="Address">
                                         </div>
                                     </div>
+
                                     <div class="form-group">
                                         <label for="schooldistrict" class="col-sm-3 control-label">
                                             District</label>
 
                                         <div class="col-sm-9">
-                                            <select class="form-control select2">
+                                            <select class="form-control select2" name="district">
                                                 <option></option>
                                                 <?php
                                                 foreach ($districts as $district) {
@@ -138,51 +115,59 @@
                                                 ?>
                                             </select>
                                         </div>
+
                                     </div>
+
                                     <div class="form-group">
                                         <label for="divisionalsecretaryarea" class="col-sm-3 control-label">Divisional
                                             Secretary Area</label>
 
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="divisionalsecretaryarea"
+                                                   name="secretary_area"
                                                    placeholder="">
                                         </div>
                                     </div>
+
                                     <div class="form-group">
                                         <label for="isrural" class="col-sm-3 control-label">Is Rural</label>
 
                                         <div class="col-sm-9">
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="ruralno" id="ruralno"
-                                                           value="option1" checked/>
+                                                    <input type="radio" name="is_rural" id="is_rural"
+                                                           value="0" checked/>
                                                     No
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="ruralyes" id="ruralyes"
-                                                           value="Yes"/>
+                                                    <input type="radio" name="is_rural" id="is_rural"
+                                                           value="1"/>
                                                     Yes
                                                 </label>
                                             </div>
                                         </div>
 
                                     </div>
+
+
                                     <div class="form-group">
-                                        <label for="schooltelephone" class="col-sm-3 control-label">Telephone</label>
+                                        <label for="schooltelephone"
+                                               class="col-sm-3 control-label">Telephone</label>
 
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="schooltelephone"
-                                                   placeholder="">
+                                                   name = "schooltelephone" placeholder="">
                                         </div>
                                     </div>
+
                                     <div class="form-group">
                                         <label for="schooldistrict" class="col-sm-3 control-label">
                                             Category</label>
 
                                         <div class="col-sm-9">
-                                            <select class="form-control select2">
+                                            <select class="form-control select2" name="category">
                                                 <option></option>
                                                 <?php
                                                 foreach ($schools as $schools) {
@@ -194,6 +179,17 @@
                                             </select>
                                         </div>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label for="capacity"
+                                               class="col-sm-3 control-label">Student Capacity</label>
+
+                                        <div class="col-sm-9">
+                                            <input type="number" class="form-control" id="capacity"
+                                                   name = "capacity" placeholder="">
+                                        </div>
+                                    </div>
+
                                     <div class="box-footer">
                                         <button type="submit" class="btn btn-primary pull-right">Submit</button>
                                     </div>

@@ -17,8 +17,6 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/databaseproject/php/Connection.php";
 include_once($path);
 
-
-
 use Model\Connection;
 use Model\School;
 
@@ -102,5 +100,7 @@ class SchoolController
 
         return $resultset;
     }
+
+
 
 }

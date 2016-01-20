@@ -41,10 +41,10 @@
 <div class="wrapper">
 
     <!--    Menu-->
-    <?php include 'ministry_menu.php'; ?>
+
 
     <!-- Left side column. contains the logo and sidebar -->
-    <?php include 'ministry_sidebar.php'; ?>
+
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
