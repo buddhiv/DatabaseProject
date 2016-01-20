@@ -18,21 +18,24 @@
 
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-                <!-- About us: style can be found in dropdown.less -->
                 <li class="">
                     <a href="about.php">
                         <i class="fa fa-info-circle">&nbsp;</i>
                         <span class="hidden-xs">About</span>
                     </a>
                 </li>
-                <!-- How to: style can be found in dropdown.less -->
                 <li class="">
                     <a href="faq.php">
                         <i class="fa fa-question-circle">&nbsp;</i>
                         <span class="hidden-xs">FAQ</span>
                     </a>
                 </li>
-                <!-- Application: style can be found in dropdown.less -->
+                <li class="">
+                    <a href="schools.php">
+                        <i class="fa fa-child">&nbsp;</i>
+                        <span class="hidden-xs">Schools</span>
+                    </a>
+                </li>
                 <li class="">
                     <a href="application.php">
                         <i class="fa fa-book">&nbsp;</i>
