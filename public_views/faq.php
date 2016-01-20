@@ -60,30 +60,58 @@
             </ol>
         </section>
 
+        <section>
+            <div class="row">
+                <img class="img-responsive pad" src="../dist/img/photo2.png" alt="Photo">
+            </div>
+        </section>
         <section class="content">
             <div class="row">
                 <section class="col-sm-12">
-                    <div class="box-body">
-                        <blockquote>
-                            <p>How do I apply for a school using this application?</p>
-                            <cite>
-                                Go to the Application tab and fill the corresponding fields in the form.
-                            </cite>
-                        </blockquote>
-                        <blockquote>
-                            <p>Is one application enough for a child, for any number of application categories?</p>
-                            <cite>
-                                No. The applicant must fill in the details of this application form for just one
-                                category of application. If he is applying for a different application category he must
-                                fill in another application and submit.
-                            </cite>
-                        </blockquote>
-                        <blockquote>
-                            <p>When do we have to finish submitting applications?</p>
-                            <cite>
-                                The
-                            </cite>
-                        </blockquote>
+                    <div class="box box-primary">
+                        <div class="box-body">
+                            <blockquote>
+                                <p>How do I apply for a school using this application?</p>
+                                <cite>
+                                    Go to the Application tab and you can find the application. Fill the corresponding
+                                    fields in
+                                    the form with necessary details and submit.
+                                </cite>
+                            </blockquote>
+                            <blockquote>
+                                <p>Is one application enough for a child, for any number of application categories?</p>
+                                <cite>
+                                    No. The applicant must fill in the details of this application form for just one
+                                    category of application. If he is applying for a different application category he
+                                    must
+                                    fill in another application and submit.
+                                </cite>
+                            </blockquote>
+                            <blockquote>
+                                <p>When do we have to finish submitting applications?</p>
+                                <cite>
+                                    The sidebar located in the left side of the page shows the timeline for the
+                                    submissions.
+                                    Application submissions will be open for the mentioned period. It will close at
+                                    midnight
+                                    in the given date.
+                                </cite>
+                            </blockquote>
+                            <blockquote>
+                                <p>When do we see the results?</p>
+                                <cite>
+                                    Results will be posted to the schools from the Ministry. Applicants can view them
+                                    from
+                                    the schools or they can see them online on this site.
+                                </cite>
+                            </blockquote>
+                            <blockquote>
+                                <p>How about the school insformation?</p>
+                                <cite>
+                                    Information about the schools are viewable at the Schools tab.
+                                </cite>
+                            </blockquote>
+                        </div>
                     </div>
                 </section>
             </div>
