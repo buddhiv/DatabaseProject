@@ -27,7 +27,7 @@
   <body class="hold-transition login-page">
     <div class="login-box">
       <div class="login-logo">
-        <a href="../index2.html"><b>SCHOOL </b>LOGIN</a>
+        <a href="../index2.html"><b>SCHOOL</b>LOGIN</a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">This login for the schools</p>

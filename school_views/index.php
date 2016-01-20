@@ -38,6 +38,20 @@ if(isset($_POST['add_student'])){
     $studentController->addStudent($student);
 
     include "add_student.php";
+}elseif(isset($_POST['add_transferred_student'])){
+    $studentController = new StudentController();
+
+    $number = $_POST['number'];
+    $student_id = $_POST['studentsforschool'];
+    $registered_date= $_POST['date'];
+    $grade = $_POST['registered_grade'];
+    $address ="";
+    $name_in_full = "";
+
+    $student = new Student($address,$grade,$name_in_full,$number,$registered_date);
+    $student->setStudentId($student_id);
+
+    include "add_transferred_student.php";
 }elseif(isset($_POST['add_teacher'])){
 
     $name = $_POST['name'];
@@ -50,7 +64,7 @@ if(isset($_POST['add_student'])){
     $teacher = new Teacher($address,$distance,$name,$contact_number,$registered_date,$subject);
     $teacherController = new TeacherController;
     $teacherController->addTeacher($teacher);
-
+    include "add_transferred_student.php";
 }elseif(isset($_POST['add_non_academic_achievement'])){
 
     $student_id = $_POST["size"];

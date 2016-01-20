@@ -79,4 +79,15 @@ class TeacherController{
 
         return $result;
     }
+
+    function getLeavedTeachersBySchool($school_id)
+    {
+        $connectionObject = Connection::getInstance();
+        $connection = $connectionObject->get_connection();
+
+        $sql = "SELECT t.teacher_id, t.name_in_full FROM teacher t NATURAL JOIN teacher_school ts WHERE ts.leaving_date IS NOT NULL AND school_id =" . $school_id;
+        $resultset = mysqli_query($connection, $sql);
+
+        return $resultset;
+    }
 }
