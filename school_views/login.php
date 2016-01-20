@@ -40,7 +40,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
     <div class="login-box-body">
         <p class="login-box-msg">This login for the schools</p>
 
-        <form action="../index.php" method="post">
+        <form action="./index.php" method="post">
 
             <div class="row">
                 <div class="form-group has-feedback">
@@ -65,8 +65,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                         <label for="name" class="col-sm-2 control-label">School</label>
 
                         <div class="col-sm-12">
-                            <select class="form-control select2" style="width: 100%;" name="schoolsfordistrict"
-                                    id="schoolsfordistrict" >
+                            <select class="form-control select2" style="width: 100%;" name="schoolsfordistrict"   id="schoolsfordistrict" >
 
                             </select>
                         </div>
@@ -78,7 +77,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
             <br>
             <label for="name" class=" control-label">Password</label>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" class="form-control" placeholder="Password" name="password">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">

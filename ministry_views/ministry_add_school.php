@@ -110,7 +110,7 @@
                                                 foreach ($districts as $district) {
                                                     ?>
                                                     <option><?php echo $district; ?></option>
-                                                <?php
+                                                    <?php
                                                 }
                                                 ?>
                                             </select>
@@ -124,7 +124,7 @@
 
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="divisionalsecretaryarea"
-                                                   name="secretary_area"
+                                                   name="divisionalsecretaryarea"
                                                    placeholder="">
                                         </div>
                                     </div>
@@ -158,7 +158,7 @@
 
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="schooltelephone"
-                                                   name = "schooltelephone" placeholder="">
+                                                   name="schooltelephone" placeholder="">
                                         </div>
                                     </div>
 
@@ -173,7 +173,7 @@
                                                 foreach ($schools as $schools) {
                                                     ?>
                                                     <option><?php echo $schools; ?></option>
-                                                <?php
+                                                    <?php
                                                 }
                                                 ?>
                                             </select>
@@ -186,12 +186,14 @@
 
                                         <div class="col-sm-9">
                                             <input type="number" class="form-control" id="capacity"
-                                                   name = "capacity" placeholder="">
+                                                   name="capacity" placeholder="">
                                         </div>
                                     </div>
 
                                     <div class="box-footer">
-                                        <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                                        <button type="submit" class="btn btn-primary pull-right" name="add_school"
+                                                id="add_school">Submit
+                                        </button>
                                     </div>
 
                                     <!-- /.box-footer -->

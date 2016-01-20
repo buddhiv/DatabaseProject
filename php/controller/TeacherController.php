@@ -36,7 +36,7 @@ class TeacherController{
 
         $registered_date = $teacher->getRegisteredDate();
         $distance = $teacher->getDistance();
-        $school_id = 1;
+        $school_id = $_SESSION['school_id'];
 
         $stmt = $connection->prepare("INSERT INTO teacher (name_in_full, subject, address,  telephone) VALUES (?,?,?,?)");
         $stmt->bind_param("ssss", $name_in_full,$subject,$address,$telephone);
@@ -63,7 +63,7 @@ class TeacherController{
         $teacher_id = $teacher->getTeacherId();
         $registered_date = $teacher->getRegisteredDate();
         $distance = $teacher->getDistance();
-        $school_id = 2;//$_SESSION['school_id'];
+        $school_id = $_SESSION['school_id'];
 
         $stmt = $connection->prepare("INSERT INTO teacher_school (teacher_id,school_id,start_of_working_date,distance_from_permanent_residence) VALUES (?,?,?,?)");
         echo ("INSERT INTO teacher_school (teacher_id,school_id,start_of_working_date,distance_from_permanent_residence) VALUES ($teacher_id,$school_id,$registered_date,$distance)");

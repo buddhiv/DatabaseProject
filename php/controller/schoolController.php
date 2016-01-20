@@ -17,11 +17,8 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/databaseproject/php/Connection.php";
 include_once($path);
 
-
-
 use Model\Connection;
 use Model\School;
-
 
 class SchoolController
 {
@@ -30,7 +27,7 @@ class SchoolController
         $connectionObject = Connection::getInstance();
         $connection = $connectionObject->get_connection();
 
-        $school_id=NULL;
+        $school_id=7;
         $name=$school->getName();
         $address=$school->getAddress();
         $district=$school->getDistrict();
@@ -101,6 +98,25 @@ class SchoolController
         $resultset = mysqli_query($connection, $sql);
 
         return $resultset;
+    }
+
+    function checkForLogIn($school_id,$password)
+    {
+        $connectionObject = Connection::getInstance();
+        $connection = $connectionObject->get_connection();
+
+        $sql = mysqli_query($connection, "SELECT name FROM school WHERE $school_id='$school_id' AND password='$password' LIMIT 1");
+
+        $existCount = mysqli_num_rows($sql);
+        if ($existCount == 1) {
+            while ($row = mysqli_fetch_array($sql)) {
+                $name = $row["name"];
+            }
+            $_SESSION["school_id"] = $school_id;
+            $_SESSION["school_name"] = $name;
+            return 1;
+        }
+        return 0;
     }
 
 
