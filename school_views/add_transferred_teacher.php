@@ -1,9 +1,6 @@
 <?php
 $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Galle', 'Gampaha', 'Hambantota', 'Jaffna', 'Kaluthara', 'Kandy', 'Kilinochchi', 'Kegalle', 'Mannar', 'Matale', 'Matara', 'Monaragala', 'Mulattivu', 'Nuwaraeliya', 'Polonnaruwa', 'Rathnapura', 'Trincomalee', 'Vavuniya');
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -73,7 +70,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
         <!-- Content Header (Page header) -->
         <section class="content-header callout callout-info">
             <h1>
-                New Teacher
+                New Transferred Teacher
                 <small><b>Registration</b></small>
             </h1>
         </section>
@@ -82,26 +79,23 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
         <section class="content">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form class="form-horizontal">
+                <form class="form-horizontal" action="index.php" method="post">
 
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">District</label>
 
                         <div class="col-sm-6">
-
-                            <select class="form-control select2" id="district"
-                                    onchange="load_district_schools(this.value)"
-                                    style="width: 100%;">
+                            <select class="form-control select2" style="width: 100%;"
+                                    onchange="load_district_schools(this.value)" name="district" id="district">
                                 <option></option>
                                 <?php
                                 foreach ($districts as $district) {
                                     ?>
                                     <option><?php echo $district; ?></option>
-                                    <?php
+                                <?php
                                 }
                                 ?>
                             </select>
-
                         </div>
                     </div>
 
@@ -109,7 +103,8 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                         <label for="name" class="col-sm-2 control-label">School</label>
 
                         <div class="col-sm-6">
-                            <select class="form-control select2" style="width: 100%;" id="schoolsfordistrict" onchange="load_school_teachers(this.value)">
+                            <select class="form-control select2" style="width: 100%;" name="schoolsfordistrict"
+                                    id="schoolsfordistrict" onchange="load_school_teachers(this.value)">
 
                             </select>
                         </div>
@@ -119,11 +114,21 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                         <label for="name" class="col-sm-2 control-label">Teacher Name</label>
 
                         <div class="col-sm-6">
-                            <select class="form-control select2" style="width: 100%;" id="teachersforschool">
+                            <select class="form-control select2" style="width: 100%;" name="teachersforschool"
+                                    id="teachersforschool">
 
                             </select>
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <label for="distance" class="col-sm-2 control-label">Distance from Residence</label>
+
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="distance" name="distance" placeholder="Distance in km">
+                        </div>
+                    </div>
+
 
                     <div class="form-group">
                         <label for="registered_date" class="col-sm-2 control-label">Registered Date</label>
@@ -133,12 +138,13 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control" id="Date"/>
+                                <input type="text" class="form-control" id="Date" name="date"/>
                             </div>
 
                         </div>
                     </div>
 
+                    <input type="hidden" id="add_transferred_teacher" name="add_transferred_teacher">
 
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
@@ -205,8 +211,52 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
 <script type="text/javascript">
     $('#Date').datepicker({
         autoclose: true,
-        todayHighlight: true
+        todayHighlight: true,
+        format: 'yyyy-mm-dd'
     });
+
+    function load_district_schools(district) {
+        if (district != "") {
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById('schoolsfordistrict').innerHTML = xmlhttp.responseText;
+                }
+            };
+
+            xmlhttp.open("GET", "get_schools_from_district.php?district=" + district, true);
+            xmlhttp.send();
+        }
+    }
+
+    function load_school_teachers(school_id) {
+        if (school_id != "") {
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    string = xmlhttp.responseText;
+                    document.getElementById('teachersforschool').innerHTML = string;
+                }
+            };
+
+            xmlhttp.open("GET", "get_teachers_from_school.php?school_id=" + school_id, true);
+            xmlhttp.send();
+        }
+    }
+
+
 </script>
 
 <script>
@@ -272,49 +322,6 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
     });
 </script>
 
-<script type="text/javascript">
-    function load_district_schools(district) {
-        if (district != "") {
-            if (window.XMLHttpRequest) {
-                // code for IE7+, Firefox, Chrome, Opera, Safari
-                xmlhttp = new XMLHttpRequest();
-            } else {
-                // code for IE6, IE5
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange = function () {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    document.getElementById('schoolsfordistrict').innerHTML = xmlhttp.responseText;
-                }
-            };
-
-            xmlhttp.open("GET", "get_schools_from_district.php?district=" + district, true);
-            xmlhttp.send();
-        }
-    }
-
-    function load_school_teachers(school_id) {
-        if (school_id != "") {
-            if (window.XMLHttpRequest) {
-                // code for IE7+, Firefox, Chrome, Opera, Safari
-                xmlhttp = new XMLHttpRequest();
-            } else {
-                // code for IE6, IE5
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange = function () {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    string = xmlhttp.responseText;
-//                    alert(string);
-                    document.getElementById('teachersforschool').innerHTML = string;
-                }
-            };
-
-            xmlhttp.open("GET", "get_teachers_from_school.php?school_id=" + school_id, true);
-            xmlhttp.send();
-        }
-    }
-</script>
 
 </body>
 </html>

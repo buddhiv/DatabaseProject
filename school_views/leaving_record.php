@@ -8,9 +8,12 @@ use Controllers\StudentController;
 
 use Model\Student;
 
-    $studentController = new StudentController();
-    //$studentController->getStudentList($_SESSION['school_id']);
-    $result = $studentController->getStudentList(1);
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+$studentController = new StudentController();
+$results = $studentController->getStudentList($_SESSION['school_id']);
+
 
 
 ?>
@@ -84,11 +87,11 @@ use Model\Student;
 
                         <div class="col-sm-6">
 
-                            <select class="form-control select2" style="width: 100%; height: 102%;" name="student_id">
+                            <select class="form-control select2" style="width: 100%;" name="student_id">
                                 <?php
-                                while($row = $result->fetch_assoc()) {
+                                while($row = $results->fetch_assoc()) {
                                 ?>
-                                <option value="<?php echo $row['student_id']?>"><?php echo ($row['student_id'] ."  -  ". $row['name_in_full'])?></option>
+                                <option value="<?php echo $row['student_id']?>"><?php echo ($row['registration_number'] ."  -  ". $row['name_in_full'])?></option>
                                 <?php
                                 }
                                 ?>
@@ -98,7 +101,7 @@ use Model\Student;
 
 
                     <div class="form-group">
-                        <label for="registered_date" class="col-sm-2 control-label"> Date</label>
+                        <label for="registered_date" class="col-sm-2 control-label">Date</label>
 
                         <div class="col-sm-6">
                             <div class="input-group">

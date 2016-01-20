@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Registrar | Home</title>
+    <title>Registrar | FAQ</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -51,74 +51,72 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                WELCOME
-                <small>to Ministry of Education</small>
+                FAQ
+                <small>and Answers</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                <!--                <li class="active">Dashboard</li>-->
+                <li class="active">FAQ</li>
             </ol>
         </section>
 
+        <section>
+            <div class="row">
+                <img class="img-responsive pad" src="../dist/img/photo2.png" alt="Photo">
+            </div>
+        </section>
         <section class="content">
             <div class="row">
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                    </ol>
-
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner" role="listbox">
-                        <div class="item active">
-                            <img src="../images/slider/slide1.jpg" alt="Chania">
-                        </div>
-
-                        <div class="item">
-                            <img src="../images/slider/slide2.jpg" alt="Chania">
-                        </div>
-
-                        <div class="item">
-                            <img src="../images/slider/slide3.jpg" alt="Flower">
+                <section class="col-sm-12">
+                    <div class="box box-primary">
+                        <div class="box-body">
+                            <blockquote>
+                                <p>How do I apply for a school using this application?</p>
+                                <cite>
+                                    Go to the Application tab and you can find the application. Fill the corresponding
+                                    fields in
+                                    the form with necessary details and submit.
+                                </cite>
+                            </blockquote>
+                            <blockquote>
+                                <p>Is one application enough for a child, for any number of application categories?</p>
+                                <cite>
+                                    No. The applicant must fill in the details of this application form for just one
+                                    category of application. If he is applying for a different application category he
+                                    must
+                                    fill in another application and submit.
+                                </cite>
+                            </blockquote>
+                            <blockquote>
+                                <p>When do we have to finish submitting applications?</p>
+                                <cite>
+                                    The sidebar located in the left side of the page shows the timeline for the
+                                    submissions.
+                                    Application submissions will be open for the mentioned period. It will close at
+                                    midnight
+                                    in the given date.
+                                </cite>
+                            </blockquote>
+                            <blockquote>
+                                <p>When do we see the results?</p>
+                                <cite>
+                                    Results will be posted to the schools from the Ministry. Applicants can view them
+                                    from
+                                    the schools or they can see them online on this site.
+                                </cite>
+                            </blockquote>
+                            <blockquote>
+                                <p>How about the school insformation?</p>
+                                <cite>
+                                    Information about the schools are viewable at the Schools tab.
+                                </cite>
+                            </blockquote>
                         </div>
                     </div>
-
-                    <!-- Left and right controls -->
-                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
+                </section>
             </div>
         </section>
 
-        <!-- Main content -->
-        <section class="content">
-
-            <!-- Main row -->
-            <div class="row">
-                <!-- Left col -->
-                <section class="col-lg-6 connectedSortable">
-                    Buddhi
-                </section>
-                <!-- /.Left col -->
-
-                <!--                Right col-->
-                <section>
-                    Vikasitha Vithanage
-                </section>
-                <!--                Right col-->
-            </div>
-            <!-- /.row (main row) -->
-
-        </section>
-        <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
     <?php include '../footer.php'; ?>

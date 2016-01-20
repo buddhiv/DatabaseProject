@@ -17,6 +17,23 @@ class Teacher {
     private $phone_number;
     private $distance;
 
+    /**
+     * @param mixed $teacher_id
+     */
+    public function setTeacherId($teacher_id)
+    {
+        $this->teacher_id = $teacher_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTeacherId()
+    {
+        return $this->teacher_id;
+    }
+    private $teacher_id;
+
     function __construct($address, $distance, $name, $phone_number, $registered_date, $subject)
     {
         $this->address = $address;

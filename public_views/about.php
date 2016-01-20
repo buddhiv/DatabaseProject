@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Registrar | Home</title>
+    <title>Registrar | About</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -51,74 +51,48 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                WELCOME
-                <small>to Ministry of Education</small>
+                ABOUT
+                <small>Registrar</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                <!--                <li class="active">Dashboard</li>-->
+                <li class="active">About</li>
             </ol>
         </section>
 
+        <section>
+            <div class="row">
+                <img class="img-responsive pad" src="../dist/img/photo2.png" alt="Photo">
+            </div>
+        </section>
         <section class="content">
             <div class="row">
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                    </ol>
+                <section class="col-sm-12">
+                    <div class="box box-primary">
+                        <div class="box-body">
+                            <p style="margin-top: 20px;">
+                                Registrar is the online registration application for the Grade one applicants in Sri
+                                Lanka.
+                                With
+                                the development of technology we think that using a platform to register students for
+                                Grade
+                                one
+                                is a efficient way of preserving human resources and hours we lose in the manual
+                                process.
+                            </p>
 
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner" role="listbox">
-                        <div class="item active">
-                            <img src="../images/slider/slide1.jpg" alt="Chania">
-                        </div>
-
-                        <div class="item">
-                            <img src="../images/slider/slide2.jpg" alt="Chania">
-                        </div>
-
-                        <div class="item">
-                            <img src="../images/slider/slide3.jpg" alt="Flower">
+                            <p style="margin-top: 20px;">
+                                Project Registrar was initilally deployed in 2016. This was completed by a group of
+                                undergraduates in University of Moratuwa. We chose this to replace our traditional
+                                method
+                                because we thought that this would show promise in developing efficiency in our work.
+                            </p>
                         </div>
                     </div>
-
-                    <!-- Left and right controls -->
-                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
+                </section>
             </div>
         </section>
 
-        <!-- Main content -->
-        <section class="content">
-
-            <!-- Main row -->
-            <div class="row">
-                <!-- Left col -->
-                <section class="col-lg-6 connectedSortable">
-                    Buddhi
-                </section>
-                <!-- /.Left col -->
-
-                <!--                Right col-->
-                <section>
-                    Vikasitha Vithanage
-                </section>
-                <!--                Right col-->
-            </div>
-            <!-- /.row (main row) -->
-
-        </section>
-        <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
     <?php include '../footer.php'; ?>

@@ -87,7 +87,7 @@
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control datepicker" name="dateofbirth"/>
+                                <input type="text" class="form-control datepicker" id="date" name="date"/>
                             </div>
                         </div>
                     </div>

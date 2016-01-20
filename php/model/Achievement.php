@@ -10,69 +10,88 @@ namespace Model;
 
 
 class Achievement {
+    private $achievement_id;
     private $student_id;
-    private $year;
+    private $school_id;
     private $case;
+    private $ol;
+    private $al;
     private $place;
-    private $exam;
-    private $subject_result;
+    private $achievement_case;
+    private $date;
 
-    function __construct($student_id, $year, $case, $place,  $exam, $subject_result)
+    function __construct($student_id,$school_id,$achievement_case)
     {
-        $this->case = $case;
-        $this->exam = $exam;
-        $this->place = $place;
         $this->student_id = $student_id;
-        $this->subject_result = $subject_result;
-        $this->year = $year;
+        $this->school_id = $school_id;
+        $this->achievement_case = $achievement_case;
+    }
+
+    /**
+     * @param mixed $date
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
     }
 
     /**
      * @return mixed
      */
-    public function getCase()
+    public function getDate()
     {
-        return $this->case;
+        return $this->date;
+    }
+
+    /**
+     * @param mixed $achievement_case
+     */
+
+
+
+    public function setAchievementCase($achievement_case)
+    {
+        $this->achievement_case = $achievement_case;
     }
 
     /**
      * @return mixed
      */
-    public function getExam()
+    public function getAchievementCase()
     {
-        return $this->exam;
+        return $this->achievement_case;
+    }
+
+    /**
+     * @param mixed $achievement_id
+     */
+    public function setAchievementId($achievement_id)
+    {
+        $this->achievement_id = $achievement_id;
     }
 
     /**
      * @return mixed
      */
-    public function getPlace()
+    public function getAchievementId()
     {
-        return $this->place;
+        return $this->achievement_id;
+    }
+
+    /**
+     * @param mixed $al
+     */
+    public function setAl($al)
+    {
+        $this->al = $al;
     }
 
     /**
      * @return mixed
      */
-    public function getStudentId()
+    public function getAl()
     {
-        return $this->student_id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSubjectResult()
-    {
-        return $this->subject_result;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getYear()
-    {
-        return $this->year;
+        return $this->al;
     }
 
     /**
@@ -84,11 +103,27 @@ class Achievement {
     }
 
     /**
-     * @param mixed $exam
+     * @return mixed
      */
-    public function setExam($exam)
+    public function getCase()
     {
-        $this->exam = $exam;
+        return $this->case;
+    }
+
+    /**
+     * @param mixed $ol
+     */
+    public function setOl($ol)
+    {
+        $this->ol = $ol;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOl()
+    {
+        return $this->ol;
     }
 
     /**
@@ -100,6 +135,30 @@ class Achievement {
     }
 
     /**
+     * @return mixed
+     */
+    public function getPlace()
+    {
+        return $this->place;
+    }
+
+    /**
+     * @param mixed $school_id
+     */
+    public function setSchoolId($school_id)
+    {
+        $this->school_id = $school_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSchoolId()
+    {
+        return $this->school_id;
+    }
+
+    /**
      * @param mixed $student_id
      */
     public function setStudentId($student_id)
@@ -108,19 +167,11 @@ class Achievement {
     }
 
     /**
-     * @param mixed $subject_result
+     * @return mixed
      */
-    public function setSubjectResult($subject_result)
+    public function getStudentId()
     {
-        $this->subject_result = $subject_result;
-    }
-
-    /**
-     * @param mixed $year
-     */
-    public function setYear($year)
-    {
-        $this->year = $year;
+        return $this->student_id;
     }
 
 

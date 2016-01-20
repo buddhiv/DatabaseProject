@@ -1,3 +1,18 @@
+<?php
+include_once "../php/model/Student.php";
+include_once "../php/controller/StudentController.php";
+
+
+use Controllers\StudentController;
+
+use Model\Student;
+
+$studentController = new StudentController();
+$result = $studentController->getStudentList($_SESSION['school_id']);
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +32,8 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../dist/css/skins/skin-blue-light.css">
+    <link rel="stylesheet" href="../plugins/datepicker/datepicker3.css">
+    <link rel="stylesheet" href="../plugins/select2/select2.min.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="../plugins/iCheck/flat/blue.css">
     <!-- Morris chart -->
@@ -33,6 +50,10 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
+
+    <script src="../plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script src="../plugins/select2/select2.full.min.js"></script>
+
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
@@ -48,8 +69,8 @@
         <!-- Content Header (Page header) -->
         <section class="content-header callout callout-info">
             <h1>
-                New Student
-                <small><b>Registration</b></small>
+                Add Non Academic
+                <small><b>Achievement</b></small>
             </h1>
         </section>
 
@@ -59,26 +80,36 @@
 
             <form class="form-horizontal" action="index.php" method="post">
                 <div class="form-group">
-                    <label class="col-xs-2 control-label">Student Number</label>
-                    <div class="col-xs-6 selectContainer">
-                        <select class="form-control" name="size">
-                            <option value="2223">2253</option>
-                            <option value="2254">2254</option>
-                            <option value="2255">2255</option>
-                            <option value="2222">2222</option>
-                            <option value="2224">2224</option>
+                    <label for="name" class="col-sm-2 control-label">Student</label>
+
+                    <div class="col-sm-6">
+
+                        <select class="form-control select2" style="width: 100%;" name="student_id">
+                            <?php
+                            while($row = $result->fetch_assoc()) {
+                                ?>
+                                <option value="<?php echo $row['student_id']?>"><?php echo ($row['registration_number'] ."  -  ". $row['name_in_full'])?></option>
+                            <?php
+                            }
+                            ?>
                         </select>
                     </div>
                 </div>
 
-
                 <div class="form-group">
-                    <label class="col-xs-2 control-label">Date</label>
+                    <label for="registered_date" class="col-sm-2 control-label">Date</label>
 
                     <div class="col-sm-6">
-                        <input type="date" class="form-control pull-right" id="date" name="date">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <input type="text" class="form-control" id="Date" name="date"/>
+                        </div>
+
                     </div>
                 </div>
+
 
                 <div class="form-group">
                     <label for="case" class="col-sm-2 control-label">case</label>
@@ -137,6 +168,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="../plugins/morris/morris.min.js"></script>
 <!-- Sparkline -->
+<script src="../plugins/datepicker/bootstrap-datepicker.js"></script>
+
 <script src="../plugins/sparkline/jquery.sparkline.min.js"></script>
 <!-- jvectormap -->
 <script src="../plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
@@ -146,6 +179,7 @@
 <!-- daterangepicker -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
 <script src="../plugins/daterangepicker/daterangepicker.js"></script>
+<script src="../plugins/select2/select2.full.min.js"></script>
 <!-- datepicker -->
 <script src="../plugins/datepicker/bootstrap-datepicker.js"></script>
 <!-- Bootstrap WYSIHTML5 -->
@@ -160,5 +194,77 @@
 <script src="../dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
+
+<script type="text/javascript">
+    $('#Date').datepicker({
+        autoclose: true,
+        todayHighlight: true,
+        format: 'yyyy-mm-dd'
+    });
+</script>
+
+<script>
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Datemask dd/mm/yyyy
+        $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+        //Datemask2 mm/dd/yyyy
+        $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
+        //Money Euro
+        $("[data-mask]").inputmask();
+
+        //Date range picker
+        $('#reservation').daterangepicker();
+        //Date range picker with time picker
+        $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+        //Date range as a button
+        $('#daterange-btn').daterangepicker(
+            {
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                startDate: moment().subtract(29, 'days'),
+                endDate: moment()
+            },
+            function (start, end) {
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            }
+        );
+
+        //iCheck for checkbox and radio inputs
+        $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+            checkboxClass: 'icheckbox_minimal-blue',
+            radioClass: 'iradio_minimal-blue'
+        });
+        //Red color scheme for iCheck
+        $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+            checkboxClass: 'icheckbox_minimal-red',
+            radioClass: 'iradio_minimal-red'
+        });
+        //Flat red color scheme for iCheck
+        $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+            checkboxClass: 'icheckbox_flat-green',
+            radioClass: 'iradio_flat-green'
+        });
+
+        //Colorpicker
+        $(".my-colorpicker1").colorpicker();
+        //color picker with addon
+        $(".my-colorpicker2").colorpicker();
+
+        //Timepicker
+        $(".timepicker").timepicker({
+            showInputs: false
+        });
+    });
+</script>
+
 </body>
 </html>

@@ -1,4 +1,8 @@
 <?php
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 /**
  * Created by PhpStorm.
  * User: Buddhi
@@ -13,10 +17,10 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="../images/school_badge/<?php echo $_SESSION['school_id']?>.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>Mahinda College</p>
+                <p><?php echo $_SESSION['school_name']?></p>
             </div>
         </div>
         <!-- search form -->
@@ -57,7 +61,7 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="./add_teacher.php"><i class="fa fa-circle-o"></i>Add New Teacher</a></li>
+                    <li><a href="add_teacher.php"><i class="fa fa-circle-o"></i>Add New Teacher</a></li>
                     <li><a href="add_transferred_teacher.php"><i class="fa fa-circle-o"></i>Add Transferred Teacher</a></li>
                 </ul>
             </li>
@@ -69,10 +73,10 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="./leaving_record.php"><i class="fa fa-circle-o"></i>Add Leaving Record</a></li>
-                    <li><a href="./add_acadamic_achievement.php"><i class="fa fa-circle-o"></i>Add Acadamic Achievements</a>
+                    <li><a href="leaving_record.php"><i class="fa fa-circle-o"></i>Add Leaving Record</a></li>
+                    <li><a href="add_acadamic_achievement.php"><i class="fa fa-circle-o"></i>Add Acadamic Achievements</a>
                     </li>
-                    <li><a href="./add_non_acadamic_achievement.php"><i class="fa fa-circle-o"></i>Add Non Acadamic
+                    <li><a href="add_non_acadamic_achievement.php"><i class="fa fa-circle-o"></i>Add Non Acadamic
                             Achievements</a></li>
                 </ul>
             </li>

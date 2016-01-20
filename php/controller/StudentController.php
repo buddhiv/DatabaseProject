@@ -16,6 +16,7 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/databaseproject/php/Connection.php";
 include_once($path);
 
+session_start();
 
 use Model\Connection;
 use Model\Student;
@@ -34,7 +35,7 @@ class StudentController
         $address = $student->getAddress();
         $registered_date = $student->getRegisterdDate();
         $grade = $student->getGrade();
-        $school_id = 1; //  NEED TO CHANGE
+        $school_id = $_SESSION['school_id'];
         $is_old_boy = 0;
 
         $stmt = $connection->prepare("INSERT INTO student(name_in_full, address) VALUES (?,?)");
@@ -62,16 +63,13 @@ class StudentController
         $grade = $student->getGrade();
         $student_id = $student->getStudentId();
 
-        $school_id = 1; //  NEED TO CHANGE
+        $school_id = $_SESSION['school_id'];
         $is_old_boy = 0;
 
         $stmt = $connection->prepare("INSERT INTO student_school(student_id, school_id, registered_date,is_old_boy, starting_grade, registration_number) VALUES (?,?,?,?,?,?)");
         $stmt->bind_param("sssiss", $student_id, $school_id, $registered_date, $is_old_boy, $grade, $number);
         $result = $stmt->execute();
-        echo ($result);
         $stmt->close();
-
-        echo ($result);
         return $result;
     }
 
@@ -81,7 +79,7 @@ class StudentController
         $connectionObject = Connection::getInstance();
         $connection = $connectionObject->get_connection();
 
-        $sql = "SELECT student_id,name_in_full FROM student NATURAL JOIN student_school WHERE leaving_date IS NULL AND school_id = " . $school_id;
+        $sql = "SELECT student_id,registration_number,name_in_full FROM student NATURAL JOIN student_school WHERE leaving_date IS NULL AND school_id = " . $school_id;
         $result = $connection->query($sql);
         return $result;
     }

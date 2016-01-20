@@ -1,12 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Buddhi
- * Date: 1/6/2016
- * Time: 10:13 AM
- */
-?>
+$districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Galle', 'Gampaha', 'Hambantota', 'Jaffna', 'Kaluthara', 'Kandy', 'Kilinochchi', 'Kegalle', 'Mannar', 'Matale', 'Matara', 'Monaragala', 'Mulattivu', 'Nuwaraeliya', 'Polonnaruwa', 'Rathnapura', 'Trincomalee', 'Vavuniya');
 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,45 +59,68 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                APPLICATION
-                <small></small>
+                SCHOOLS
+                <small>View Details</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                <li class="active">Application</li>
+                <li class="active">Schools</li>
             </ol>
         </section>
 
-        <!-- Main content -->
+        <section>
+            <div class="row">
+                <img class="img-responsive pad" src="../dist/img/photo2.png" alt="Photo">
+            </div>
+        </section>
         <section class="content">
 
-            <!-- Main row -->
             <div class="row">
-                <!-- Left col -->
-                <section class="col-lg-12">
+                <section class="col-sm-12">
+                    <div class="box box-primary">
+                        <form class="form-horizontal">
+                            <div class="box-body">
+                                <h5>View school details</h5>
 
-                    <?php
-                    $type = $_GET['type'];
+                                <div class="form-group">
+                                    <label for="nameinfull" class="col-sm-3 control-label">Select District</label>
 
-                    if ($type == 'resident') {
-                        include 'resident_category_form.php';
-                    } else if ($type == 'staff') {
-                        include 'staff_category_form.php';
-                    } else if ($type == 'pastpupil') {
-                        include 'past_pupil_category_form.php';
-                    } else if ($type == 'presentpupil') {
-                        include 'present_pupil_category_form.php';
-                    }
-                    ?>
+                                    <div class="col-sm-9">
+                                        <select class="form-control select2" id="district" name="district"
+                                                onchange="load_district_schools(this.value)">
+                                            <option></option>
+                                            <?php
+                                            foreach ($districts as $district) {
+                                                ?>
+                                                <option><?php echo $district; ?></option>
+                                                <?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nameinfull" class="col-sm-3 control-label">Select School</label>
 
+                                    <div class="col-sm-9">
+                                        <select class="form-control select2" id="schoolsfordistrict"
+                                                name="schoolsfordistrict"
+                                                onchange="load_school_details(this.value)">
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div id="schooldetails">
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </section>
-                <!-- /.Left col -->
 
             </div>
-            <!-- /.row (main row) -->
-
         </section>
-        <!-- /.content -->
+
     </div>
     <!-- /.content-wrapper -->
     <?php include '../footer.php'; ?>
@@ -152,11 +170,7 @@
         $("[data-mask]").inputmask();
 
         //Date range picker
-        $('.daterangepicker').daterangepicker({
-            autoclose: true,
-            todayHighlight: true,
-            format: 'yyyy-mm-dd'
-        });
+        $('#reservation').daterangepicker();
         //Date range picker with time picker
         $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
         //Date range as a button
@@ -212,6 +226,46 @@
     });
 </script>
 
+<script type="text/javascript">
+    function load_school_details(school_id) {
+        if (school_id != "") {
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById('schooldetails').innerHTML = xmlhttp.responseText;
+                }
+            };
+
+            xmlhttp.open("GET", "get_school_details.php?school_id=" + school_id, true);
+            xmlhttp.send();
+        }
+    }
+
+    function load_district_schools(district) {
+        if (district != "") {
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById('schoolsfordistrict').innerHTML = xmlhttp.responseText;
+                }
+            };
+
+            xmlhttp.open("GET", "get_schools_from_district.php?district=" + district, true);
+            xmlhttp.send();
+        }
+    }
+</script>
 </body>
 </html>
-
