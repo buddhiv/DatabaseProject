@@ -11,10 +11,14 @@ include_once "../php/model/Applicant.php";
 include_once "../php/model/Resident.php";
 include_once "../php/controller/ChildController1.php";
 include_once "../php/controller/ApplicantController.php";
+include_once "../php/controller/ApplicationMethodController.php";
+
+
 include_once "../php/controller/Application_ResidentController.php";
 
 use Controllers\ApplicantController;
 use Controllers\Application_ResidentController;
+use Controllers\ApplicationMethodController;
 use Model\Applicant;
 use Model\Child;
 use Model\Resident;
@@ -103,16 +107,17 @@ if (isset($_POST['resident_next'])) {
     echo $spent_years;
     $resident = new Resident(null, null, $spent_years, $ownership, $num_of_close_school, null, null);
 
-    $resident_controller = new Application_ResidentController();
-    $resident_controller->addResidentDetails($resident);
+    $category_controller = new ApplicationMethodController();
+    $category_controller->addResidentDetails($resident);
 
 }
 
 
 if(isset($_POST['staff_next'])){
-    $district = "GALLE";
-    $school = "";
-    $name = "Meepage Arachige Susila Samarasekara";
 
+    $name = $_POST["teacher_id"];
+
+    $category_controller = new ApplicationMethodController();
+    $category_controller->addStaffMethod($teacher_id);
 
 }

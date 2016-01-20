@@ -74,7 +74,7 @@
                         <div class="box-header with-border">
                             <form method="POST" action="ministry_application_progress_calculate.php">
                                 <td>
-                                    <button value="School" class="btn btn-block btn-primary btn-sm" name="view_school">
+                                    <button value="School" class="btn btn-block btn-success btn-sm" name="view_school">
                                         Calculate Marks
                                     </button>
                                 </td>

@@ -13,7 +13,7 @@
                 </label>
 
                 <div class="col-sm-9">
-                    <select class="form-control select2" id="district" onchange="load_district_schools(this.value)">
+                    <select class="form-control select2" id="district" name="district" onchange="load_district_schools(this.value)">
                         <option></option>
                         <?php
                         foreach ($districts as $district) {
@@ -33,7 +33,7 @@
                 </label>
 
                 <div class="col-sm-9">
-                    <select id="schoolsfordistrict" class="select2 form-control"
+                    <select id="schoolsfordistrict" class="select2 form-control" name="school"
                             onchange="load_school_teachers(this.value)">
 
                     </select>
@@ -47,7 +47,7 @@
                 </label>
 
                 <div class="col-sm-9">
-                    <select class="form-control select2" id="teachers">
+                    <select class="form-control select2" id="teachers" name="name">
 
                     </select>
                 </div>
@@ -55,7 +55,7 @@
         </div>
 
         <div class="box-footer">
-            <button type="submit" class="btn btn-primary pull-right" id="staff_next">Next</button>
+            <button type="submit" class="btn btn-primary pull-right" id="staff_next" name="staff_next">Next</button>
         </div>
         <!-- /.box-footer -->
     </form>
