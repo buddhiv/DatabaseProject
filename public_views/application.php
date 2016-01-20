@@ -135,7 +135,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
 
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="nameinfull" name="nameinfull"
-                                               placeholder="">
+                                               onkeyup="validate_for_string(this, this.value)">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -576,6 +576,17 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
 
             xmlhttp.open("GET", "get_schools_from_district.php?district=" + district, true);
             xmlhttp.send();
+        }
+    }
+
+    function validate_for_string(component, value) {
+        var len = value.length;
+
+        if (value != "") {
+            var re = /^[a-zA-Z\s]*$/;
+            if (!re.test(value)) {
+                component.value = value.substring(0, len - 1);
+            }
         }
     }
 </script>
