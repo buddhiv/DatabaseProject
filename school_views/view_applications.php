@@ -1,3 +1,14 @@
+<?php
+
+
+
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,7 +73,8 @@
                 <tr>
                     <td class="active" style="text-align:center;">Application Id</td>
                     <td class="active" style="text-align:center;" >View Application</td>
-                    <td class="active" style="text-align:center;">Confirm Location</td>
+                    <td class="active" style="text-align:center;" >Confirm Location</td>
+                    <td class="active" style="text-align:center;">Confirm Method</td>
                     <td class="active"></td>
                 </tr>
 

@@ -108,7 +108,7 @@ class SchoolController
         $connectionObject = Connection::getInstance();
         $connection = $connectionObject->get_connection();
 
-        $sql = mysqli_query($connection, "SELECT name FROM school WHERE $school_id='$school_id' AND password='$password' LIMIT 1");
+        $sql = mysqli_query($connection, "SELECT name FROM school WHERE school_id='$school_id' AND password='$password' LIMIT 1");
 
         $existCount = mysqli_num_rows($sql);
         if ($existCount == 1) {
