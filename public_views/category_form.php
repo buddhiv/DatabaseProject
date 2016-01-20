@@ -5,6 +5,9 @@
  * Date: 1/6/2016
  * Time: 10:13 AM
  */
+
+$districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Galle', 'Gampaha', 'Hambantota', 'Jaffna', 'Kaluthara', 'Kandy', 'Kilinochchi', 'Kegalle', 'Mannar', 'Matale', 'Matara', 'Monaragala', 'Mulattivu', 'Nuwaraeliya', 'Polonnaruwa', 'Rathnapura', 'Trincomalee', 'Vavuniya');
+
 ?>
 
 <!DOCTYPE html>
@@ -210,6 +213,49 @@
             format: 'yyyy-mm-dd'
         });
     });
+</script>
+
+<script>
+    function load_district_schools(district) {
+        if (district != "") {
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById('schoolsfordistrict').innerHTML = xmlhttp.responseText;
+                }
+            };
+
+            xmlhttp.open("GET", "get_schools_from_district.php?district=" + district, true);
+            xmlhttp.send();
+        }
+    }
+
+    function load_school_teachers(school_id) {
+        if (school_id != "") {
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    string = xmlhttp.responseText;
+                    document.getElementById('teachers').innerHTML = string;
+                }
+            };
+
+            xmlhttp.open("GET", "get_teachers_from_school.php?school_id=" + school_id, true);
+            xmlhttp.send();
+        }
+    }
 </script>
 
 </body>
