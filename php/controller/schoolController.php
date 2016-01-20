@@ -17,11 +17,8 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/databaseproject/php/Connection.php";
 include_once($path);
 
-
-
 use Model\Connection;
 use Model\School;
-
 
 class SchoolController
 {
@@ -30,7 +27,7 @@ class SchoolController
         $connectionObject = Connection::getInstance();
         $connection = $connectionObject->get_connection();
 
-        $school_id=$_SESSION['school_id'];
+        $school_id=7;
         $name=$school->getName();
         $address=$school->getAddress();
         $district=$school->getDistrict();
