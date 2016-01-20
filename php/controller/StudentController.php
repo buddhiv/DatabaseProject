@@ -34,7 +34,7 @@ class StudentController
         $address = $student->getAddress();
         $registered_date = $student->getRegisterdDate();
         $grade = $student->getGrade();
-        $school_id = 1; //  NEED TO CHANGE
+        $school_id = $_SESSION['school_id'];
         $is_old_boy = 0;
 
         $stmt = $connection->prepare("INSERT INTO student(name_in_full, address) VALUES (?,?)");
@@ -62,7 +62,7 @@ class StudentController
         $grade = $student->getGrade();
         $student_id = $student->getStudentId();
 
-        $school_id = 1; //  NEED TO CHANGE
+        $school_id = $_SESSION['school_id'];
         $is_old_boy = 0;
 
         $stmt = $connection->prepare("INSERT INTO student_school(student_id, school_id, registered_date,is_old_boy, starting_grade, registration_number) VALUES (?,?,?,?,?,?)");
