@@ -109,8 +109,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                         <label for="name" class="col-sm-2 control-label">School</label>
 
                         <div class="col-sm-6">
-                            <select class="form-control select2" style="width: 100%;" id="schoolsfordistrict"
-                                    onchange="load_school_teachers(this.value)">
+                            <select class="form-control select2" style="width: 100%;" id="schoolsfordistrict" onchange="load_school_teachers(this.value)">
 
                             </select>
                         </div>

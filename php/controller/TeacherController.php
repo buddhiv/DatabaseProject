@@ -82,12 +82,20 @@ class TeacherController
         return $result;
     }
 
+<<<<<<< HEAD
     function getTeachersBySchool($school_id)
+=======
+    function getLeavedTeachersBySchool($school_id)
+>>>>>>> f5b311ff9f63f1c9e933ec9e906affb58c56d90e
     {
         $connectionObject = Connection::getInstance();
         $connection = $connectionObject->get_connection();
 
+<<<<<<< HEAD
         $sql = "SELECT * FROM teacher_school LEFT JOIN teacher on teacher.teacher_id = teacher_school.teacher_id WHERE teacher_school.school_id = " . $school_id;
+=======
+        $sql = "SELECT t.teacher_id, t.name_in_full FROM teacher t NATURAL JOIN teacher_school ts WHERE ts.leaving_date IS NOT NULL AND school_id =" . $school_id;
+>>>>>>> f5b311ff9f63f1c9e933ec9e906affb58c56d90e
         $resultset = mysqli_query($connection, $sql);
 
         return $resultset;

@@ -18,7 +18,7 @@ if (isset($_GET['school_id'])) {
 
         echo '<option></option>';
         foreach ($teachers as $teacher) {
-            echo '<option value="' . $teacher['student_id'] . '">' . $teacher['name_in_full'] . '</option>';
+            echo '<option value="' . $teacher['student_id'] . '">' . $teacher['number'] . " - " . $teacher['name_in_full'] . '</option>';
         }
     }
 }

@@ -9,10 +9,29 @@
 namespace Model;
 
 class Student {
+    private $studentId;
     private $number;
     private $name_in_full;
     private $address;
     private $registerd_date;
+
+
+
+    /**
+     * @param mixed $studentId
+     */
+    public function setStudentId($studentId)
+    {
+        $this->studentId = $studentId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStudentId()
+    {
+        return $this->studentId;
+    }
     private $grade;
 
     function __construct($address, $grade, $name_in_full, $number, $registerd_date)

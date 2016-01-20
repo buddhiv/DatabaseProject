@@ -92,9 +92,34 @@
                                     <div class="form-group">
                                         <label for="namewithinitials" class="col-sm-3 control-label">Address</label>
 
+<<<<<<< HEAD
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="divisionalsecretaryarea"
+                                               placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="isrural" class="col-sm-3 control-label">Is Rural</label>
+
+                                    <div class="col-sm-9">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="ruralno" id="ruralno"
+                                                       value="no" />
+                                                No
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="ruralyes" id="ruralyes"
+                                                       value="Yes"/>
+                                                Yes
+                                            </label>
+=======
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="schooladdress"
                                                    placeholder="">
+>>>>>>> 75824730ad89f01c7b9429bb52b5dd33bfdfbe8b
                                         </div>
                                     </div>
                                     <div class="form-group">
