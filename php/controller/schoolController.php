@@ -100,6 +100,8 @@ class SchoolController
         return $resultset;
     }
 
+<<<<<<< HEAD
+=======
     function checkForLogIn($school_id,$password)
     {
         if (session_status() == PHP_SESSION_NONE) {
@@ -108,7 +110,7 @@ class SchoolController
         $connectionObject = Connection::getInstance();
         $connection = $connectionObject->get_connection();
 
-        $sql = mysqli_query($connection, "SELECT name FROM school WHERE $school_id='$school_id' AND password='$password' LIMIT 1");
+        $sql = mysqli_query($connection, "SELECT name FROM school WHERE school_id='$school_id' AND password='$password' LIMIT 1");
 
         $existCount = mysqli_num_rows($sql);
         if ($existCount == 1) {
@@ -122,6 +124,7 @@ class SchoolController
         return 0;
     }
 
+>>>>>>> 2ae3d3f7c5a209e9e0b669fb116e9eb64542bfc1
 
 
 }
