@@ -34,7 +34,7 @@ use Controllers\ChildController1;
 
 class ApplicantController {
 
-    function addApplicant(Applicant $applicant , Child $child ){
+    function addApplicant(Applicant $applicant){
 
         $connectionObject = Connection::getInstance();
         $connection = $connectionObject->get_connection();
@@ -68,9 +68,6 @@ class ApplicantController {
             $applicant_id = mysqli_insert_id($connection);
         }
 
-
-        $childController = new ChildController1();
-        $childController->addChild($child,$applicant_id);
-
+        return $applicant_id;
     }
 }
