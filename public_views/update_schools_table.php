@@ -22,7 +22,7 @@ if (isset($_GET['data'])) {
 <td>2</td>
 <td>' . $school['name'] . '</td>
 <td>' . $school['category'] . '</td>
-<td><input type="text" name="distance" class=""> km</td>
+<td><input type="text" name="distance" onkeyup="validate_for_numbers(this, this.value)"> km</td>
 </tr>';
 
     $td = explode('</table>', $data);

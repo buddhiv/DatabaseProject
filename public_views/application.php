@@ -144,7 +144,8 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
 
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="namewithinitials"
-                                               name="namewithinitials" onkeyup="validate_for_name(this, this.value)">
+                                               name="namewithinitials"
+                                               onkeyup="validate_for_fullname(this, this.value)">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -171,8 +172,15 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                     <label for="religion" class="col-sm-3 control-label">Religion</label>
 
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="religion"
-                                               name="religion" placeholder="">
+                                        <select type="text" class="form-control select2" id="religion"
+                                                name="religion">
+                                            <option></option>
+                                            <option>Buddhist</option>
+                                            <option>Catholic</option>
+                                            <option>Islam</option>
+                                            <option>Burgher</option>
+                                            <option>Other</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -196,7 +204,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
 
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="applicantnameinfull"
-                                               name="applicantnameinfull" placeholder="">
+                                               name="applicantnameinfull" onkeyup="validate_for_name(this, this.value)">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -205,7 +213,8 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
 
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="applicantnamewithinitials"
-                                               name="applicantnamewithinitials" placeholder="">
+                                               name="applicantnamewithinitials"
+                                               onkeyup="validate_for_fullname(this, this.value)">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -213,7 +222,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
 
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="applicantnic" name="applicantnic"
-                                               placeholder="">
+                                               onkeyup="validate_for_nic(this, this.value)">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -230,9 +239,15 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                     <label for="applicantreligion" class="col-sm-3 control-label">Religion</label>
 
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="applicantreligion"
-                                               name="applicantreligion"
-                                               placeholder="">
+                                        <select type="text" class="form-control select2" id="religion"
+                                                name="religion">
+                                            <option></option>
+                                            <option>Buddhist</option>
+                                            <option>Catholic</option>
+                                            <option>Islam</option>
+                                            <option>Burgher</option>
+                                            <option>Other</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -241,8 +256,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
 
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="permanentaddress"
-                                               name="permanentaddress"
-                                               placeholder="">
+                                               name="permanentaddress" onkeyup="validate_for_address(this, this.value)">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -281,7 +295,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
 
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="dsarea" name="dsarea"
-                                               placeholder="">
+                                               onkeyup="validate_for_name(this, this.value)">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -290,7 +304,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
 
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="gndivision" name="gndivision"
-                                               placeholder="">
+                                               onkeyup="validate_for_name(this, this.value)">
                                     </div>
                                 </div>
                             </div>
@@ -376,7 +390,8 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                                                    name="<?php echo 'pollingdivision' . $year ?>">
                                                         </td>
                                                         <td><input type="text" class="form-control"
-                                                                   name="<?php echo 'gndivision' . $year ?>"></td>
+                                                                   name="<?php echo 'gndivision' . $year ?>"
+                                                                   onkeyup="validate_for_name(this, this.value)"></td>
                                                         <td>
                                                             <select class="form-control select2">
                                                                 <option></option>
@@ -390,13 +405,19 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                                             </select>
                                                         </td>
                                                         <td><input type="text" class="form-control"
-                                                                   name="<?php echo 'street' . $year ?>"></td>
+                                                                   name="<?php echo 'street' . $year ?>"
+                                                                   onkeyup="validate_for_name(this, this.value)"></td>
                                                         <td><input type="text" class="form-control"
-                                                                   name="<?php echo 'householdno' . $year ?>"></td>
+                                                                   name="<?php echo 'householdno' . $year ?>"
+                                                                   onkeyup="validate_for_numbers(this, this.value)">
+                                                        </td>
                                                         <td><input type="text" class="form-control"
-                                                                   name="<?php echo 'serialno' . $year ?>"></td>
+                                                                   name="<?php echo 'serialno' . $year ?>"
+                                                                   onkeyup="validate_for_numbers(this, this.value)">
+                                                        </td>
                                                         <td><input type="text" class="form-control"
-                                                                   name="<?php echo 'nameofelectors' . $year ?>">
+                                                                   name="<?php echo 'nameofelectors' . $year ?>"
+                                                                   onkeyup="validate_for_name(this, this.value)">
                                                         </td>
                                                     </tr>
                                                     <?php
@@ -584,6 +605,26 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
 
         if (value != "") {
             var re = /^[a-zA-Z\s]*$/;
+            if (!re.test(value)) {
+                component.value = value.substring(0, len - 1);
+            }
+        }
+    }
+    function validate_for_fullname(component, value) {
+        var len = value.length;
+
+        if (value != "") {
+            var re = /^[a-zA-Z\s\.]*$/;
+            if (!re.test(value)) {
+                component.value = value.substring(0, len - 1);
+            }
+        }
+    }
+    function validate_for_numbers(component, value) {
+        var len = value.length;
+
+        if (value != "") {
+            var re = /^[0-9]*$/;
             if (!re.test(value)) {
                 component.value = value.substring(0, len - 1);
             }
