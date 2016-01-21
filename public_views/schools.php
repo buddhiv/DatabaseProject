@@ -70,7 +70,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
 
         <section>
             <div class="row">
-                <img class="img-responsive pad" src="../dist/img/photo2.png" alt="Photo">
+                <img class="img-responsive pad" src="../images/schools.jpg" alt="Photo">
             </div>
         </section>
         <section class="content">

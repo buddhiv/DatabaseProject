@@ -62,7 +62,7 @@
 
         <section>
             <div class="row">
-                <img class="img-responsive pad" src="../dist/img/photo2.png" alt="Photo">
+                <img class="img-responsive pad" src="../images/about.jpg" alt="Photo">
             </div>
         </section>
         <section class="content">
