@@ -9,16 +9,23 @@
 include_once "../php/model/Child.php";
 include_once "../php/model/Applicant.php";
 include_once "../php/model/Resident.php";
+include_once "../php/model/Location.php";
 include_once "../php/controller/ChildController1.php";
 include_once "../php/controller/ApplicantController.php";
 include_once "../php/controller/ApplicationMethodController.php";
+include_once "../php/controller/LocationController.php";
+include_once "../php/controller/ChildController1.php";
+
 
 
 use Controllers\ApplicantController;
 use Controllers\ApplicationMethodController;
+use Controllers\LocationController;
+use Controllers\ChildController1;
 use Model\Applicant;
 use Model\Child;
 use Model\Resident;
+use Model\Location;
 
 
 if (isset($_POST['next'])) {
@@ -28,32 +35,14 @@ if (isset($_POST['next'])) {
         $category = $_POST["category"];
     }
 
-    //read child details
-    $name_in_full = $_POST["nameinfull"];
-    $name_with_initials = $_POST["namewithinitials"];
-
-
-    if (isset($_POST["sex"])) {
-        $sex = $_POST["sex"];
-    }
-    $religion = $_POST["religion"];
-    $date_of_birth = $_POST["dateofbirth"];
-    $age = $_POST["ageon31st"];
-    $address = $_POST["permanentaddress"];
-    $medium = "Sinhala";
-    $applicant_nic = $_POST["applicantnic"];
-
-    $child = new Child($address, $age, $applicant_nic, $date_of_birth, $medium, $name_in_full, $name_with_initials, $religion, $sex);
-
-    //read Applicant details
-
+    //read applicant
     $name_in_full = $_POST["applicantnameinfull"];
     $name_with_initials = $_POST["applicantnamewithinitials"];
     $nic = $_POST["applicantnic"];
     if (isset($_POST["issrilankan"])) {
-        $is_sri_lankan = "TRUE";
+        $is_sri_lankan = 1;
     } else {
-        $is_sri_lankan = "FALSE";
+        $is_sri_lankan = 0;
 
     }
     $religion = $_POST["applicantreligion"];
@@ -62,12 +51,47 @@ if (isset($_POST['next'])) {
     $district = $_POST["district"];
     $divisional_sec_area = $_POST["dsarea"];
     $grama_niladari_divi = $_POST["gndivision"];
+    $applicant_nic = $_POST["applicantnic"];
 
     $applicant = new Applicant($address, $district, $divisional_sec_area, $grama_niladari_divi, $is_sri_lankan, $name_in_full, $name_with_initials, $nic, $religion, $telephone);
 
-
     $applicant_controller = new ApplicantController();
-    $applicant_controller->addApplicant($applicant, $child);
+    $applicant_id = $applicant_controller->addApplicant($applicant);
+
+
+    //read child details
+    $name_in_full = $_POST["nameinfull"];
+    $name_with_initials = $_POST["namewithinitials"];
+
+    if (isset($_POST["sex"])) {
+        $sex = $_POST["sex"];
+    }
+    $religion = $_POST["religion"];
+    $date_of_birth = $_POST["dateofbirth"];
+    $age = null;
+    $address = $_POST["permanentaddress"];
+    $medium = "Sinhala";
+
+    $child = new Child($address, $age, $applicant_nic, $date_of_birth, $medium, $name_in_full, $name_with_initials, $religion, $sex);
+
+    $childController = new ChildController1();
+    $child_id = $childController->addChild($child,$applicant_id);
+
+
+    for ($year = date("Y"); $year >= (date("Y") - 4); $year--) {
+        $year = $year;
+        $grama_div = $_POST['gndivision' . $year];
+        $polling_div = $_POST['pollingdivision' . $year];
+        $polling_district = $_POST['district' . $year];
+        $confirm = 0;
+        $location = new Location($year, $grama_div, $polling_div, $polling_district, $confirm, $child_id);
+
+        $location_controller = new LocationController();
+        $location_controller->addLocations($location,$child_id);
+
+    }
+
+
 
     if ($category == 'Resident') {
         header('Location: category_form.php?type=resident');
@@ -81,9 +105,6 @@ if (isset($_POST['next'])) {
 
 
     //Resident Method
-
-    $childController = new ChildController1();
-    $childController->addChild($child);
 
 
 }
@@ -116,14 +137,16 @@ if (isset($_POST['staff_next'])) {
     $category_controller = new ApplicationMethodController();
     $category_controller->addStaffMethod($teacher_id);
 
-}if (isset($_POST['past_pupil_next'])) {
+}
+if (isset($_POST['past_pupil_next'])) {
 
     $past_pupil_id = $_POST["past_pupil_id"];
 
     $category_controller = new ApplicationMethodController();
     $category_controller->addPastPupilMethod($past_pupil_id);
 
-}if (isset($_POST['present_pupil_next'])) {
+}
+if (isset($_POST['present_pupil_next'])) {
 
     $present_pupil_id = $_POST["present_pupil_id"];
 
@@ -131,4 +154,3 @@ if (isset($_POST['staff_next'])) {
     $category_controller->addPresentPupilMethod($present_pupil_id);
 
 }
-

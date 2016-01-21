@@ -172,7 +172,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                     <label for="religion" class="col-sm-3 control-label">Religion</label>
 
                                     <div class="col-sm-9">
-                                        <select type="text" class="form-control select2" id="religion"
+                                        <select type="text" class="form-control select2" id="religion" name="religion"
                                                 name="religion">
                                             <option></option>
                                             <option>Buddhist</option>
@@ -239,7 +239,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                     <label for="applicantreligion" class="col-sm-3 control-label">Religion</label>
 
                                     <div class="col-sm-9">
-                                        <select type="text" class="form-control select2" id="religion"
+                                        <select type="text" class="form-control select2" id="religion" name = "applicantreligion"
                                                 name="religion">
                                             <option></option>
                                             <option>Buddhist</option>
@@ -393,7 +393,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
                                                                    name="<?php echo 'gndivision' . $year ?>"
                                                                    onkeyup="validate_for_name(this, this.value)"></td>
                                                         <td>
-                                                            <select class="form-control select2">
+                                                            <select class="form-control select2" name="<?php echo 'district' . $year ?>">
                                                                 <option></option>
                                                                 <?php
                                                                 foreach ($districts as $district) {

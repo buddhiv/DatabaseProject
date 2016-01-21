@@ -52,16 +52,19 @@ class ChildController1
 
         if ($numberOfRows > 0) {
             $row = mysqli_fetch_row($resultset);
-            echo $row[0];
-            echo "exist";
+            $child_id = $row[0];
         } else {
             // no data matched
-            echo "not exist";
             $stmt = $connection->prepare("INSERT INTO child (name_in_full, name_with_initials, date_of_birth, religion, sex, address, medium, Location_infolocation_info_id, applicant_id, method_id) VALUES (?,?,?,?,?,?,?,?,?,?)" );
             $stmt->bind_param("sssssssiii", $name_in_full, $name_with_initials, $date_of_birth, $religion, $sex, $address ,$medium, $Location_infolocation_info_id, $applicant_id, $method_id);
             $result = $stmt->execute();
             $stmt->close();
-            return $result;
+
+            $child_id = mysqli_insert_id($connection);
+
         }
+
+        return $child_id;
+
     }
 }
