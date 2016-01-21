@@ -19,9 +19,9 @@ if (isset($_GET['data'])) {
     $school = mysqli_fetch_assoc($resultset);
 
     $new_row = '<tr>
-<td>2</td>
-<td>' . $school['name'] . '</td>
-<td>' . $school['category'] . '</td>
+<td name="school_id">' . $school['school_id'] . '</td>
+<td name="schoolname">' . $school['name'] . '</td>
+<td name="schoolcategory">' . $school['category'] . '</td>
 <td><input type="text" name="distance" onkeyup="validate_for_numbers(this, this.value)"> km</td>
 </tr>';
 

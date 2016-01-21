@@ -114,6 +114,7 @@ $districts = array('Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo',
 
                                 </div>
                             </div>
+
                         </form>
                     </div>
                 </section>

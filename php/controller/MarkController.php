@@ -5,10 +5,26 @@
  * Date: 1/12/2016
  * Time: 10:55 PM
  */
-if (file_exists('../mysql_connector.php')) {
-    include '../mysql_connector.php';
+//if (file_exists('../mysql_connector.php')) {
+//    include '../mysql_connector.php';
+//}
+
+function getConnection()
+{
+    $db_host = "localhost";
+    $db_username = "root";
+    $db_password = "";
+    $db_name = "grade_one";
+
+    $connection = mysqli_connect("$db_host", "$db_username", "$db_password", "$db_name");
+    if (mysqli_connect_errno()) {
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
+    return $connection;
 }
-function getMarkForStudent($school_id){
+
+function getMarkForStudent($school_id)
+{
     $link = getConnection();
 
     $sql = "SELECT child.name_with_initials,child.applicant_id,marks.mark,marks.case,method.method_name FROM marks,school_child,child,method WHERE method.method_id=child.method_id AND school_child.child_id=child.child_id AND marks.child_id=child.child_id AND school_child.school_id='" . $school_id . "'";
@@ -17,7 +33,8 @@ function getMarkForStudent($school_id){
     return $resultset;
 }
 
-function insertMarksForChild($case,$marks,$child_id){// should inclide the insert statement
+function insertMarksForChild($case, $marks, $child_id)
+{// should inclide the insert statement
     $link = getConnection();
 
     $sql = "INSERT INTO marks VALUES (null,'$case','$marks','$child_id')";
@@ -26,7 +43,8 @@ function insertMarksForChild($case,$marks,$child_id){// should inclide the inser
 
 }
 
-function updateMarksForChild($case,$child_id){// should inclide the insert statement
+function updateMarksForChild($case, $child_id)
+{// should inclide the insert statement
     $link = getConnection();
 
     $sql = "UPDATE marks SET marks.case='" . $case . "' WHERE child_id='" . $child_id . "'";
@@ -35,7 +53,8 @@ function updateMarksForChild($case,$child_id){// should inclide the insert state
 
 }
 
-function getMethod($school_id){
+function getMethod($school_id)
+{
     $link = getConnection();
 
     $sql = "SELECT DISTINCT method.method_id,method.method_name,child.child_id FROM method,school_child,child WHERE method.method_id=child.method_id AND child.child_id=school_child.child_id AND school_child.school_id='" . $school_id . "'";
@@ -45,7 +64,8 @@ function getMethod($school_id){
 
 }
 
-function getResidentSelection($school_id){
+function getResidentSelection($school_id)
+{
     $link = getConnection();
 
     $sql = "SELECT method.method_id,method.method_name,child.child_id,marks.mark FROM method,school_child,child,marks WHERE marks.child_id=child.child_id AND school_child.child_id=child.child_id AND method.method_id=child.method_id AND method.method_name='RESIDENT' AND school_child.school_id='" . $school_id . "' ORDER BY marks.mark";
@@ -55,7 +75,8 @@ function getResidentSelection($school_id){
 
 }
 
-function getPastStudentSelection($school_id){
+function getPastStudentSelection($school_id)
+{
     $link = getConnection();
 
     $sql = "SELECT method.method_id,method.method_name,child.child_id,marks.mark FROM method,school_child,child,marks WHERE marks.child_id=child.child_id AND school_child.child_id=child.child_id AND method.method_id=child.method_id AND method.method_name='PAST STUDENT' AND school_child.school_id='" . $school_id . "' ORDER BY marks.mark";
@@ -64,7 +85,9 @@ function getPastStudentSelection($school_id){
     return $resultset;
 
 }
-function getPresentStudentSelection($school_id){
+
+function getPresentStudentSelection($school_id)
+{
     $link = getConnection();
 
     $sql = "SELECT method.method_id,method.method_name,child.child_id,marks.mark FROM method,school_child,child,marks WHERE marks.child_id=child.child_id AND school_child.child_id=child.child_id AND method.method_id=child.method_id AND method.method_name='PRESENT STUDENT' AND school_child.school_id='" . $school_id . "' ORDER BY marks.mark";
@@ -74,7 +97,8 @@ function getPresentStudentSelection($school_id){
 
 }
 
-function getStaffSelection($school_id){
+function getStaffSelection($school_id)
+{
     $link = getConnection();
 
     $sql = "SELECT method.method_id,method.method_name,child.child_id,marks.mark FROM method,school_child,child,marks WHERE marks.child_id=child.child_id AND school_child.child_id=child.child_id AND method.method_id=child.method_id AND method.method_name='STAFF' AND school_child.school_id='" . $school_id . "' ORDER BY marks.mark";

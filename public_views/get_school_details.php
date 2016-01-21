@@ -8,6 +8,10 @@
 include_once "../php/Connection.php";
 include_once '../php/controller/schoolController.php';
 
+include '../php/controller/ChildController.php';
+include '../php/controller/ResidentController.php';
+include '../php/controller/MarkController.php';
+
 $schoolController = new \Controllers\SchoolController();
 
 
@@ -52,5 +56,33 @@ if (isset($_GET['school_id'])) {
                                             <label>' . $schooldetails['capacity'] . '</label>
                                         </div>
                                     </div>';
+
+
+        $id = $_GET["school_id"];
+        $schools = getMarkForStudent($id);
+        if (mysqli_num_rows($schools) > 0) {
+            echo '<table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Appication ID</th>
+                                        <th>Child Name</th>
+                                        <th>Category</th>
+                                        <th>Marks</th>
+                                        <th>Is Select</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>';
+            foreach ($schools as $result) {
+                echo '<tr>';
+                echo '<td>' . $result['applicant_id'] . '</td>';
+                echo '<td>' . $result['name_with_initials'] . '</td>';
+                echo '<td>' . $result['method_name'] . '</td>';
+                echo '<td>' . $result['mark'] . '</td>';
+                echo '<td>' . $result['case'] . '</td>';
+                echo '</tr >';
+            }
+            echo '</table>';
+        }
+
     }
 }

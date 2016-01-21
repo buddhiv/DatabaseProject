@@ -69,6 +69,7 @@ if (isset($_POST['next'])) {
     $applicant_controller = new ApplicantController();
     $applicant_controller->addApplicant($applicant, $child);
 
+
     if ($category == 'Resident') {
         header('Location: category_form.php?type=resident');
     } else if ($category == 'Staff') {
@@ -80,10 +81,8 @@ if (isset($_POST['next'])) {
     }
 
 
-    //Resident Method
+    //read schools table
 
-    $childController = new ChildController1();
-    $childController->addChild($child);
 
 
 }
@@ -116,14 +115,16 @@ if (isset($_POST['staff_next'])) {
     $category_controller = new ApplicationMethodController();
     $category_controller->addStaffMethod($teacher_id);
 
-}if (isset($_POST['past_pupil_next'])) {
+}
+if (isset($_POST['past_pupil_next'])) {
 
     $past_pupil_id = $_POST["past_pupil_id"];
 
     $category_controller = new ApplicationMethodController();
     $category_controller->addPastPupilMethod($past_pupil_id);
 
-}if (isset($_POST['present_pupil_next'])) {
+}
+if (isset($_POST['present_pupil_next'])) {
 
     $present_pupil_id = $_POST["present_pupil_id"];
 

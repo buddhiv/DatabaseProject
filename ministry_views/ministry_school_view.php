@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,11 +54,11 @@
         <section class="content-header">
             <h1>
                 <?php
-                $id=$_POST["school_id"];
+                $id = $_POST["school_id"];
                 include '../php/mysql_connector.php';
                 include '../php/controller/MethodSchController.php';
-                $school_name=getSchool($id);
-                foreach($school_name as $result){
+                $school_name = getSchool($id);
+                foreach ($school_name as $result) {
                     echo $result['name'];
                 }
 
@@ -100,44 +99,46 @@
                                     include '../php/controller/ChildController.php';
                                     include '../php/controller/ResidentController.php';
                                     include '../php/controller/MarkController.php';
-                                    $id=$_POST["school_id"];
+                                    $id = $_POST["school_id"];
                                     $schools = getMarkForStudent($id);
                                     foreach ($schools as $result) {
                                         ?>
                                         <tr>
                                             <td><?php echo $result['applicant_id'] ?></td>
                                             <td><?php echo $result['name_with_initials'] ?></td>
-
                                             <td><?php echo $result['method_name'] ?></td>
-
-                                                <td><?php echo $result['mark'] ?></td>
-
+                                            <td><?php echo $result['mark'] ?></td>
                                             <td><?php echo $result['case'] ?></td>
-
                                         </tr>
                                         <?php
                                     }
                                     ?>
                                 </table>
-                            </div><!-- /.box-body -->
-                        </div><!-- /.box -->
-                    </div><!-- /.col -->
-            </div><!-- /.row -->
-        </section><!-- /.content -->
-    </div><!-- /.content-wrapper -->
-                            </form>
+                            </div>
+                            <!-- /.box-body -->
                         </div>
-                </section>
-                <!-- /.Left col -->
-
+                        <!-- /.box -->
+                    </div>
+                    <!-- /.col -->
             </div>
-            <!-- /.row (main row) -->
-
+            <!-- /.row -->
         </section>
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <?php include '../footer.php'; ?>
+    </form>
+</div>
+</section>
+<!-- /.Left col -->
+
+</div>
+<!-- /.row (main row) -->
+
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<?php include '../footer.php'; ?>
 
 </div>
 <!-- ./wrapper -->

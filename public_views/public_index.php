@@ -103,17 +103,29 @@
 
             <!-- Main row -->
             <div class="row">
-                <!-- Left col -->
-                <section class="col-lg-6 connectedSortable">
-                    Buddhi
-                </section>
-                <!-- /.Left col -->
+                <div class="col-md-12">
+                    <!--                    <div class="box box-default">-->
+                    <!--                        <div class="box-body">-->
+                    <div class="callout callout-success">
+                        <h4>Children registration for schools are now online!</h4>
 
-                <!--                Right col-->
-                <section>
-                    Vikasitha Vithanage
-                </section>
-                <!--                Right col-->
+                        <p>You can try out in the <a href="application.php">Application</a> tab</p>
+                    </div>
+                    <div class="callout callout-success">
+                        <!--                        <h4>Children registration for schools are now online!</h4>-->
+
+                        <p>Registrar is the online registration application for the Grade one applicants in Sri Lanka.
+                            With the development of technology we think that using a platform to register students for
+                            Grade one is a efficient way of preserving human resources and hours we lose in the manual
+                            process.
+
+                            Project Registrar was initilally deployed in 2016. This was completed by a group of
+                            undergraduates in University of Moratuwa. We chose this to replace our traditional method
+                            because we thought that this would show promise in developing efficiency in our work.</p>
+                    </div>
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                </div>
             </div>
             <!-- /.row (main row) -->
 

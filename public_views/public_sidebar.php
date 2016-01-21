@@ -22,17 +22,17 @@
             </li>
             <li>
                 <a>
-                    <span>Registration Start</span> - start day
+                    <span>Registration Start</span> - 10/01/2016
                 </a>
             </li>
             <li>
                 <a>
-                    <span>Registration Close</span> - closing day
+                    <span>Registration Close</span> - 31/01/2016
                 </a>
             </li>
             <li>
                 <a>
-                    <span>Result Release</span> - release day
+                    <span>Result Release</span> - 05/02/2016
                 </a>
             </li>
         </ul>
