@@ -4,7 +4,7 @@
     </div>
     <!-- /.box-header -->
     <!-- form start -->
-    <form class="form-horizontal">
+    <form class="form-horizontal" action="application_controller.php" method="post">
         <div class="box-body">
             <h5>Select a Past Pupil</h5>
 
@@ -49,7 +49,7 @@
                 </label>
 
                 <div class="col-sm-9">
-                    <select class="form-control select2" id="pastpupils" name="name">
+                    <select class="form-control select2" id="pastpupils" name="past_pupil_id">
 
                     </select>
                 </div>
@@ -57,7 +57,7 @@
         </div>
 
         <div class="box-footer">
-            <button type="submit" class="btn btn-primary pull-right">Next</button>
+            <button type="submit" class="btn btn-primary pull-right" id="past_pupil_next" name="past_pupil_next">Next</button>
         </div>
         <!-- /.box-footer -->
     </form>
